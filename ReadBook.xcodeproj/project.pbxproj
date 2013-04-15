@@ -16,6 +16,15 @@
 		0F01B3C6171BD63E005AB97A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C5171BD63E005AB97A /* Default.png */; };
 		0F01B3C8171BD63E005AB97A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C7171BD63E005AB97A /* Default@2x.png */; };
 		0F01B3CA171BD63E005AB97A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */; };
+		0F01B3DA171C1571005AB97A /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3D9171C1571005AB97A /* RecommendViewController.m */; };
+		0F01B3DE171C15D8005AB97A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3DD171C15D8005AB97A /* BoardViewController.m */; };
+		0F01B3E1171C15FF005AB97A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3E0171C15FF005AB97A /* SearchViewController.m */; };
+		0F01B3E4171C1637005AB97A /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3E3171C1637005AB97A /* BookmarkViewController.m */; };
+		0F01B3E7171C164F005AB97A /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3E6171C164F005AB97A /* MoreViewController.m */; };
+		0F01B3ED171C1770005AB97A /* CustomTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */; };
+		0F01B3F7171C1DBE005AB97A /* tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3F4171C1DBE005AB97A /* tabbar_home.png */; };
+		0F01B3F8171C1DBE005AB97A /* tabbar_rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3F5171C1DBE005AB97A /* tabbar_rec.png */; };
+		0F01B3F9171C1DBE005AB97A /* tabbar_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +41,21 @@
 		0F01B3C5171BD63E005AB97A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0F01B3C7171BD63E005AB97A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0F01B3D8171C1571005AB97A /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		0F01B3D9171C1571005AB97A /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		0F01B3DC171C15D8005AB97A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
+		0F01B3DD171C15D8005AB97A /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
+		0F01B3DF171C15FF005AB97A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		0F01B3E0171C15FF005AB97A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		0F01B3E2171C1637005AB97A /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
+		0F01B3E3171C1637005AB97A /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
+		0F01B3E5171C164F005AB97A /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		0F01B3E6171C164F005AB97A /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		0F01B3EB171C1770005AB97A /* CustomTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabbarViewController.h; sourceTree = "<group>"; };
+		0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarViewController.m; sourceTree = "<group>"; };
+		0F01B3F4171C1DBE005AB97A /* tabbar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_home.png; sourceTree = "<group>"; };
+		0F01B3F5171C1DBE005AB97A /* tabbar_rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_rec.png; sourceTree = "<group>"; };
+		0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_mark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +102,22 @@
 		0F01B3B9171BD63E005AB97A /* ReadBook */ = {
 			isa = PBXGroup;
 			children = (
+				0F01B3F2171C1D69005AB97A /* Images */,
 				0F01B3C2171BD63E005AB97A /* AppDelegate.h */,
 				0F01B3C3171BD63E005AB97A /* AppDelegate.m */,
 				0F01B3BA171BD63E005AB97A /* Supporting Files */,
+				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
+				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
+				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
+				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
+				0F01B3DF171C15FF005AB97A /* SearchViewController.h */,
+				0F01B3E0171C15FF005AB97A /* SearchViewController.m */,
+				0F01B3E2171C1637005AB97A /* BookmarkViewController.h */,
+				0F01B3E3171C1637005AB97A /* BookmarkViewController.m */,
+				0F01B3E5171C164F005AB97A /* MoreViewController.h */,
+				0F01B3E6171C164F005AB97A /* MoreViewController.m */,
+				0F01B3EB171C1770005AB97A /* CustomTabbarViewController.h */,
+				0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */,
 			);
 			path = ReadBook;
 			sourceTree = "<group>";
@@ -97,6 +134,16 @@
 				0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F01B3F2171C1D69005AB97A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3F4171C1DBE005AB97A /* tabbar_home.png */,
+				0F01B3F5171C1DBE005AB97A /* tabbar_rec.png */,
+				0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +201,9 @@
 				0F01B3C6171BD63E005AB97A /* Default.png in Resources */,
 				0F01B3C8171BD63E005AB97A /* Default@2x.png in Resources */,
 				0F01B3CA171BD63E005AB97A /* Default-568h@2x.png in Resources */,
+				0F01B3F7171C1DBE005AB97A /* tabbar_home.png in Resources */,
+				0F01B3F8171C1DBE005AB97A /* tabbar_rec.png in Resources */,
+				0F01B3F9171C1DBE005AB97A /* tabbar_mark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +216,12 @@
 			files = (
 				0F01B3C0171BD63E005AB97A /* main.m in Sources */,
 				0F01B3C4171BD63E005AB97A /* AppDelegate.m in Sources */,
+				0F01B3DA171C1571005AB97A /* RecommendViewController.m in Sources */,
+				0F01B3DE171C15D8005AB97A /* BoardViewController.m in Sources */,
+				0F01B3E1171C15FF005AB97A /* SearchViewController.m in Sources */,
+				0F01B3E4171C1637005AB97A /* BookmarkViewController.m in Sources */,
+				0F01B3E7171C164F005AB97A /* MoreViewController.m in Sources */,
+				0F01B3ED171C1770005AB97A /* CustomTabbarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +328,7 @@
 				0F01B3CF171BD63E005AB97A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
