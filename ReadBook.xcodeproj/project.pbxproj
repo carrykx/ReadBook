@@ -102,22 +102,16 @@
 		0F01B3B9171BD63E005AB97A /* ReadBook */ = {
 			isa = PBXGroup;
 			children = (
+				72B76801171CE67200975D2F /* 推荐 */,
+				72B76800171CE66A00975D2F /* 精选 */,
+				72B767FF171CE65C00975D2F /* 搜索 */,
+				72B767FE171CE65100975D2F /* 书签 */,
+				72B767FD171CE62700975D2F /* 更多 */,
+				72B767FC171CE62000975D2F /* main */,
 				0F01B3F2171C1D69005AB97A /* Images */,
 				0F01B3C2171BD63E005AB97A /* AppDelegate.h */,
 				0F01B3C3171BD63E005AB97A /* AppDelegate.m */,
 				0F01B3BA171BD63E005AB97A /* Supporting Files */,
-				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
-				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
-				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
-				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
-				0F01B3DF171C15FF005AB97A /* SearchViewController.h */,
-				0F01B3E0171C15FF005AB97A /* SearchViewController.m */,
-				0F01B3E2171C1637005AB97A /* BookmarkViewController.h */,
-				0F01B3E3171C1637005AB97A /* BookmarkViewController.m */,
-				0F01B3E5171C164F005AB97A /* MoreViewController.h */,
-				0F01B3E6171C164F005AB97A /* MoreViewController.m */,
-				0F01B3EB171C1770005AB97A /* CustomTabbarViewController.h */,
-				0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */,
 			);
 			path = ReadBook;
 			sourceTree = "<group>";
@@ -144,6 +138,60 @@
 				0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		72B767FC171CE62000975D2F /* main */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3EB171C1770005AB97A /* CustomTabbarViewController.h */,
+				0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		72B767FD171CE62700975D2F /* 更多 */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3E5171C164F005AB97A /* MoreViewController.h */,
+				0F01B3E6171C164F005AB97A /* MoreViewController.m */,
+			);
+			name = "更多";
+			sourceTree = "<group>";
+		};
+		72B767FE171CE65100975D2F /* 书签 */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3E2171C1637005AB97A /* BookmarkViewController.h */,
+				0F01B3E3171C1637005AB97A /* BookmarkViewController.m */,
+			);
+			name = "书签";
+			sourceTree = "<group>";
+		};
+		72B767FF171CE65C00975D2F /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3DF171C15FF005AB97A /* SearchViewController.h */,
+				0F01B3E0171C15FF005AB97A /* SearchViewController.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
+		72B76800171CE66A00975D2F /* 精选 */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
+				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
+			);
+			name = "精选";
+			sourceTree = "<group>";
+		};
+		72B76801171CE67200975D2F /* 推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
+				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
+			);
+			name = "推荐";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
