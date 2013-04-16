@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CustomTabbarViewController.h"
-
+#import "DefaultManager.h"
 
 @implementation AppDelegate
 
@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [DefaultManager defaultManager];
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
