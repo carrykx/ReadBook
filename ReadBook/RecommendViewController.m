@@ -71,7 +71,6 @@
     
     
     
-    
     _itemCell.content = @"ffffff";
     
     return _itemCell;

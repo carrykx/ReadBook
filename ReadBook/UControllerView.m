@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Lewis. All rights reserved.
 //
 
-#import "UWCollectionView.h"
+#import "UControllerView.h"
 #import "UWCollectionViewCell.h"
 
 #pragma mark - Gesture Recognizer
