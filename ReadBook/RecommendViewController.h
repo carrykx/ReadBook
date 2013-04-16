@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UControllerView.h"
 
-@interface RecommendViewController : UIViewController
+@interface RecommendViewController : UIViewController<UWCollectionViewDataSource,UWCollectionViewDelegate>
+@property (nonatomic,retain) NSMutableArray * items;
 
 @end
