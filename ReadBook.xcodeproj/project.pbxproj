@@ -118,6 +118,7 @@
 				0F01B3E6171C164F005AB97A /* MoreViewController.m */,
 				0F01B3EB171C1770005AB97A /* CustomTabbarViewController.h */,
 				0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */,
+				0FF2A273171CDB9900FF60A6 /* NetRequest */,
 			);
 			path = ReadBook;
 			sourceTree = "<group>";
@@ -144,6 +145,13 @@
 				0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		0FF2A273171CDB9900FF60A6 /* NetRequest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

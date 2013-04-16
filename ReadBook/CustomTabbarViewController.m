@@ -65,7 +65,7 @@
     [bookNav release];
     [morNav release];
     
-    self.selectedIndex = 1;
+    self.selectedIndex = 0;
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setTitle:@"推荐"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_home.png"]];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setTitle:@"精选"];
