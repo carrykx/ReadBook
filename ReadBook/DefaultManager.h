@@ -7,8 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DefaultManager.h"
+
+@class Book;
+
 @interface DefaultManager : NSObject
 //数据管理者
 + (DefaultManager*)defaultManager;
+//获取一个book对象
+- (Book*)book;
+//获取book列表
+- (NSMutableArray *)bookList;
+
+
 @end

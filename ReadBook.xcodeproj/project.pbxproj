@@ -45,7 +45,6 @@
 		0F1D0F43171D5248006DB9E1 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F37171D5248006DB9E1 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		0F1D0F44171D5248006DB9E1 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F39171D5248006DB9E1 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		0F1D0F45171D5248006DB9E1 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F3B171D5248006DB9E1 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		0F1D0F48171D54F6006DB9E1 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F47171D54F6006DB9E1 /* Book.m */; };
 		0F1D0F4B171D55EE006DB9E1 /* DefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F4A171D55EE006DB9E1 /* DefaultManager.m */; };
 		0F1D0F5A171D6867006DB9E1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F4F171D6867006DB9E1 /* NSObject+SBJSON.m */; };
 		0F1D0F5B171D6867006DB9E1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F51171D6867006DB9E1 /* NSString+SBJSON.m */; };
@@ -53,6 +52,12 @@
 		0F1D0F5D171D6867006DB9E1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F55171D6867006DB9E1 /* SBJsonBase.m */; };
 		0F1D0F5E171D6867006DB9E1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */; };
 		0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */; };
+		7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */; };
+		7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */; };
+		7219F295171E7DD600E1CD9E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F294171E7DD600E1CD9E /* Book.m */; };
+		72A26F9C171E9E5900151AA1 /* BookDownLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A26F9B171E9E5900151AA1 /* BookDownLoad.m */; };
+		72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */; };
+		72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,8 +124,6 @@
 		0F1D0F39171D5248006DB9E1 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		0F1D0F3A171D5248006DB9E1 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		0F1D0F3B171D5248006DB9E1 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		0F1D0F46171D54F6006DB9E1 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = ../Book.h; sourceTree = "<group>"; };
-		0F1D0F47171D54F6006DB9E1 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = ../Book.m; sourceTree = "<group>"; };
 		0F1D0F49171D55EE006DB9E1 /* DefaultManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultManager.h; sourceTree = "<group>"; };
 		0F1D0F4A171D55EE006DB9E1 /* DefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultManager.m; sourceTree = "<group>"; };
 		0F1D0F4D171D6867006DB9E1 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -136,6 +139,15 @@
 		0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		0F1D0F58171D6867006DB9E1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendBookDetilViewController.h; sourceTree = "<group>"; };
+		7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendBookDetilViewController.m; sourceTree = "<group>"; };
+		7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendBookDetilViewController.xib; sourceTree = "<group>"; };
+		7219F293171E7DD600E1CD9E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		7219F294171E7DD600E1CD9E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		72A26F9A171E9E5900151AA1 /* BookDownLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDownLoad.h; sourceTree = "<group>"; };
+		72A26F9B171E9E5900151AA1 /* BookDownLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDownLoad.m; sourceTree = "<group>"; };
+		72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BookShelfCell@2x.png"; path = "../../BookShelfCell@2x.png"; sourceTree = "<group>"; };
+		72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BookShelfCell.png; path = ../../BookShelfCell.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +239,8 @@
 		0F01B3F2171C1D69005AB97A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */,
+				72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */,
 				0F01B3F4171C1DBE005AB97A /* tabbar_home.png */,
 				0F01B3F5171C1DBE005AB97A /* tabbar_rec.png */,
 				0F01B3F6171C1DBE005AB97A /* tabbar_mark.png */,
@@ -252,8 +266,8 @@
 		0F1D0F18171D4D01006DB9E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0F1D0F46171D54F6006DB9E1 /* Book.h */,
-				0F1D0F47171D54F6006DB9E1 /* Book.m */,
+				7219F293171E7DD600E1CD9E /* Book.h */,
+				7219F294171E7DD600E1CD9E /* Book.m */,
 				0F1D0F1B171D4DB8006DB9E1 /* Model.xcdatamodeld */,
 				0F1D0F49171D55EE006DB9E1 /* DefaultManager.h */,
 				0F1D0F4A171D55EE006DB9E1 /* DefaultManager.m */,
@@ -315,6 +329,11 @@
 				0F07BF71171D46670002D7CE /* 九宫格 */,
 				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
 				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
+				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
+				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
+				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
+				72A26F9A171E9E5900151AA1 /* BookDownLoad.h */,
+				72A26F9B171E9E5900151AA1 /* BookDownLoad.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";
@@ -429,6 +448,9 @@
 				0F01B3F7171C1DBE005AB97A /* tabbar_home.png in Resources */,
 				0F01B3F8171C1DBE005AB97A /* tabbar_rec.png in Resources */,
 				0F01B3F9171C1DBE005AB97A /* tabbar_mark.png in Resources */,
+				72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */,
+				72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */,
+				7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +484,6 @@
 				0F1D0F43171D5248006DB9E1 /* SDWebImagePrefetcher.m in Sources */,
 				0F1D0F44171D5248006DB9E1 /* UIButton+WebCache.m in Sources */,
 				0F1D0F45171D5248006DB9E1 /* UIImageView+WebCache.m in Sources */,
-				0F1D0F48171D54F6006DB9E1 /* Book.m in Sources */,
 				0F1D0F4B171D55EE006DB9E1 /* DefaultManager.m in Sources */,
 				0F1D0F5A171D6867006DB9E1 /* NSObject+SBJSON.m in Sources */,
 				0F1D0F5B171D6867006DB9E1 /* NSString+SBJSON.m in Sources */,
@@ -470,6 +491,9 @@
 				0F1D0F5D171D6867006DB9E1 /* SBJsonBase.m in Sources */,
 				0F1D0F5E171D6867006DB9E1 /* SBJsonParser.m in Sources */,
 				0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */,
+				7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */,
+				7219F295171E7DD600E1CD9E /* Book.m in Sources */,
+				72A26F9C171E9E5900151AA1 /* BookDownLoad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
