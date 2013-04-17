@@ -9,7 +9,7 @@
 #import "SDWebImageCompat.h"
 
 #if !__has_feature(objc_arc)
-#error SDWebImage is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
+//#error SDWebImage is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
 
 UIImage *SDScaledImageForPath(NSString *path, NSObject *imageOrData)

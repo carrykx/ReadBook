@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BoardViewController : UIViewController
+@interface BoardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSURLConnectionDataDelegate>
 
 @end
