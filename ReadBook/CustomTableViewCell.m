@@ -42,9 +42,12 @@
     [self.contentView addSubview:self.customImageView];
     
     self.boardNameLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 5.0f, 250.0f, 25.0f)];
+    self.boardNameLable.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.boardNameLable];
     
     self.boardIntroLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 25.0f, 250.0f, 35)];
+    self.boardIntroLable.backgroundColor = [UIColor clearColor];
+
     [self.contentView addSubview:self.boardIntroLable];
     
     
