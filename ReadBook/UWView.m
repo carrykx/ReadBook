@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+       self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BookShelfCell.png"]];
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 100, 40)];
         
         _label.backgroundColor = [UIColor clearColor];
@@ -28,7 +28,7 @@
         
         
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.backgroundColor = [UIColor blackColor];
+        button.backgroundColor = [UIColor clearColor];
         button.layer.cornerRadius = 5;
         //        button.layer.borderWidth = 4;
         //        button.layer.borderColor = [[UIColor redColor]CGColor];
@@ -45,7 +45,7 @@
 {
     [super layoutSubviews];
     //    _label.frame = self.bounds;
-    button.frame = self.bounds;
+    button.frame = CGRectMake(20, 5, 80, 100);
 }
 
 

@@ -155,11 +155,8 @@
 		0F01B3A4171BD63E005AB97A = {
 			isa = PBXGroup;
 			children = (
+				0F1D0F4C171D6867006DB9E1 /* json */,
 				0F1D0F26171D5248006DB9E1 /* UIImageView+WebCache */,
-				0F1D0F24171D50F8006DB9E1 /* MapKit.framework */,
-				0F1D0F22171D50C2006DB9E1 /* QuartzCore.framework */,
-				0F1D0F20171D50B4006DB9E1 /* ImageIO.framework */,
-				0F1D0F1E171D50AA006DB9E1 /* CoreImage.framework */,
 				0F01B3B9171BD63E005AB97A /* ReadBook */,
 				0F01B3B2171BD63E005AB97A /* Frameworks */,
 				0F01B3B0171BD63E005AB97A /* Products */,
@@ -177,6 +174,10 @@
 		0F01B3B2171BD63E005AB97A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F1D0F1E171D50AA006DB9E1 /* CoreImage.framework */,
+				0F1D0F20171D50B4006DB9E1 /* ImageIO.framework */,
+				0F1D0F22171D50C2006DB9E1 /* QuartzCore.framework */,
+				0F1D0F24171D50F8006DB9E1 /* MapKit.framework */,
 				0F1D0F19171D4D83006DB9E1 /* CoreData.framework */,
 				0F01B3B3171BD63E005AB97A /* UIKit.framework */,
 				0F01B3B5171BD63E005AB97A /* Foundation.framework */,
@@ -253,7 +254,11 @@
 		0F1D0F18171D4D01006DB9E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7219F293171E7DD600E1CD9E /* Book.h */,
+				7219F294171E7DD600E1CD9E /* Book.m */,
 				0F1D0F1B171D4DB8006DB9E1 /* Model.xcdatamodeld */,
+				0F1D0F49171D55EE006DB9E1 /* DefaultManager.h */,
+				0F1D0F4A171D55EE006DB9E1 /* DefaultManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -286,12 +291,37 @@
 			path = "UIImageView+WebCache";
 			sourceTree = "<group>";
 		};
+		0F1D0F4C171D6867006DB9E1 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				0F1D0F4D171D6867006DB9E1 /* JSON.h */,
+				0F1D0F4E171D6867006DB9E1 /* NSObject+SBJSON.h */,
+				0F1D0F4F171D6867006DB9E1 /* NSObject+SBJSON.m */,
+				0F1D0F50171D6867006DB9E1 /* NSString+SBJSON.h */,
+				0F1D0F51171D6867006DB9E1 /* NSString+SBJSON.m */,
+				0F1D0F52171D6867006DB9E1 /* SBJSON.h */,
+				0F1D0F53171D6867006DB9E1 /* SBJSON.m */,
+				0F1D0F54171D6867006DB9E1 /* SBJsonBase.h */,
+				0F1D0F55171D6867006DB9E1 /* SBJsonBase.m */,
+				0F1D0F56171D6867006DB9E1 /* SBJsonParser.h */,
+				0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */,
+				0F1D0F58171D6867006DB9E1 /* SBJsonWriter.h */,
+				0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		0F700DA5171D422A00834995 /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
 				0F07BF71171D46670002D7CE /* 九宫格 */,
 				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
 				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
+				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
+				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
+				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
+				72A26F9A171E9E5900151AA1 /* BookDownLoad.h */,
+				72A26F9B171E9E5900151AA1 /* BookDownLoad.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";

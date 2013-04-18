@@ -9,18 +9,23 @@
 #import "RecommendViewController.h"
 #import "UWCollectionViewLayout.h"
 #import "UWView.h"
-
+#import "DefaultManager.h"
+#import "Book.h"
+#import "UIButton+WebCache.h"
+#import "RecommendBookDetilViewController.h"
 @interface RecommendViewController ()
 
 @end
 
 @implementation RecommendViewController
-
+@synthesize items;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"本周热门";
+                
     }
     return self;
 }
@@ -29,26 +34,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor blackColor];
-    UISegmentedControl * _segmentControl = [[UISegmentedControl alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
-    _segmentControl.momentary = NO;
-    [_segmentControl insertSegmentWithTitle:@"" atIndex:0 animated:YES];
-    [self.view addSubview:_segmentControl];
-    UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
-    _layout.itemSize = CGSizeMake(100, 138);
-    _layout.minimumInteritemSpacing = 5.0f;
-    _layout.minimumLineSpacing = 5.0f;
-    _layout.sectionInset = UIEdgeInsetsMake(5.0f, 5.0f, 0.0f, 0.0f);
-    UWCollectionView *_collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 40, 320, 416) collectionViewLayout:_layout];
+    self.view.backgroundColor = [UIColor brownColor];
+       UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
+    _layout.itemSize = CGSizeMake(105, 138);
+    _layout.minimumInteritemSpacing = 0.0f;
+    _layout.minimumLineSpacing = 0.0f;
+    _layout.sectionInset = UIEdgeInsetsMake(2.5f, 2.5f, 0.0f, 0.0f);
+ UWCollectionView *_collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 380) collectionViewLayout:_layout];
     _collectionView.collectionViewDataSource = self;
     _collectionView.collectionViewDelegate = self;
     [self.view addSubview:_collectionView];
-    
-    [_collectionView release],_collectionView = nil;
-    [_layout release],_layout = nil;
-    
-}
+       [_collectionView release],_collectionView = nil;
+    [_layout release],_layout = nil;  
+    self.items = [[DefaultManager defaultManager]bookList];
+    NSLog(@"gggg%@",self.items);
 
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -57,8 +63,8 @@
 #pragma mark collectionview data source
 - (NSInteger)numberOfViewsInCollectionView:(UWCollectionView *)collectionView
 {
-    //    return [self.items count];
-    return 30;
+    return [self.items count];
+  
 }
 
 - (UWCollectionViewCell *)collectionView:(UWCollectionView *)collectionView viewAtIndex:(NSInteger)index
@@ -75,9 +81,15 @@
     
     return _itemCell;
 }
-- (void)collectionView:(UWCollectionView *)collectionView didSelectView:(UWCollectionViewCell *)view atIndex:(NSInteger)index;
+- (void)_pus:(id)sender
 {
-    NSLog(@"%d",index);
+    NSLog(@"%@",sender);
+    UIButton *button = (UIButton *)sender;
+    Book * book = [items objectAtIndex:button.tag];
+    RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
+    _detail._urlString = book.url;
+    _detail.book = book;
+    [self.navigationController pushViewController:_detail animated:YES];
+    NSLog(@"%@",book.url);
 }
-
 @end
