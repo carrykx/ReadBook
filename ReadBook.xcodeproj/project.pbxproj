@@ -352,6 +352,10 @@
 			children = (
 				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
 				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
+				0FFB2DB6171E4DD6006CEE1A /* CustomTableViewCell.h */,
+				0FFB2DB7171E4DD6006CEE1A /* CustomTableViewCell.m */,
+				0FFB2DC0171EC5FD006CEE1A /* OneBoardListViewController.h */,
+				0FFB2DC1171EC5FD006CEE1A /* OneBoardListViewController.m */,
 			);
 			name = "精选";
 			sourceTree = "<group>";
