@@ -76,9 +76,7 @@
     }
     
     
-    
-    _itemCell.content = @"ffffff";
-    
+      
     return _itemCell;
 }
 - (void)_pus:(id)sender

@@ -8,6 +8,7 @@
 
 #import "BoardViewController.h"
 #import "OneBoardListViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface BoardViewController ()
 
@@ -147,18 +148,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"boardcell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell = [[[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
     cell.contentView.backgroundColor = [UIColor brownColor];
     NSString *str = [NSString stringWithFormat:@"%@(%@)",[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"name"],[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"count"]];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 50)];
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.backgroundColor = [UIColor clearColor];
-    label.text = str;
-    [cell.contentView addSubview:label];
-    [label release];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 50)];
+//    label.font = [UIFont boldSystemFontOfSize:16];
+//    label.backgroundColor = [UIColor clearColor];
+//    label.text = str;
+//    [cell.contentView addSubview:label];
+//    [label release];
+    
+    cell.boardNameLable.text = str;
     return cell;
 }
 

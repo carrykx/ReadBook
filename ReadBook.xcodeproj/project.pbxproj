@@ -218,10 +218,10 @@
 		0F01B3B9171BD63E005AB97A /* ReadBook */ = {
 			isa = PBXGroup;
 			children = (
+				0F700DA7171D424900834995 /* 搜索 */,
 				0F1D0F18171D4D01006DB9E1 /* Model */,
 				0F700DA5171D422A00834995 /* 推荐 */,
 				0F700DA6171D423B00834995 /* 精选 */,
-				0F700DA7171D424900834995 /* 搜索 */,
 				0F700DA8171D425300834995 /* 书签 */,
 				0F700DA9171D426B00834995 /* 更多 */,
 				0F700DAA171D427500834995 /* main */,
@@ -357,11 +357,11 @@
 			isa = PBXGroup;
 			children = (
 				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
+				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
 				0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */,
 				0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */,
 				0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */,
 				0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */,
-				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
 			);
 			name = "精选";
 			sourceTree = "<group>";
