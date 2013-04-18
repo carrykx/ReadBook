@@ -39,11 +39,13 @@
 - (void)creatContentView
 {
     self.customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 5.0f, 60.0f/430*300.0f, 60.0f)];
+    [self.contentView addSubview:self.customImageView];
     
     self.boardNameLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 5.0f, 250.0f, 25.0f)];
+    [self.contentView addSubview:self.boardNameLable];
     
     self.boardIntroLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 25.0f, 250.0f, 35)];
-    
+    [self.contentView addSubview:self.boardIntroLable];
     
     
 }
