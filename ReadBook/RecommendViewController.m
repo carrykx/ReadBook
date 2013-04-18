@@ -76,6 +76,7 @@
     }
     
     
+      
     
     Book * book = [self.items objectAtIndex:index];
     //    NSLog(@"%@",book.thumb);
