@@ -267,9 +267,6 @@
 				0F07BF79171D47030002D7CE /* UWCollectionViewLayout.m */,
 				0F07BF7B171D47160002D7CE /* UWView.h */,
 				0F07BF7C171D47160002D7CE /* UWView.m */,
-				72A64116171EB98900C70203 /* ReadBookViewController.h */,
-				72A64117171EB98900C70203 /* ReadBookViewController.m */,
-				72A64118171EB98900C70203 /* ReadBookViewController.xib */,
 			);
 			name = "九宫格";
 			sourceTree = "<group>";
@@ -338,6 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				0F07BF71171D46670002D7CE /* 九宫格 */,
+				72A64116171EB98900C70203 /* ReadBookViewController.h */,
+				72A64117171EB98900C70203 /* ReadBookViewController.m */,
+				72A64118171EB98900C70203 /* ReadBookViewController.xib */,
 				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
 				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
 				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
@@ -352,10 +352,6 @@
 			children = (
 				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
 				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
-				0FFB2DB6171E4DD6006CEE1A /* CustomTableViewCell.h */,
-				0FFB2DB7171E4DD6006CEE1A /* CustomTableViewCell.m */,
-				0FFB2DC0171EC5FD006CEE1A /* OneBoardListViewController.h */,
-				0FFB2DC1171EC5FD006CEE1A /* OneBoardListViewController.m */,
 			);
 			name = "精选";
 			sourceTree = "<group>";
