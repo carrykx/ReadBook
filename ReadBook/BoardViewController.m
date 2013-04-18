@@ -252,6 +252,8 @@
     if (connection == _connection) {
 //        NSString *str = [[NSString alloc] initWithData:self.boardData encoding:NSUTF8StringEncoding];
 //        NSLog(@"%@",str);
+//        NSString *str1 = @"http:\/\/a.cdn123.net\/img\/r\/5751f8e592f7aaac21f4e92fcab35dd5.jpeg";
+//        NSLog(@"%@",str1);
 //        [str release];
         
         NSDictionary *boardDic = [NSJSONSerialization JSONObjectWithData:self.boardData options:NSJSONReadingMutableLeaves error:nil];
