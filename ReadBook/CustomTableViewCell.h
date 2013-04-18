@@ -10,7 +10,8 @@
 
 @interface CustomTableViewCell : UITableViewCell
 
-@property (retain, nonatomic) UIImageView *image;
+@property (retain, nonatomic) UIImageView *customImageView;
 @property (retain, nonatomic) UILabel *boardNameLable;
+@property (retain, nonatomic) UILabel *boardIntroLable;
 
 @end

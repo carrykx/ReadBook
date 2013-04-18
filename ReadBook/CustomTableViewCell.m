@@ -14,7 +14,8 @@
 - (void)dealloc
 {
     [_boardNameLable release];
-    [_image release];
+    [_customImageView release];
+    [_boardIntroLable release];
     [super dealloc];
 }
 
@@ -37,19 +38,14 @@
 
 - (void)creatContentView
 {
-    UIView *customContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(0, 0, 320.0, 320.0f/730*140);
-    [customContentView addSubview:imageView];
-    self.image = imageView;
-    [imageView release];
+    self.customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 5.0f, 60.0f/430*300.0f, 60.0f)];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10,  320.0f/730*140, self.frame.size.width - 20, self.frame.size.height -320.0f/730*140)];
-    [customContentView addSubview:label];
-    self.boardNameLable = label;
-    [label release];
-    [self.contentView addSubview:customContentView];
-    [customContentView release];
+    self.boardNameLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 5.0f, 250.0f, 25.0f)];
+    
+    self.boardIntroLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 25.0f, 250.0f, 35)];
+    
+    
+    
 }
 
 @end
