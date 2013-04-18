@@ -52,6 +52,8 @@
 		0F1D0F5D171D6867006DB9E1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F55171D6867006DB9E1 /* SBJsonBase.m */; };
 		0F1D0F5E171D6867006DB9E1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */; };
 		0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */; };
+		0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */; };
+		0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */; };
 		7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */; };
 		7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */; };
 		7219F295171E7DD600E1CD9E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F294171E7DD600E1CD9E /* Book.m */; };
@@ -142,6 +144,10 @@
 		0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		0F1D0F58171D6867006DB9E1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBoardListViewController.h; sourceTree = "<group>"; };
+		0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBoardListViewController.m; sourceTree = "<group>"; };
 		7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendBookDetilViewController.h; sourceTree = "<group>"; };
 		7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendBookDetilViewController.m; sourceTree = "<group>"; };
 		7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendBookDetilViewController.xib; sourceTree = "<group>"; };
@@ -212,10 +218,10 @@
 		0F01B3B9171BD63E005AB97A /* ReadBook */ = {
 			isa = PBXGroup;
 			children = (
+				0F700DA7171D424900834995 /* 搜索 */,
 				0F1D0F18171D4D01006DB9E1 /* Model */,
 				0F700DA5171D422A00834995 /* 推荐 */,
 				0F700DA6171D423B00834995 /* 精选 */,
-				0F700DA7171D424900834995 /* 搜索 */,
 				0F700DA8171D425300834995 /* 书签 */,
 				0F700DA9171D426B00834995 /* 更多 */,
 				0F700DAA171D427500834995 /* main */,
@@ -352,6 +358,10 @@
 			children = (
 				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
 				0F01B3DD171C15D8005AB97A /* BoardViewController.m */,
+				0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */,
+				0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */,
+				0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */,
+				0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */,
 			);
 			name = "精选";
 			sourceTree = "<group>";
@@ -506,6 +516,8 @@
 				7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */,
 				7219F295171E7DD600E1CD9E /* Book.m in Sources */,
 				72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */,
+				0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */,
+				0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
