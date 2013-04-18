@@ -106,5 +106,6 @@
      [self.navigationController pushViewController:_detail animated:YES];
      _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
     NSLog(@"%@",book.url);
+    [_detail release];
 }
 @end

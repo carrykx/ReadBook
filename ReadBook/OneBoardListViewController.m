@@ -59,7 +59,9 @@
 // 创建TableView
 - (void)creatTableView
 {
-    self.oneBoardListTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height - 90) style:UITableViewStylePlain];
+    UITableView *oneBoardListTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height - 90) style:UITableViewStylePlain];
+    self.oneBoardListTable = oneBoardListTable;
+    [oneBoardListTable release];
     [self.view addSubview:self.oneBoardListTable];
     self.oneBoardListTable.delegate = self;
     self.oneBoardListTable.dataSource = self;
@@ -76,6 +78,7 @@
     label.font = [UIFont boldSystemFontOfSize:16];
     label.text = @"专辑介绍";
     [headerbackground addSubview:label];
+    [label release];
     
     UILabel *intro = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 45.0f, 280.0f, 60.0f)];
     intro.backgroundColor = [UIColor clearColor];
@@ -84,10 +87,13 @@
     intro.numberOfLines = 0;
     intro.text = [NSString stringWithFormat:@"     %@",self.intro];
     [headerbackground addSubview:intro];
+    [intro release];
     
     [tableHeaderView addSubview:headerbackground];
     self.oneBoardListTable.tableHeaderView = tableHeaderView;
-    
+    [tableHeaderView release];
+    [headerbackground release];
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -177,7 +183,11 @@
     RecommendBookDetilViewController *detil = [[RecommendBookDetilViewController alloc] init];
     NSString *urlstring = [NSString stringWithFormat:@"http://www.shupeng.com/book/%@",[[self.booklist objectAtIndex:indexPath.row] objectForKey:@"id"]];
     detil._urlString = urlstring;
+    detil.bookid = [[self.booklist objectAtIndex:indexPath.row] objectForKey:@"id"];
+    detil.str = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",[[self.booklist objectAtIndex:indexPath.row] objectForKey:@"thumb"]];
     [self.navigationController pushViewController:detil animated:YES];
+    detil.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@", [[self.booklist objectAtIndex:indexPath.row] objectForKey:@"author"],[[self.booklist objectAtIndex:indexPath.row] objectForKey:@"intro"]];
+
     [detil release];
 }
 
