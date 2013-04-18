@@ -71,11 +71,11 @@
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setTitle:@"精选"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"tabbar_rec.png"]];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:2] setTitle:@"搜索"];
-    [(UITabBarItem*)[self.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"3.png"]];
+    [(UITabBarItem*)[self.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"tabbar_search.png"]];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:3] setTitle:@"书签"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:3] setImage:[UIImage imageNamed:@"tabbar_mark.png"]];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:4] setTitle:@"更多"];
-    [(UITabBarItem*)[self.tabBar.items objectAtIndex:4] setImage:[UIImage imageNamed:@"3.png"]];
+    [(UITabBarItem*)[self.tabBar.items objectAtIndex:4] setImage:[UIImage imageNamed:@"tabbar_more.png"]];
     
 }
 

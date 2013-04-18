@@ -60,6 +60,7 @@
  经典全本 35
  */
 //ret?id=4172402
+//网络加载数据
 - (void)_insertData
 {
      NSString * appKey  = @"df6df696f6339c461cccd5ca357c7172";
@@ -73,6 +74,8 @@
         NSLog(@"dddd%@",array );
     if ([array count] == 0) {
         [self bookList];
+        //网络失败
+        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(_requestData) userInfo:nil repeats:NO];
     }
     //获取成功就删除原有数据重新加载
 //    NSMutableArray *_mutabA = [self bookList:bookid];
@@ -92,6 +95,13 @@
         book.nick = [_dic objectForKey:@"nick"];
         NSLog(@"%@",book.iD);
     }
+}
+//网络失败方法
+- (void)_requestData
+{
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:nil message:@"查看网络" delegate:self cancelButtonTitle:nil otherButtonTitles: @"确定",nil];
+    [alert show];
+    [alert release];
 }
 //获取一个book对象
 - (Book *)book

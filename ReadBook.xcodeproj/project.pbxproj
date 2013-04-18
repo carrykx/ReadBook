@@ -55,7 +55,10 @@
 		7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */; };
 		7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */; };
 		7219F295171E7DD600E1CD9E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F294171E7DD600E1CD9E /* Book.m */; };
-		72A26F9C171E9E5900151AA1 /* BookDownLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A26F9B171E9E5900151AA1 /* BookDownLoad.m */; };
+		72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A64117171EB98900C70203 /* ReadBookViewController.m */; };
+		72A6411A171EB98900C70203 /* ReadBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A64118171EB98900C70203 /* ReadBookViewController.xib */; };
+		72A6411E171EC1E800C70203 /* tabbar_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411D171EC1E800C70203 /* tabbar_search.png */; };
+		72A64120171EC40D00C70203 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411F171EC40D00C70203 /* tabbar_more.png */; };
 		72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */; };
 		72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */; };
 /* End PBXBuildFile section */
@@ -144,8 +147,11 @@
 		7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendBookDetilViewController.xib; sourceTree = "<group>"; };
 		7219F293171E7DD600E1CD9E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		7219F294171E7DD600E1CD9E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		72A26F9A171E9E5900151AA1 /* BookDownLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDownLoad.h; sourceTree = "<group>"; };
-		72A26F9B171E9E5900151AA1 /* BookDownLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDownLoad.m; sourceTree = "<group>"; };
+		72A64116171EB98900C70203 /* ReadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBookViewController.h; sourceTree = "<group>"; };
+		72A64117171EB98900C70203 /* ReadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBookViewController.m; sourceTree = "<group>"; };
+		72A64118171EB98900C70203 /* ReadBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBookViewController.xib; sourceTree = "<group>"; };
+		72A6411D171EC1E800C70203 /* tabbar_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_search.png; sourceTree = "<group>"; };
+		72A6411F171EC40D00C70203 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
 		72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BookShelfCell@2x.png"; path = "../../BookShelfCell@2x.png"; sourceTree = "<group>"; };
 		72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BookShelfCell.png; path = ../../BookShelfCell.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +245,8 @@
 		0F01B3F2171C1D69005AB97A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				72A6411F171EC40D00C70203 /* tabbar_more.png */,
+				72A6411D171EC1E800C70203 /* tabbar_search.png */,
 				72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */,
 				72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */,
 				0F01B3F4171C1DBE005AB97A /* tabbar_home.png */,
@@ -259,6 +267,9 @@
 				0F07BF79171D47030002D7CE /* UWCollectionViewLayout.m */,
 				0F07BF7B171D47160002D7CE /* UWView.h */,
 				0F07BF7C171D47160002D7CE /* UWView.m */,
+				72A64116171EB98900C70203 /* ReadBookViewController.h */,
+				72A64117171EB98900C70203 /* ReadBookViewController.m */,
+				72A64118171EB98900C70203 /* ReadBookViewController.xib */,
 			);
 			name = "九宫格";
 			sourceTree = "<group>";
@@ -332,8 +343,6 @@
 				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
 				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
 				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
-				72A26F9A171E9E5900151AA1 /* BookDownLoad.h */,
-				72A26F9B171E9E5900151AA1 /* BookDownLoad.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";
@@ -451,6 +460,9 @@
 				72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */,
 				72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */,
 				7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */,
+				72A6411A171EB98900C70203 /* ReadBookViewController.xib in Resources */,
+				72A6411E171EC1E800C70203 /* tabbar_search.png in Resources */,
+				72A64120171EC40D00C70203 /* tabbar_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +505,7 @@
 				0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */,
 				7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */,
 				7219F295171E7DD600E1CD9E /* Book.m in Sources */,
-				72A26F9C171E9E5900151AA1 /* BookDownLoad.m in Sources */,
+				72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
