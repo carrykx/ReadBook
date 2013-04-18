@@ -95,9 +95,16 @@
     UIButton *button = (UIButton *)sender;
     Book * book = [items objectAtIndex:button.tag];
     RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
+    //书网址
     _detail._urlString = book.url;
-    _detail.book = book;
-    [self.navigationController pushViewController:_detail animated:YES];
+    //书图片
+    _detail.str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/m/%@@2x",book.thumb];
+    //书id
+    _detail.bookid = [NSString stringWithFormat:@"%@",book.iD];
+    _detail.title = book.name;
+
+     [self.navigationController pushViewController:_detail animated:YES];
+     _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
     NSLog(@"%@",book.url);
 }
 @end
