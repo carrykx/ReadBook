@@ -134,10 +134,6 @@
 #pragma mark -
 #pragma mark - tableviewDelegate
 
-
-
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -189,6 +185,7 @@
 //    NSLog(@"%d",i);
 }
 
+// scrollview回调方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == _scrollView)
@@ -219,7 +216,6 @@
         }
     }
 }
-
 
 // 网络数据请求
 - (void)netRequestData
