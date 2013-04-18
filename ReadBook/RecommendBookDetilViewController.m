@@ -21,9 +21,9 @@
 
 @implementation RecommendBookDetilViewController
 @synthesize _urlString;
-@synthesize book;
+@synthesize bookid;
 @synthesize arrayAra;
-@synthesize arrayTxt;
+@synthesize arrayTxt,label,str;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,20 +41,18 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor brownColor];
     UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
- NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/m/%@@2x",book.thumb];
-    NSURL *url = [NSURL URLWithString:str];
+ 
+    NSURL *url = [NSURL URLWithString:self.str];
     [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     [self.view addSubview:imageV];
-    UITextView * label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
-    label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
+  label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
+   
     label.font = [UIFont systemFontOfSize:15.0];
     label.autoresizingMask = YES;
     label.backgroundColor = [UIColor clearColor];
     [self.view addSubview:label];
-     self.title = book.name;
-    [label release];
-    [imageV release];
     
+       
     UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
     readButton.frame = CGRectMake(10, 170, 100, 30);
     readButton.backgroundColor = [UIColor redColor];
@@ -84,13 +82,14 @@
 - (void)_down
 {
     [self.view addSubview:tableV];
-     [self _request:[NSString stringWithFormat:@"%@",book.iD]];
+     [self _request:[NSString stringWithFormat:@"%@",bookid]];
     [tableV reloadData];
 }
-- (void)_request:(NSString *)str
+//根据书的id获取书的详情
+- (void)_request:(NSString *)str1
 {
     NSString * strin  = @"df6df696f6339c461cccd5ca357c7172";
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.shupeng.com/book?id=%@",str]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.shupeng.com/book?id=%@",str1]];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:strin forHTTPHeaderField:@"User-Agent"];
     
@@ -155,11 +154,16 @@
     }
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+//在线阅读
 - (void)_read
 {
     //read_url
     
-    [self _request:[NSString stringWithFormat:@"%@",book.iD]];
+    [self _request:[NSString stringWithFormat:@"%@",bookid]];
 
     
     NSLog(@"00000000%@",readUrl);

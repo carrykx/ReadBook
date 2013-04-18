@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Book;
+
 @interface RecommendBookDetilViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,retain)NSString * _urlString;
-@property (nonatomic ,retain)Book *book;
+@property (nonatomic ,retain)NSString *bookid;
 @property (nonatomic ,retain)NSMutableArray * arrayTxt;
 @property (nonatomic ,retain)NSMutableArray *arrayAra;
-
+@property (nonatomic ,retain)UITextView * label;
+@property (nonatomic ,retain)NSMutableString  * str;
 @end
