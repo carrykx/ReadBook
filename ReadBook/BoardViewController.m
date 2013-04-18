@@ -162,12 +162,15 @@
 //    [label release];
     
     cell.boardNameLable.text = str;
+    cell.boardNameLable.backgroundColor = [UIColor clearColor];
+    cell.boardIntroLable.backgroundColor = [UIColor clearColor];
+    cell.customImageView.backgroundColor = [UIColor blackColor];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0f;
+    return 70.0f;
 }
 
 // tableviewHeader的高度
