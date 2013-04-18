@@ -13,4 +13,5 @@
 @property (nonatomic ,retain)Book *book;
 @property (nonatomic ,retain)NSMutableArray * arrayTxt;
 @property (nonatomic ,retain)NSMutableArray *arrayAra;
+
 @end

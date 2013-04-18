@@ -10,11 +10,12 @@
 #import "Book.h"
 #import "UIImageView+WebCache.h"
 #import "JSON.h"
-#import "BookDownLoad.h"
+#import "ReadBookViewController.h"
 @interface RecommendBookDetilViewController ()
 {
     UITableView * tableV;
-   
+    NSString * readUrl;
+    ReadBookViewController * _readBook;
 }
 @end
 
@@ -29,6 +30,7 @@
     if (self) {
         // Custom initialization
         self.arrayAra = [[NSMutableArray alloc]init];
+         _readBook = [[ReadBookViewController alloc]init];
     }
     return self;
 }
@@ -57,6 +59,7 @@
     readButton.frame = CGRectMake(10, 170, 100, 30);
     readButton.backgroundColor = [UIColor redColor];
     [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
+    [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:readButton];
     UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     downloadButton.frame = CGRectMake(10, 230, 100, 30);
@@ -94,11 +97,15 @@
     NSData * data =   [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *_content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //json解析
-    NSDictionary * json = [_content JSONValue];
+ NSDictionary  * json = [_content JSONValue];
     NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
+   readUrl =  [[NSString alloc]initWithFormat:@"%@",[[json objectForKey:@"result"]objectForKey:@"read_url"]];
    
+    _readBook._readUrl = readUrl;
+     NSLog(@"%@",readUrl);
+     NSLog(@"%@",_readBook._readUrl);
 }
 #pragma mark
 #pragma mark datasource deledate
@@ -148,5 +155,14 @@
     }
     
 }
+- (void)_read
+{
+    //read_url
+    
+    [self _request:[NSString stringWithFormat:@"%@",book.iD]];
 
+    
+    NSLog(@"00000000%@",readUrl);
+    [self.navigationController pushViewController:_readBook animated:YES];
+}
 @end
