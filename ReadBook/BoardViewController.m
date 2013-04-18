@@ -9,6 +9,7 @@
 #import "BoardViewController.h"
 #import "OneBoardListViewController.h"
 #import "CustomTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface BoardViewController ()
 
@@ -57,8 +58,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-     
-   
+     self.navigationItem.title = @"精选专辑";
     [self creatView];
     [self netRequestData];
     
@@ -80,7 +80,8 @@
     self.imageviews = [NSMutableArray arrayWithObjects:[[UIImageView alloc] init],[[UIImageView alloc] init],[[UIImageView alloc] init],[[UIImageView alloc] init],[[UIImageView alloc] init],[[UIImageView alloc] init],[[UIImageView alloc] init], nil];
 
     // 创建uitableview
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-90.0f) style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor brownColor];
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -152,19 +153,21 @@
     if (cell == nil) {
         cell = [[[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
-    cell.contentView.backgroundColor = [UIColor brownColor];
     NSString *str = [NSString stringWithFormat:@"%@(%@)",[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"name"],[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"count"]];
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 50)];
-//    label.font = [UIFont boldSystemFontOfSize:16];
-//    label.backgroundColor = [UIColor clearColor];
-//    label.text = str;
-//    [cell.contentView addSubview:label];
-//    [label release];
-    
+
+    NSString *imageUrl = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"thumb"]];
+    [cell.customImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
     cell.boardNameLable.text = str;
+    cell.boardNameLable.font = [UIFont boldSystemFontOfSize:14];
     cell.boardNameLable.backgroundColor = [UIColor clearColor];
+    cell.boardIntroLable.text = [NSString stringWithFormat:@"        %@",[[self.boardList objectAtIndex:indexPath.row] objectForKey:@"intro"]];
+    cell.boardIntroLable.font = [UIFont boldSystemFontOfSize:12];
+    cell.boardIntroLable.numberOfLines = 2;
+    cell.boardIntroLable.textColor = [UIColor darkGrayColor];
     cell.boardIntroLable.backgroundColor = [UIColor clearColor];
     cell.customImageView.backgroundColor = [UIColor blackColor];
+    
+
     return cell;
 }
 
@@ -326,6 +329,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     OneBoardListViewController *oneBoard = [[OneBoardListViewController alloc] init];
     oneBoard.boardid = [[self.boardList objectAtIndex:indexPath.row] objectForKey:@"id"];
+    oneBoard.boardname = [[self.boardList objectAtIndex:indexPath.row] objectForKey:@"name"];
+    oneBoard.intro = [[self.boardList objectAtIndex:indexPath.row] objectForKey:@"intro"];
     [self.navigationController pushViewController:oneBoard animated:YES];
     [oneBoard release];
 }
