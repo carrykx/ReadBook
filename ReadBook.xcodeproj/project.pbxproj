@@ -52,6 +52,9 @@
 		0F1D0F5D171D6867006DB9E1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F55171D6867006DB9E1 /* SBJsonBase.m */; };
 		0F1D0F5E171D6867006DB9E1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */; };
 		0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */; };
+		0F206C241720E45B0071CC23 /* ReadNativeBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F206C231720E45B0071CC23 /* ReadNativeBookViewController.m */; };
+		0FDF223217200EF10043B444 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF223117200EF10043B444 /* AboutViewController.m */; };
+		0FDF2235172013920043B444 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF2234172013920043B444 /* SuggestViewController.m */; };
 		0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */; };
 		0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */; };
 		0FF75A83171F9BB300D6AE14 /* jiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FF75A7C171F9BB200D6AE14 /* jiazai.png */; };
@@ -154,6 +157,12 @@
 		0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		0F1D0F58171D6867006DB9E1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		0F206C221720E45B0071CC23 /* ReadNativeBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadNativeBookViewController.h; sourceTree = "<group>"; };
+		0F206C231720E45B0071CC23 /* ReadNativeBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadNativeBookViewController.m; sourceTree = "<group>"; };
+		0FDF223017200EF00043B444 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		0FDF223117200EF10043B444 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		0FDF2233172013920043B444 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
+		0FDF2234172013920043B444 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBoardListViewController.h; sourceTree = "<group>"; };
@@ -410,6 +419,8 @@
 			children = (
 				0F01B3E2171C1637005AB97A /* BookmarkViewController.h */,
 				0F01B3E3171C1637005AB97A /* BookmarkViewController.m */,
+				0F206C221720E45B0071CC23 /* ReadNativeBookViewController.h */,
+				0F206C231720E45B0071CC23 /* ReadNativeBookViewController.m */,
 			);
 			name = "书签";
 			sourceTree = "<group>";
@@ -419,6 +430,10 @@
 			children = (
 				0F01B3E5171C164F005AB97A /* MoreViewController.h */,
 				0F01B3E6171C164F005AB97A /* MoreViewController.m */,
+				0FDF223017200EF00043B444 /* AboutViewController.h */,
+				0FDF223117200EF10043B444 /* AboutViewController.m */,
+				0FDF2233172013920043B444 /* SuggestViewController.h */,
+				0FDF2234172013920043B444 /* SuggestViewController.m */,
 			);
 			name = "更多";
 			sourceTree = "<group>";
@@ -558,6 +573,9 @@
 				72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */,
 				0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */,
 				0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */,
+				0FDF223217200EF10043B444 /* AboutViewController.m in Sources */,
+				0FDF2235172013920043B444 /* SuggestViewController.m in Sources */,
+				0F206C241720E45B0071CC23 /* ReadNativeBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -170,6 +170,7 @@
     NSDictionary *result = [boardDic objectForKey:@"result"];
     
     self.booklist = [result objectForKey:@"booklist"];
+    [self.oneBoardListTable reloadData];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
