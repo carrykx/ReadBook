@@ -42,7 +42,7 @@
     // 专辑
     BoardViewController *boa = [[BoardViewController alloc] init];
     UINavigationController *boaNav = [[UINavigationController alloc] initWithRootViewController:boa];
-    [boaNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_muwen.png"] forBarMetrics:UIBarMetricsDefault];
+//    [boaNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_muwen.png"] forBarMetrics:UIBarMetricsDefault];
     [boa release];
     
     // 搜索
