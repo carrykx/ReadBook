@@ -47,7 +47,7 @@
        [_collectionView release],_collectionView = nil;
     [_layout release],_layout = nil;  
     self.items = [[DefaultManager defaultManager]bookList];
-    NSLog(@"gggg%@",self.items);
+//    NSLog(@"gggg%@",self.items);
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -81,7 +81,7 @@
     Book * book = [self.items objectAtIndex:index];
     //    NSLog(@"%@",book.thumb);
     NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/m/%@@2x",book.thumb];
-    NSLog(@"%@",str);
+//    NSLog(@"%@",str);
     NSURL * url = [NSURL URLWithString:str];
     [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Default.png"]];
     _itemCell.button.tag= index;
@@ -91,7 +91,7 @@
 }
 - (void)_pus:(id)sender
 {
-    NSLog(@"%@",sender);
+//    NSLog(@"%@",sender);
     UIButton *button = (UIButton *)sender;
     Book * book = [items objectAtIndex:button.tag];
     RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
@@ -106,5 +106,6 @@
      [self.navigationController pushViewController:_detail animated:YES];
      _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
     NSLog(@"%@",book.url);
+    [_detail release];
 }
 @end

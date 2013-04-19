@@ -38,9 +38,10 @@
     UINavigationController *recNav = [[UINavigationController alloc] initWithRootViewController:rec];
     [rec release];
     
-    // 精选
+    // 专辑
     BoardViewController *boa = [[BoardViewController alloc] init];
     UINavigationController *boaNav = [[UINavigationController alloc] initWithRootViewController:boa];
+    [boaNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_muwen.png"] forBarMetrics:UIBarMetricsDefault];
     [boa release];
     
     // 搜索
@@ -68,7 +69,7 @@
     self.selectedIndex = 0;
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setTitle:@"推荐"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_home.png"]];
-    [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setTitle:@"精选"];
+    [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setTitle:@"专辑"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"tabbar_rec.png"]];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:2] setTitle:@"搜索"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"tabbar_search.png"]];
