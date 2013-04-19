@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DownLoadReadViewController : UIViewController
-
+@interface DownLoadReadViewController : UIViewController <UIWebViewDelegate>
+{
+    UIProgressView * _progressView;
+    UILabel * _progressLabel;
+    UIActivityIndicatorView * _progressActive;
+}
+//下载地址
+@property (nonatomic , retain) NSString * downUrlString;
 @end

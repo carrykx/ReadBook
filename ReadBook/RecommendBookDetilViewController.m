@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "JSON.h"
 #import "ReadBookViewController.h"
+#import "DownLoadReadViewController.h"
 @interface RecommendBookDetilViewController ()
 {
     UITableView * tableV;
@@ -45,6 +46,7 @@
     NSURL *url = [NSURL URLWithString:self.str];
     [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     [self.view addSubview:imageV];
+    [imageV release];
   label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
     label.font = [UIFont systemFontOfSize:15.0];
     label.autoresizingMask = YES;
@@ -155,9 +157,19 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     DownLoadReadViewController * _downBook = [[DownLoadReadViewController alloc]init];
     if (indexPath.section == 0) {
-        
+       
+        _downBook.downUrlString = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"url"];
+        [self.navigationController pushViewController:_downBook animated:YES];
     }
+    else{
+       
+        _downBook.downUrlString = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"url"];
+        [self.navigationController pushViewController:_downBook animated:YES];
+    }
+    
+    [_downBook release],_downBook = nil;
 }
 //在线阅读
 - (void)_read
@@ -169,5 +181,12 @@
     
     NSLog(@"00000000%@",readUrl);
     [self.navigationController pushViewController:_readBook animated:YES];
+    [_readBook release], _readBook = nil;
+}
+- (void)dealloc
+{
+    [tableV release];
+    [label release];
+    [super dealloc];
 }
 @end
