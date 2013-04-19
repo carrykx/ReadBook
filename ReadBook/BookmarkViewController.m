@@ -40,7 +40,7 @@
     [self.view addSubview:button];
 }
 
-}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
