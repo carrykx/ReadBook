@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookmarkViewController : UIViewController
-
+@interface BookmarkViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic ,retain)NSMutableArray * saveArray;
 @end

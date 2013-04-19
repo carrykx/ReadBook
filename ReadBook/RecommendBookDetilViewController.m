@@ -46,19 +46,18 @@
     [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     [self.view addSubview:imageV];
   label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
-   
     label.font = [UIFont systemFontOfSize:15.0];
     label.autoresizingMask = YES;
     label.backgroundColor = [UIColor clearColor];
     [self.view addSubview:label];
-    
-       
-    UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //在线阅读
+        UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
     readButton.frame = CGRectMake(10, 170, 100, 30);
     readButton.backgroundColor = [UIColor redColor];
     [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
     [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:readButton];
+    //下载阅读
     UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     downloadButton.frame = CGRectMake(10, 230, 100, 30);
     [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
@@ -101,7 +100,7 @@
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
    readUrl =  [[NSString alloc]initWithFormat:@"%@",[[json objectForKey:@"result"]objectForKey:@"read_url"]];
-   
+    _readBook.title = [[json objectForKey:@"result"]objectForKey:@"name"];
     _readBook._readUrl = readUrl;
      NSLog(@"%@",readUrl);
      NSLog(@"%@",_readBook._readUrl);
@@ -156,7 +155,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        
+    }
 }
 //在线阅读
 - (void)_read

@@ -52,6 +52,10 @@
 		0F1D0F5D171D6867006DB9E1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F55171D6867006DB9E1 /* SBJsonBase.m */; };
 		0F1D0F5E171D6867006DB9E1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */; };
 		0F1D0F5F171D6867006DB9E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */; };
+		0F1D0F62171FD5EA006DB9E1 /* DownLoadReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F61171FD5EA006DB9E1 /* DownLoadReadViewController.m */; };
+		0F1D0F65171FEBA7006DB9E1 /* SaveBookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F64171FEBA7006DB9E1 /* SaveBookMarkViewController.m */; };
+		0F1D0F68171FF2CD006DB9E1 /* bookSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F67171FF2CC006DB9E1 /* bookSave.m */; };
+		0F1D0F6A171FFFDF006DB9E1 /* bookMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F1D0F69171FFFDF006DB9E1 /* bookMark.png */; };
 		0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */; };
 		0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */; };
 		0FF75A83171F9BB300D6AE14 /* jiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FF75A7C171F9BB200D6AE14 /* jiazai.png */; };
@@ -151,6 +155,13 @@
 		0F1D0F57171D6867006DB9E1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		0F1D0F58171D6867006DB9E1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0F1D0F59171D6867006DB9E1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		0F1D0F60171FD5EA006DB9E1 /* DownLoadReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadReadViewController.h; sourceTree = "<group>"; };
+		0F1D0F61171FD5EA006DB9E1 /* DownLoadReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadReadViewController.m; sourceTree = "<group>"; };
+		0F1D0F63171FEBA7006DB9E1 /* SaveBookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveBookMarkViewController.h; sourceTree = "<group>"; };
+		0F1D0F64171FEBA7006DB9E1 /* SaveBookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveBookMarkViewController.m; sourceTree = "<group>"; };
+		0F1D0F66171FF2CC006DB9E1 /* bookSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookSave.h; sourceTree = "<group>"; };
+		0F1D0F67171FF2CC006DB9E1 /* bookSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookSave.m; sourceTree = "<group>"; };
+		0F1D0F69171FFFDF006DB9E1 /* bookMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookMark.png; sourceTree = "<group>"; };
 		0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBoardListViewController.h; sourceTree = "<group>"; };
@@ -265,6 +276,7 @@
 		0F01B3F2171C1D69005AB97A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0F1D0F69171FFFDF006DB9E1 /* bookMark.png */,
 				0FF75A7C171F9BB200D6AE14 /* jiazai.png */,
 				0FF75A7D171F9BB200D6AE14 /* beijing.png */,
 				0FF75A7E171F9BB200D6AE14 /* 5.jpg */,
@@ -370,6 +382,12 @@
 				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
 				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
 				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
+				0F1D0F60171FD5EA006DB9E1 /* DownLoadReadViewController.h */,
+				0F1D0F61171FD5EA006DB9E1 /* DownLoadReadViewController.m */,
+				0F1D0F63171FEBA7006DB9E1 /* SaveBookMarkViewController.h */,
+				0F1D0F64171FEBA7006DB9E1 /* SaveBookMarkViewController.m */,
+				0F1D0F66171FF2CC006DB9E1 /* bookSave.h */,
+				0F1D0F67171FF2CC006DB9E1 /* bookSave.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";
@@ -501,6 +519,7 @@
 				0FF75A87171F9BB300D6AE14 /* 3.jpg in Resources */,
 				0FF75A88171F9BB300D6AE14 /* 2.jpg in Resources */,
 				0FF75A89171F9BB300D6AE14 /* 1.jpg in Resources */,
+				0F1D0F6A171FFFDF006DB9E1 /* bookMark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +565,9 @@
 				72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */,
 				0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */,
 				0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */,
+				0F1D0F62171FD5EA006DB9E1 /* DownLoadReadViewController.m in Sources */,
+				0F1D0F65171FEBA7006DB9E1 /* SaveBookMarkViewController.m in Sources */,
+				0F1D0F68171FF2CD006DB9E1 /* bookSave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

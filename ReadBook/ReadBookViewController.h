@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReadBookViewController : UIViewController
+@interface ReadBookViewController : UIViewController<UIActionSheetDelegate>
 @property (nonatomic , retain)NSString *_readUrl;
 @end
