@@ -29,6 +29,7 @@
 		0F07BF77171D46E20002D7CE /* UWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F07BF76171D46E20002D7CE /* UWCollectionViewCell.m */; };
 		0F07BF7A171D47030002D7CE /* UWCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F07BF79171D47030002D7CE /* UWCollectionViewLayout.m */; };
 		0F07BF7D171D47160002D7CE /* UWView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F07BF7C171D47160002D7CE /* UWView.m */; };
+		0F1A80961721488300DC99C7 /* SelectResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A80951721488300DC99C7 /* SelectResultsViewController.m */; };
 		0F1D0F1A171D4D83006DB9E1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1D0F19171D4D83006DB9E1 /* CoreData.framework */; };
 		0F1D0F1D171D4DB8006DB9E1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D0F1B171D4DB8006DB9E1 /* Model.xcdatamodeld */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		0F1D0F1F171D50AA006DB9E1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1D0F1E171D50AA006DB9E1 /* CoreImage.framework */; };
@@ -115,6 +116,8 @@
 		0F07BF79171D47030002D7CE /* UWCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWCollectionViewLayout.m; sourceTree = "<group>"; };
 		0F07BF7B171D47160002D7CE /* UWView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWView.h; sourceTree = "<group>"; };
 		0F07BF7C171D47160002D7CE /* UWView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWView.m; sourceTree = "<group>"; };
+		0F1A80941721488300DC99C7 /* SelectResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectResultsViewController.h; sourceTree = "<group>"; };
+		0F1A80951721488300DC99C7 /* SelectResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectResultsViewController.m; sourceTree = "<group>"; };
 		0F1D0F19171D4D83006DB9E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0F1D0F1C171D4DB8006DB9E1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		0F1D0F1E171D50AA006DB9E1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -416,6 +419,8 @@
 			children = (
 				0F01B3DF171C15FF005AB97A /* SearchViewController.h */,
 				0F01B3E0171C15FF005AB97A /* SearchViewController.m */,
+				0F1A80941721488300DC99C7 /* SelectResultsViewController.h */,
+				0F1A80951721488300DC99C7 /* SelectResultsViewController.m */,
 			);
 			name = "搜索";
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 				0F206C2B172135E20071CC23 /* SaveBookMarkViewController.m in Sources */,
 				0F206C2C172135E20071CC23 /* DownLoadReadViewController.m in Sources */,
 				0F206C2D172135E20071CC23 /* bookSave.m in Sources */,
+				0F1A80961721488300DC99C7 /* SelectResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
