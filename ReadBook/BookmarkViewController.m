@@ -8,6 +8,7 @@
 
 #import "BookmarkViewController.h"
 #import "bookSave.h"
+#import "ReadBookViewController.h"
 @interface BookmarkViewController ()
 @property(nonatomic,retain)UITableView *tableView;
 @end
@@ -19,8 +20,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"书签";
         self.saveArray = [NSMutableArray array];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(_edit)];
+        
     }
     return self;
 }
@@ -29,10 +32,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 360) style:UITableViewStylePlain];
+    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
     tableV.delegate = self;
     tableV.dataSource = self;
-    self.tableView=tableV;
+    tableV.backgroundColor = [UIColor brownColor];
+    self.tableView = tableV;
     [self.view addSubview:tableV];
     [tableV release];
 
@@ -102,6 +106,14 @@
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     [self _saveBookMark];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReadBookViewController * _readBook = [[ReadBookViewController alloc]init];
+  bookSave * _bookSave = [self.saveArray objectAtIndex:indexPath.row];
+    _readBook._readUrl = _bookSave.urlString;
+    _readBook.title = _bookSave.name;
+    [self.navigationController pushViewController:_readBook animated:YES];
 }
 #pragma mark
 #pragma mark public motheds
