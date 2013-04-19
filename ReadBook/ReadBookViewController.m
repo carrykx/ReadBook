@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-  
-     _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -80, 320, 450)];
+
+     _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -100, 320, 450)];
     _webRead.scalesPageToFit = YES;
     [_webRead loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_readUrl]]];
     [self.view addSubview:_webRead];

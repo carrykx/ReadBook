@@ -106,6 +106,14 @@
     _readBook._readUrl = readUrl;
      NSLog(@"%@",readUrl);
      NSLog(@"%@",_readBook._readUrl);
+    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
+    if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"0"]) {
+        NSLog(@"不能在线读");
+        
+    }
+    if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"1"]){
+        NSLog(@"可以");
+    }
 }
 #pragma mark
 #pragma mark datasource deledate
@@ -157,14 +165,15 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
      DownLoadReadViewController * _downBook = [[DownLoadReadViewController alloc]init];
     if (indexPath.section == 0) {
-       
+       //ara 格式
         _downBook.downUrlString = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"url"];
         [self.navigationController pushViewController:_downBook animated:YES];
     }
     else{
-       
+       //txt 格式
         _downBook.downUrlString = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"url"];
         [self.navigationController pushViewController:_downBook animated:YES];
     }
