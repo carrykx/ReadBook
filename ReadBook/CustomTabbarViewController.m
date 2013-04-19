@@ -24,6 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
@@ -65,7 +66,9 @@
     [seaNav release];
     [bookNav release];
     [morNav release];
-    
+    //设置选种颜色
+    self.tabBar.selectedImageTintColor = [UIColor brownColor];
+
     self.selectedIndex = 0;
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setTitle:@"推荐"];
     [(UITabBarItem*)[self.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_home.png"]];

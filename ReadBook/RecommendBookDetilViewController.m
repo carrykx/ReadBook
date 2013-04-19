@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "JSON.h"
 #import "ReadBookViewController.h"
+#import "DownLoadReadViewController.h"
 @interface RecommendBookDetilViewController ()
 {
     UITableView * tableV;
@@ -45,20 +46,20 @@
     NSURL *url = [NSURL URLWithString:self.str];
     [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     [self.view addSubview:imageV];
+    [imageV release];
   label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
-   
     label.font = [UIFont systemFontOfSize:15.0];
     label.autoresizingMask = YES;
     label.backgroundColor = [UIColor clearColor];
     [self.view addSubview:label];
-    
-       
-    UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //在线阅读
+        UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
     readButton.frame = CGRectMake(10, 170, 100, 30);
     readButton.backgroundColor = [UIColor redColor];
     [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
     [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:readButton];
+    //下载阅读
     UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     downloadButton.frame = CGRectMake(10, 230, 100, 30);
     [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
@@ -101,10 +102,18 @@
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
    readUrl =  [[NSString alloc]initWithFormat:@"%@",[[json objectForKey:@"result"]objectForKey:@"read_url"]];
-   
+    _readBook.title = [[json objectForKey:@"result"]objectForKey:@"name"];
     _readBook._readUrl = readUrl;
      NSLog(@"%@",readUrl);
      NSLog(@"%@",_readBook._readUrl);
+    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
+    if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"0"]) {
+        NSLog(@"不能在线读");
+        
+    }
+    if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"1"]){
+        NSLog(@"可以");
+    }
 }
 #pragma mark
 #pragma mark datasource deledate
@@ -156,7 +165,20 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+     DownLoadReadViewController * _downBook = [[DownLoadReadViewController alloc]init];
+    if (indexPath.section == 0) {
+       //ara 格式
+        _downBook.downUrlString = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"url"];
+        [self.navigationController pushViewController:_downBook animated:YES];
+    }
+    else{
+       //txt 格式
+        _downBook.downUrlString = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"url"];
+        [self.navigationController pushViewController:_downBook animated:YES];
+    }
     
+    [_downBook release],_downBook = nil;
 }
 //在线阅读
 - (void)_read
@@ -168,5 +190,12 @@
     
     NSLog(@"00000000%@",readUrl);
     [self.navigationController pushViewController:_readBook animated:YES];
+    [_readBook release], _readBook = nil;
+}
+- (void)dealloc
+{
+    [tableV release];
+    [label release];
+    [super dealloc];
 }
 @end

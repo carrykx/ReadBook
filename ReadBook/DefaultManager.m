@@ -71,7 +71,7 @@
     //json解析数据
     NSDictionary * json = [_content JSONValue];
        NSArray * array = [json objectForKey:@"result"];
-        NSLog(@"dddd%@",array );
+    
     if ([array count] == 0) {
         [self bookList];
         //网络失败
@@ -93,7 +93,7 @@
         book.author = [_dic objectForKey:@"author"];
         book.intro = [_dic objectForKey:@"intro"];
         book.nick = [_dic objectForKey:@"nick"];
-        NSLog(@"%@",book.iD);
+   
     }
 }
 //网络失败方法

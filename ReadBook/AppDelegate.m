@@ -30,6 +30,7 @@
 
     CustomTabbarViewController *customTabbar = [[CustomTabbarViewController alloc] init];
     [self.window setRootViewController:customTabbar];
+    [[UINavigationBar appearance]setTintColor:[UIColor brownColor]];
     [customTabbar release];
     
     return YES;

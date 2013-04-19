@@ -10,16 +10,20 @@
 #import "ReadNativeBookViewController.h"
 
 @interface BookmarkViewController ()
-
+@property(nonatomic,retain)UITableView *tableView;
 @end
 
 @implementation BookmarkViewController
-
+@synthesize saveArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"书签";
+        self.saveArray = [NSMutableArray array];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(_edit)];
+        
     }
     return self;
 }
@@ -36,6 +40,18 @@
     [self.view addSubview:button];
 }
 
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString * homeStrng = NSHomeDirectory();
+    NSString * filePath = [homeStrng stringByAppendingFormat:@"webbook1.archiver"];
+    self.saveArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    [self.tableView reloadData];
+    
+    NSLog(@"%@",self.saveArray);
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
