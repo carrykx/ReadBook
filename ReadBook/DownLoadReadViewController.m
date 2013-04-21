@@ -79,6 +79,7 @@
     progressValue = 0.0;
     [_progressTimer invalidate];
     [_progressActive stopAnimating];
+    [view removeFromSuperview];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
@@ -89,17 +90,17 @@
     float progressValue = _progressView.progress;
     
     progressValue       += 0.01f;
-    if (progressValue > 1.0)
-    {
-       
-        progressValue = 0.0;
-        [_progressTimer invalidate];
-        [_progressActive stopAnimating];
-        [view removeFromSuperview];
-        
-       
-
-    }
+//    if (progressValue > 1.0)
+//    {
+//       
+//        progressValue = 0.0;
+//        [_progressTimer invalidate];
+//        [_progressActive stopAnimating];
+//        [view removeFromSuperview];
+//        
+//       
+//
+//    }
      [_progressLabel setText:[NSString stringWithFormat:@"%.0f%%", (progressValue * 100)]];
     [_progressView setProgress:progressValue];
 
