@@ -61,17 +61,17 @@
     NSURL * url = [NSURL URLWithString:downUrlString];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *rrr, NSData *data, NSError *ffff) {
-        NSString * string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"ffffff%@",string);
-        NSLog(@"gggggggg%@",data);
+        NSString * string = [[NSString alloc]initWithData:data encoding:NSUTF32LittleEndianStringEncoding];
+        NSLog(@"%@",string);
     }];
+   
+
 }
 - (void)_request
 {
     
    
 }
-
 
 
 - (void)didReceiveMemoryWarning

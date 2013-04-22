@@ -30,6 +30,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.tableView.backgroundColor = [UIColor brownColor];
+
     }
     return self;
 }
@@ -86,8 +88,9 @@
     [searchBar resignFirstResponder];
     SelectResultsViewController *secondView = [[SelectResultsViewController alloc]initWithStyle:UITableViewStylePlain];
     secondView.FIRSTArray = self.Firstarray;
+    NSLog(@"%@",self.Firstarray);
     [self.navigationController pushViewController:secondView animated:YES];
-    
+    [secondView release],secondView = nil;
 }
 //searchbar删除按钮
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
@@ -109,7 +112,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //通过判断设置单元格高度
     
-    return 80.0;
+    return 40.0;
     
     
 }
@@ -141,13 +144,16 @@
     NSString *appkey = @"79d44eca5e871396bafa661b211400a6";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
-    NSError *error;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
-    NSLog(@"%@",[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
+   
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *re, NSData *responseData, NSError *error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+        
+        self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
+    }];
+   
     
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
-    
-    self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
+   
     
 }
 

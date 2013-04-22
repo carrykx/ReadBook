@@ -30,7 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.arrayAra = [[NSMutableArray alloc]init];
+      
          _readBook = [[ReadBookViewController alloc]init];
     }
     return self;
@@ -98,6 +98,7 @@
     NSString *_content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //json解析
  NSDictionary  * json = [_content JSONValue];
+    [_content release];
     NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
@@ -114,6 +115,7 @@
     if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"1"]){
         NSLog(@"可以");
     }
+    
 }
 #pragma mark
 #pragma mark datasource deledate
@@ -190,10 +192,12 @@
     
     NSLog(@"00000000%@",readUrl);
     [self.navigationController pushViewController:_readBook animated:YES];
-    [_readBook release], _readBook = nil;
+    
 }
 - (void)dealloc
 {
+    [readUrl release];
+    [_readBook release], _readBook = nil;
     [tableV release];
     [label release];
     [super dealloc];
