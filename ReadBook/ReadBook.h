@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ReadBook : NSObject <NSCoding>
-@property (nonatomic , retain)ReadBook * readBook;
+@property (nonatomic , retain)NSString * readBook;
+@property (nonatomic , retain)NSString * image;
+
 @end

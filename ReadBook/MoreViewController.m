@@ -9,7 +9,7 @@
 #import "MoreViewController.h"
 #import "AboutViewController.h"
 #import "SuggestViewController.h"
-
+#import "MyBookViewController.h"
 @interface MoreViewController ()
 
 @property (retain, nonatomic) UITableView *contentTable;
@@ -144,7 +144,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            
+            MyBookViewController * _readd = [[MyBookViewController alloc]init];
+           
+            [self.navigationController pushViewController:_readd animated:YES];
         }
     }else if (indexPath.section == 1)
     {

@@ -9,16 +9,19 @@
 #import "ReadBook.h"
 
 @implementation ReadBook
-@synthesize readBook;
+@synthesize readBook,image;
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:readBook forKey:@"readBook"];
+    
+    [aCoder encodeObject:image forKey:@"image"];
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self) {
         self.readBook = [aDecoder decodeObjectForKey:@"readBook"];
+        self.image = [aDecoder decodeObjectForKey:@"image"];
     }
     return self;
 }

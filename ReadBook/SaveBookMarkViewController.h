@@ -11,4 +11,5 @@
 @interface SaveBookMarkViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,retain)NSString * nameString;
 @property (nonatomic ,retain)NSString * urlString;
+
 @end
