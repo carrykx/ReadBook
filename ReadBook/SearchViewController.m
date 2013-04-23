@@ -15,7 +15,7 @@
 @property(nonatomic,retain)NSMutableArray *Firstarray;
 @property(nonatomic,retain)UISearchBar *searchBar;
 
--(void)getRequeset:(NSString*)searchText p:(NSInteger) p psize:(NSInteger)psize;
+-(void)getRequeset:(NSString*) searchText;
 @end
 
 @implementation SearchViewController
@@ -48,19 +48,13 @@
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:nil];
     self.navigationItem.backBarButtonItem = backbutton;
     [backbutton release];
-    UISearchBar *searchbar = [[UISearchBar alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0,50.0)];
-    //创建tableView的headerview将searbar添加上去
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 60.0)];
+    //创建搜索栏
+    UISearchBar *searchbar = [[UISearchBar alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0,40.0)];
     searchbar.placeholder = @"请输入你想找的书籍名称";
     searchbar.delegate =self;
     searchbar.tintColor = [UIColor brownColor];
-    
-    
     self.searchBar = searchbar;
-    [headerView addSubview:searchbar];
     [searchbar release];
-    self.tableView.tableHeaderView = headerView;
-    [headerView release];
     //通过网络请求获取热门搜索词相关信息
     NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/hotword?p=1&psize=10"];
     NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
@@ -68,13 +62,11 @@
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
     NSError *error;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
-    //    NSLog(@"%@",[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
+    
    //将数据转化成json数据存放再字典里
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
-    //    NSLog(@"%@",[[NSString  alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
     //将获取的热门搜索书籍相关数据存放到数组里
     self.beforeArray = [[dic objectForKey:@"result"]objectForKey:@"list"];
-    //    NSLog(@"%@",[[self.beforeArray objectAtIndex:0]objectForKey:@"name"]);
     [self.tableView reloadData];
 
 }
@@ -84,13 +76,12 @@
 }
 //seachbar键盘search键点击根据输入关键字获取网络信息并将试图切换到搜索结果显示界面
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    //[self.Firstarray removeAllObjects];
-    [self getRequeset:self.searchBar.text p:1 psize:10];
+    [self getRequeset:self.searchBar.text];
     //按搜索键时关闭键盘
     [searchBar resignFirstResponder];
     SelectResultsViewController *secondView = [[SelectResultsViewController alloc]initWithStyle:UITableViewStylePlain];
     secondView.FIRSTArray = self.Firstarray;
-//    NSLog(@"%@",self.Firstarray);
+
     [self.navigationController pushViewController:secondView animated:YES];
     [secondView release],secondView = nil;
 }
@@ -113,7 +104,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 40.0;
+    return 60.0;
     
     
 }
@@ -129,7 +120,6 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     cell.textLabel.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
     
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
     
@@ -141,36 +131,34 @@
     NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
 }
-//自定义sectionTitle，使其背景颜色和整体界面一致
+//将搜索栏和热门搜索词标题添加到SectionHeaderView中，始终显示给用户
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    NSString *sectionTitle=[self tableView:tableView titleForHeaderInSection:section];
-    if (sectionTitle==nil) {
-        return nil;
-    }
     
-    // Create label with section title
-    UILabel *label=[[[UILabel alloc] init] autorelease];
-    label.frame=CGRectMake(100, 0, 120, 28);
+    UIView *sectionView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 70.0)];
+    sectionView.backgroundColor = [UIColor brownColor];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100.0, 40.0, 120.0,30.0)];
+    label.text = @"热门搜索词";
     label.backgroundColor=[UIColor clearColor];
     label.textColor=[UIColor yellowColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font=[UIFont boldSystemFontOfSize:22];
-    label.text=sectionTitle;
-
-    
-    // Create header view and add label as a subview
-    UIView *sectionView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)] autorelease];
-    [sectionView setBackgroundColor:[UIColor brownColor]];
+    label.font=[UIFont boldSystemFontOfSize:20];
+    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 70.0, 320.0, 1.0)];
+    label1.backgroundColor = [UIColor underPageBackgroundColor];
     [sectionView addSubview:label];
-    return sectionView;}
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-     
-    return @"热门搜索词";
+    [sectionView addSubview:label1];
+    [label release];
+    [label1 release];
+    [sectionView addSubview:self.searchBar];
+    return [sectionView autorelease];;
+
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 71.0;
 }
 //通过点击search键获取的网络请求
--(void)getRequeset:(NSString*)searchText p:(NSInteger)p psize:(NSInteger)psize;
+-(void)getRequeset:(NSString*)searchText
 {
-    NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/search?q=%@&p=%d&psize=%d",[self.searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],p,psize];
+    NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/search?q=%@&p=1&psize=10",[self.searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
