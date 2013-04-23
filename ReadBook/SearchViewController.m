@@ -14,6 +14,7 @@
 @property(nonatomic,retain)NSMutableArray *beforeArray;
 @property(nonatomic,retain)NSMutableArray *Firstarray;
 @property(nonatomic,retain)UISearchBar *searchBar;
+
 -(void)getRequeset:(NSString*)searchText p:(NSInteger) p psize:(NSInteger)psize;
 @end
 
@@ -89,7 +90,7 @@
     [searchBar resignFirstResponder];
     SelectResultsViewController *secondView = [[SelectResultsViewController alloc]initWithStyle:UITableViewStylePlain];
     secondView.FIRSTArray = self.Firstarray;
-    NSLog(@"%@",self.Firstarray);
+//    NSLog(@"%@",self.Firstarray);
     [self.navigationController pushViewController:secondView animated:YES];
     [secondView release],secondView = nil;
 }
@@ -112,7 +113,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 80.0;
+    return 40.0;
     
     
 }
@@ -125,14 +126,17 @@
     if (!cell) {
         cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:indentifier]autorelease];
     }
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     cell.textLabel.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
     
 }
 //将选择的热门关键词传递给searchBar.text并显示出来，打开searchBar键盘
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.searchBar.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
     NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
@@ -175,8 +179,8 @@
     NSString *stringValue = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
     NSDictionary *dic =[stringValue JSONValue];
         
-        self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
-    }
+    self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
+}
    
 
 

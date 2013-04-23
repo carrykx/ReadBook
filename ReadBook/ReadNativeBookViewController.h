@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReadNativeBookViewController : UIViewController
+@interface ReadNativeBookViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @end

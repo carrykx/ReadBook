@@ -51,14 +51,18 @@
         cell=[[[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:indentifier]autorelease];
     }
     //通过name关键字从数据字典里获取搜索到的小说名字
+    cell.boardNameLable.font = [UIFont boldSystemFontOfSize:14];
     cell.boardNameLable.text = [[self.FIRSTArray objectAtIndex:indexPath.row] objectForKey:@"name"];
     //通过提供的图片地址获取图片
     NSString *str = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"thumb"];
     NSURL *url = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",str];
     [cell.customImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     //获取作者信息
-   
-    cell.boardIntroLable.text = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"author"];
+    NSString *authorStr = [NSString stringWithFormat:@"作者:%@\n简介:%@",[[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"author"],[[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"intro"]];
+    cell.boardIntroLable.font = [UIFont systemFontOfSize:12];
+    cell.boardIntroLable.numberOfLines = 0;
+    cell.boardIntroLable.textColor = [UIColor darkGrayColor];
+    cell.boardIntroLable.text = authorStr;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     

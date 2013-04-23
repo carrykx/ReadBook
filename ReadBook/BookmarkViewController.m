@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 kangxv. All rights reserved.
 //
 
+
 #import "BookmarkViewController.h"
-#import "ReadNativeBookViewController.h"
 #import "bookSave.h"
 #import "ReadBookViewController.h"
 @interface BookmarkViewController ()
@@ -75,6 +75,7 @@
     //设置单元格的内容
     bookSave * _bookSave = [[self.saveArray objectAtIndex:indexPath.row] retain];
     NSLog(@"fffffff%@",_bookSave.name);
+    _cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     _cell.textLabel.text = _bookSave.name;
     _cell.imageView.image = [UIImage imageNamed:@"bookMark.png"];
     return _cell;
