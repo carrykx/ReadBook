@@ -7,9 +7,9 @@
 //
 
 #import "BookmarkViewController.h"
-#import "ReadNativeBookViewController.h"
 #import "bookSave.h"
 #import "ReadBookViewController.h"
+
 @interface BookmarkViewController ()
 @property(nonatomic,retain)UITableView *tableView;
 @end
@@ -62,9 +62,6 @@
 #pragma mark tableView datasource delegate motheds
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    ReadNativeBookViewController *read = [[ReadNativeBookViewController alloc] init];
-    read.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:read animated:YES];
-    [read release];
+    
 }
 @end
