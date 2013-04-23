@@ -61,6 +61,7 @@
 - (void)testAction
 {
     ReadNativeBookViewController *read = [[ReadNativeBookViewController alloc] init];
+    read.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:read animated:YES];
     [read release];
 }

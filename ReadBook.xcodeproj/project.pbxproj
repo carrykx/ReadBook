@@ -59,6 +59,7 @@
 		0F206C2D172135E20071CC23 /* bookSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F206C29172135E20071CC23 /* bookSave.m */; };
 		0FDF223217200EF10043B444 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF223117200EF10043B444 /* AboutViewController.m */; };
 		0FDF2235172013920043B444 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF2234172013920043B444 /* SuggestViewController.m */; };
+		0FEC92B31724D31F00D293B9 /* tableCellBackgournd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC92B21724D31F00D293B9 /* tableCellBackgournd@2x.png */; };
 		0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */; };
 		0FF75A7B171F8F5B00D6AE14 /* OneBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */; };
 		0FF75A83171F9BB300D6AE14 /* jiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FF75A7C171F9BB200D6AE14 /* jiazai.png */; };
@@ -172,6 +173,7 @@
 		0FDF223117200EF10043B444 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		0FDF2233172013920043B444 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
 		0FDF2234172013920043B444 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
+		0FEC92B21724D31F00D293B9 /* tableCellBackgournd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tableCellBackgournd@2x.png"; path = "ReadBook/Images/tableCellBackgournd@2x.png"; sourceTree = "<group>"; };
 		0FF75A76171F8F2900D6AE14 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBoardListViewController.h; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		0F01B3A4171BD63E005AB97A = {
 			isa = PBXGroup;
 			children = (
+				0FEC92B21724D31F00D293B9 /* tableCellBackgournd@2x.png */,
 				0F1D0F4C171D6867006DB9E1 /* json */,
 				0F1D0F26171D5248006DB9E1 /* UIImageView+WebCache */,
 				0F01B3B9171BD63E005AB97A /* ReadBook */,
@@ -536,6 +539,7 @@
 				0FF75A87171F9BB300D6AE14 /* 3.jpg in Resources */,
 				0FF75A88171F9BB300D6AE14 /* 2.jpg in Resources */,
 				0FF75A89171F9BB300D6AE14 /* 1.jpg in Resources */,
+				0FEC92B31724D31F00D293B9 /* tableCellBackgournd@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
