@@ -13,6 +13,8 @@
 
 #import "ReadBook.h"
 #import "UIButton+WebCache.h"
+#import "ReadNativeBookViewController.h"
+
 @interface MyBookViewController ()
 
 @end
@@ -82,17 +84,6 @@
 //去读书
 - (void)_pus:(id)sender
 {
-    //    NSLog(@"%@",sender);
-//    UIButton *button = (UIButton *)sender;
-////    MyReadBookViewController * _readd = [[MyReadBookViewController alloc]init];
-//    ReadBook * read = [self.items objectAtIndex:button.tag];
-//    //阅读背景色
-//    _readd.color = self.color;
-//    //阅读文字色
-//    _readd.textColor = self.textColor;
-//    [self.navigationController pushViewController:_readd animated:YES];
-////    _readd.textRead.text = [NSString stringWithFormat:@"%@",read.readBook];
-   
 }
 
 @end
