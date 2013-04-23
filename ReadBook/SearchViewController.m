@@ -178,7 +178,7 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *stringValue = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
     NSDictionary *dic =[stringValue JSONValue];
-        
+    
     self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
 }
    
