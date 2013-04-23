@@ -54,5 +54,4 @@
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
 }
-
 @end

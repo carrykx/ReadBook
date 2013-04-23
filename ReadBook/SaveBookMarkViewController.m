@@ -81,10 +81,9 @@
     NSString * filePath = [homeStrng stringByAppendingFormat:@"webbook1.archiver"];
   NSMutableArray *array = [NSMutableArray arrayWithArray:  [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]];
     [array addObject:_booksave];
-    NSLog(@"%@",bookMark.saveArray);
-    NSLog(@"gggggg%@",_booksave.name);
+   
     [NSKeyedArchiver archiveRootObject:array toFile:filePath];
     [self.navigationController popViewControllerAnimated:YES];
-
+    [bookMark release],bookMark = nil;
 }
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "SelectResultsViewController.h"
-
+#import "UIImageView+WebCache.h"
+#import "RecommendBookDetilViewController.h"
+#import "CustomTableViewCell.h"
 @interface SelectResultsViewController ()
 
 @end
@@ -23,6 +25,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.tableView.backgroundColor = [UIColor brownColor];
     }
     return self;
 }
@@ -39,34 +42,33 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.FIRSTArray count];
 }
+//通过自定义创建的表格将搜索到的数据显示出来
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *indentifier=@"selectresultcell";
-    UITableViewCell *cell=[self.tableView dequeueReusableCellWithIdentifier:indentifier];
+    CustomTableViewCell *cell=[self.tableView dequeueReusableCellWithIdentifier:indentifier];
    if (!cell) {
-        cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:indentifier]autorelease];
+        cell=[[[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:indentifier]autorelease];
     }
     //通过name关键字从数据字典里获取搜索到的小说名字
-    cell.textLabel.text = [[self.FIRSTArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.boardNameLable.text = [[self.FIRSTArray objectAtIndex:indexPath.row] objectForKey:@"name"];
     //通过提供的图片地址获取图片
     NSString *str = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"thumb"];
-    NSString *ImageStr = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",str];
-    NSData *ImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageStr]];
-    UIImage *image = [UIImage imageWithData:ImageData];
-    if (image) {
-        cell.imageView.image = image;
-    }
+    NSURL *url = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",str];
+    [cell.customImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
     //获取作者信息
-    NSString *author = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"author"];
-    cell.detailTextLabel.text = author;
+   
+    cell.boardIntroLable.text = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"author"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     
 
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100.0;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70.0;
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -74,6 +76,18 @@
 }
 
 #pragma mark - Table view data source
-
-
+//通过选择书籍跳转到书籍具体信息界面，包括阅读和下载功能
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
+    NSString *str = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"thumb"];
+    
+    _detail.str = [NSString stringWithFormat:@"http://a.cdn123.net/img/r/%@",str];
+    _detail.title = [[self.FIRSTArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+    _detail.bookid = [[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"id"];
+     
+    [self.navigationController pushViewController:_detail animated:YES];
+    _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",[[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"author"],[[self.FIRSTArray objectAtIndex:indexPath.row]objectForKey:@"intro"]];
+    [_detail release], _detail = nil;
+}
 @end

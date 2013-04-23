@@ -72,7 +72,7 @@
     UWView *_itemCell = (UWView *)[collectionView dequeueReusableView];
     
     if (_itemCell == nil) {
-        _itemCell = [[UWView alloc] initWithFrame:CGRectZero];
+        _itemCell = [[[UWView alloc] initWithFrame:CGRectZero]autorelease];
     }
     
     
@@ -80,7 +80,7 @@
     
     Book * book = [self.items objectAtIndex:index];
     //    NSLog(@"%@",book.thumb);
-    NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/m/%@@2x",book.thumb];
+    NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/r/%@",book.thumb];
 //    NSLog(@"%@",str);
     NSURL * url = [NSURL URLWithString:str];
     [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Default.png"]];
@@ -98,7 +98,7 @@
     //书网址
     _detail._urlString = book.url;
     //书图片
-    _detail.str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/m/%@@2x",book.thumb];
+    _detail.str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/r/%@",book.thumb];
     //书id
     _detail.bookid = [NSString stringWithFormat:@"%@",book.iD];
     _detail.title = book.name;

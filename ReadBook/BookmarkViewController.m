@@ -8,7 +8,8 @@
 
 #import "BookmarkViewController.h"
 #import "ReadNativeBookViewController.h"
-
+#import "bookSave.h"
+#import "ReadBookViewController.h"
 @interface BookmarkViewController ()
 @property(nonatomic,retain)UITableView *tableView;
 @end
@@ -32,15 +33,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
+    tableV.delegate = self;
+    tableV.dataSource = self;
+    tableV.backgroundColor = [UIColor brownColor];
+    self.tableView = tableV;
+    [self.view addSubview:tableV];
+    [tableV release];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(50, 50, 50, 50);
-    [button setTitle:@"测试" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
 }
-
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -57,13 +58,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)testAction
+#pragma mark
+#pragma mark tableView datasource delegate motheds
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     ReadNativeBookViewController *read = [[ReadNativeBookViewController alloc] init];
     read.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:read animated:YES];
     [read release];
 }
-
 @end
