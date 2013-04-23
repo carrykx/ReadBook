@@ -46,7 +46,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    text = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 350)];
+    if (iPhone5) {
+        text = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+    }else{
+        text = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+
     
     text.font = [UIFont systemFontOfSize:10.0];
     text.autoresizingMask = YES;
