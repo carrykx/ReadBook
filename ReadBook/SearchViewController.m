@@ -138,7 +138,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.searchBar.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
-    NSLog(@"%@",self.searchBar.text);
+//    NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
 }
 //自定义sectionTitle，使其背景颜色和整体界面一致

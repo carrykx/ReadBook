@@ -62,7 +62,7 @@
     self.saveArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     [self.tableView reloadData];
     
-    NSLog(@"%@",self.saveArray);
+//    NSLog(@"%@",self.saveArray);
     
 }
 - (void)didReceiveMemoryWarning
@@ -86,7 +86,6 @@
     }
     //设置单元格的内容
     bookSave * _bookSave = [[self.saveArray objectAtIndex:indexPath.row] retain];
-    NSLog(@"fffffff%@",_bookSave.name);
     _cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     _cell.textLabel.text = _bookSave.name;
     _cell.imageView.image = [UIImage imageNamed:@"bookMark.png"];

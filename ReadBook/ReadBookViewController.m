@@ -37,10 +37,10 @@
     _webRead.scalesPageToFit = YES;
     [_webRead loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_readUrl]]];
     [self.view addSubview:_webRead];
-    NSLog(@"ffff%@",self._readUrl);
+//    NSLog(@"ffff%@",self._readUrl);
     //获取当前网页标题
 //    self.title = [_webRead stringByEvaluatingJavaScriptFromString:@"document.title"];
-    NSLog(@"%@",[_webRead stringByEvaluatingJavaScriptFromString:@"document.title"]);
+//    NSLog(@"%@",[_webRead stringByEvaluatingJavaScriptFromString:@"document.title"]);
 }
 
 - (void)didReceiveMemoryWarning

@@ -89,7 +89,7 @@
         read  = [[[ReadBook alloc]init]autorelease];
         read.readBook = [NSString stringWithFormat:@"%@",string];
         read.image = self.imageString;
-        NSLog(@"%@",string);
+//        NSLog(@"%@",string);
         if (string == nil) {
             return ;
             
@@ -130,7 +130,7 @@
     float progressValue = _progressView.progress;
     
     progressValue       += [self.str floatValue]/1000.0f ;
-    NSLog(@"%f",progressValue);
+//    NSLog(@"%f",progressValue);
     if (progressValue > 1.0 )
     {
         
@@ -141,9 +141,6 @@
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
         text.text = [NSString stringWithFormat:@"%@",string ];
-
-        
-        
     }
     [_progressLabel setText:[NSString stringWithFormat:@"%.0f%%", progressValue *100.0 ]];
     [_progressView setProgress:progressValue];

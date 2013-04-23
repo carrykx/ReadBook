@@ -45,7 +45,7 @@
     }
     _booksave  = [[bookSave alloc]init];
     _booksave.name = self.nameString;
-    NSLog(@"你大爷%@",_booksave.name);
+//    NSLog(@"你大爷%@",_booksave.name);
     _booksave.urlString = self.urlString;
 }
 

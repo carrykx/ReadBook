@@ -135,15 +135,15 @@
     //json解析
  NSDictionary  * json = [_content JSONValue];
     [_content release];
-    NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
+//    NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
    readUrl =  [[NSString alloc]initWithFormat:@"%@",[[json objectForKey:@"result"]objectForKey:@"read_url"]];
     _readBook.title = [[json objectForKey:@"result"]objectForKey:@"name"];
     _readBook._readUrl = readUrl;
-     NSLog(@"%@",readUrl);
-     NSLog(@"%@",_readBook._readUrl);
-    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
+//     NSLog(@"%@",readUrl);
+ //    NSLog(@"%@",_readBook._readUrl);
+//    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
     if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"0"]) {
         NSLog(@"不能在线读");
         

@@ -100,6 +100,21 @@
 //去读书
 - (void)_pus:(id)sender
 {
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f-88.0f)];
+    backgroundView.alpha = 0.3;
+    backgroundView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:backgroundView];
+    
+    UIButton *button = (UIButton *)sender;
+    ReadBook * read = [self.items objectAtIndex:button.tag];
+    ReadNativeBookViewController *native = [[ReadNativeBookViewController alloc] init];
+    native.strAll = read.readBook;
+    //    NSLog(@"%@",read.readBook);
+    native.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:native animated:YES];
+    [native release];
+    NSLog(@"///");
+
 }
 
 @end
