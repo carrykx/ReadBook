@@ -38,6 +38,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor brownColor];
+    if (iPhone5) {
+        UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
+        _layout.itemSize = CGSizeMake(105, 138);
+        _layout.minimumInteritemSpacing = 0.0f;
+        _layout.minimumLineSpacing = 0.0f;
+        _layout.sectionInset = UIEdgeInsetsMake(2.5f, 2.5f, 0.0f, 0.0f);
+        UWCollectionView *_collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 468) collectionViewLayout:_layout];
+        _collectionView.collectionViewDataSource = self;
+        _collectionView.collectionViewDelegate = self;
+        [self.view addSubview:_collectionView];
+        //    [_collectionView release],_collectionView = nil;
+        //    [_layout release],_layout = nil;
+        NSString * string1 = NSHomeDirectory();
+        NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
+        self.items = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    }else{
     UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
     _layout.itemSize = CGSizeMake(105, 138);
     _layout.minimumInteritemSpacing = 0.0f;
@@ -53,7 +69,7 @@
     NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
     self.items = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
       }
-
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

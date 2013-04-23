@@ -33,14 +33,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
-    tableV.delegate = self;
-    tableV.dataSource = self;
-    tableV.backgroundColor = [UIColor brownColor];
-    self.tableView = tableV;
-    [self.view addSubview:tableV];
-    [tableV release];
-    
+    if (iPhone5) {
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 568-110) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor brownColor];
+        self.tableView = tableV;
+        [self.view addSubview:tableV];
+        [tableV release];
+
+    }else{
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor brownColor];
+        self.tableView = tableV;
+        [self.view addSubview:tableV];
+        [tableV release];
+
+    }
+      
 }
 -(void)viewWillAppear:(BOOL)animated
 {
