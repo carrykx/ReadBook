@@ -12,6 +12,7 @@
 #import "JSON.h"
 #import "ReadBookViewController.h"
 #import "DownLoadReadViewController.h"
+#import "MyBookViewController.h"
 @interface RecommendBookDetilViewController ()
 {
     UITableView * tableV;
@@ -171,6 +172,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
      DownLoadReadViewController * _downBook = [[DownLoadReadViewController alloc]init];
+    _downBook.imageString = self.str;
+
     if (indexPath.section == 0) {
        //ara 格式
         _downBook.downUrlString = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"url"];
@@ -183,7 +186,7 @@
         _downBook.str = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"size"];
         [self.navigationController pushViewController:_downBook animated:YES];
     }
-    
+    _downBook.title = self.title;
     [_downBook release],_downBook = nil;
 }
 //在线阅读
@@ -198,14 +201,14 @@
     [self.navigationController pushViewController:_readBook animated:YES];
     
 }
-////去本地书架
-//- (void)_readBookMark
-//{
-//    MyBookViewController * _myBook = [[MyBookViewController alloc]init];
-//    _myBook.strrr = self.str;
-//    [self.navigationController pushViewController:_myBook animated:YES];
-//    [_myBook release];
-//}
+//去本地书架
+- (void)_readBookMark
+{
+    MyBookViewController * _myBook = [[MyBookViewController alloc]init];
+    _myBook.strrr = self.str;
+    [self.navigationController pushViewController:_myBook animated:YES];
+    [_myBook release];
+}
 
 - (void)dealloc
 {
