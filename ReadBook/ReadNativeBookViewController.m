@@ -333,6 +333,7 @@
             [self creatTapForView:self.firstLabel];
             self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
             
+//            [self setWantsFullScreenLayout:YES];
             setTap = YES;
 
 
