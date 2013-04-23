@@ -112,7 +112,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 40.0;
+    return 80.0;
     
     
 }
@@ -148,10 +148,9 @@
     UILabel *label=[[[UILabel alloc] init] autorelease];
     label.frame=CGRectMake(100, 0, 120, 28);
     label.backgroundColor=[UIColor clearColor];
-    label.textColor=[UIColor blackColor];
+    label.textColor=[UIColor yellowColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font=[UIFont boldSystemFontOfSize:18];
-    label.textColor = [UIColor underPageBackgroundColor];
+    label.font=[UIFont boldSystemFontOfSize:22];
     label.text=sectionTitle;
 
     
