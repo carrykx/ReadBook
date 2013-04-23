@@ -10,7 +10,6 @@
 #import "UIImageView+WebCache.h"
 #import "RecommendBookDetilViewController.h"
 #import "CustomTableViewCell.h"
-
 @interface SelectResultsViewController ()
 
 @end
@@ -43,6 +42,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.FIRSTArray count];
 }
+//通过自定义创建的表格将搜索到的数据显示出来
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *indentifier=@"selectresultcell";
@@ -68,6 +68,7 @@
 {
     return 80.0;
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -75,7 +76,7 @@
 }
 
 #pragma mark - Table view data source
-
+//通过选择书籍跳转到书籍具体信息界面，包括阅读和下载功能
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
