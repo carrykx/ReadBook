@@ -32,6 +32,8 @@
         // Custom initialization
       
          _readBook = [[ReadBookViewController alloc]init];
+      
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我的书架" style:UIBarButtonSystemItemAction target:self action:@selector(_readBookMark)];
     }
     return self;
 }
@@ -196,6 +198,15 @@
     [self.navigationController pushViewController:_readBook animated:YES];
     
 }
+////去本地书架
+//- (void)_readBookMark
+//{
+//    MyBookViewController * _myBook = [[MyBookViewController alloc]init];
+//    _myBook.strrr = self.str;
+//    [self.navigationController pushViewController:_myBook animated:YES];
+//    [_myBook release];
+//}
+
 - (void)dealloc
 {
     [readUrl release];
