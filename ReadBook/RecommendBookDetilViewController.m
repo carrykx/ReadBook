@@ -172,11 +172,13 @@
     if (indexPath.section == 0) {
        //ara 格式
         _downBook.downUrlString = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"url"];
+         _downBook.str = [[self.arrayAra objectAtIndex:indexPath.row]objectForKey:@"size"];
         [self.navigationController pushViewController:_downBook animated:YES];
     }
     else{
        //txt 格式
         _downBook.downUrlString = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"url"];
+        _downBook.str = [[self.arrayTxt objectAtIndex:indexPath.row]objectForKey:@"size"];
         [self.navigationController pushViewController:_downBook animated:YES];
     }
     

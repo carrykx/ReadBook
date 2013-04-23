@@ -57,6 +57,7 @@
 		0F206C2B172135E20071CC23 /* SaveBookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F206C25172135E20071CC23 /* SaveBookMarkViewController.m */; };
 		0F206C2C172135E20071CC23 /* DownLoadReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F206C27172135E20071CC23 /* DownLoadReadViewController.m */; };
 		0F206C2D172135E20071CC23 /* bookSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F206C29172135E20071CC23 /* bookSave.m */; };
+		0F7FC5471725287600C136E5 /* ReadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC5461725287600C136E5 /* ReadBook.m */; };
 		0FDF223217200EF10043B444 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF223117200EF10043B444 /* AboutViewController.m */; };
 		0FDF2235172013920043B444 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF2234172013920043B444 /* SuggestViewController.m */; };
 		0FF75A78171F8F2900D6AE14 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF75A77171F8F2900D6AE14 /* CustomTableViewCell.m */; };
@@ -168,6 +169,8 @@
 		0F206C28172135E20071CC23 /* DownLoadReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadReadViewController.h; sourceTree = "<group>"; };
 		0F206C29172135E20071CC23 /* bookSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookSave.m; sourceTree = "<group>"; };
 		0F206C2A172135E20071CC23 /* bookSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookSave.h; sourceTree = "<group>"; };
+		0F7FC5451725287500C136E5 /* ReadBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBook.h; sourceTree = "<group>"; };
+		0F7FC5461725287600C136E5 /* ReadBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBook.m; sourceTree = "<group>"; };
 		0FDF223017200EF00043B444 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		0FDF223117200EF10043B444 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		0FDF2233172013920043B444 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				0F206C28172135E20071CC23 /* DownLoadReadViewController.h */,
 				0F206C29172135E20071CC23 /* bookSave.m */,
 				0F206C2A172135E20071CC23 /* bookSave.h */,
+				0F7FC5451725287500C136E5 /* ReadBook.h */,
+				0F7FC5461725287600C136E5 /* ReadBook.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				0F206C2C172135E20071CC23 /* DownLoadReadViewController.m in Sources */,
 				0F206C2D172135E20071CC23 /* bookSave.m in Sources */,
 				0F1A80961721488300DC99C7 /* SelectResultsViewController.m in Sources */,
+				0F7FC5471725287600C136E5 /* ReadBook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
