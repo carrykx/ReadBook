@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "ReadBookViewController.h"
 #import "SelectResultsViewController.h"
+#import "JSON.h"
 @interface SearchViewController ()
 @property(nonatomic,retain)NSMutableArray *beforeArray;
 @property(nonatomic,retain)NSMutableArray *Firstarray;
@@ -30,6 +31,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.tableView.backgroundColor = [UIColor brownColor];
+
     }
     return self;
 }
@@ -45,12 +48,12 @@
     self.navigationItem.backBarButtonItem = backbutton;
     [backbutton release];
     UISearchBar *searchbar = [[UISearchBar alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0,50.0)];
-    
-    
+    //创建tableView的headerview将searbar添加上去
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 60.0)];
     searchbar.placeholder = @"请输入你想找的书籍名称";
     searchbar.delegate =self;
     searchbar.tintColor = [UIColor brownColor];
+    
     
     self.searchBar = searchbar;
     [headerView addSubview:searchbar];
@@ -59,13 +62,13 @@
     [headerView release];
     //通过网络请求获取热门搜索词相关信息
     NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/hotword?p=1&psize=10"];
-    NSString *appkey = @"79d44eca5e871396bafa661b211400a6";
+    NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
     NSError *error;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
     //    NSLog(@"%@",[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
-    
+   //将数据转化成json数据存放再字典里
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
     //    NSLog(@"%@",[[NSString  alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
     //将获取的热门搜索书籍相关数据存放到数组里
@@ -78,16 +81,17 @@
     [searchBar setShowsCancelButton:YES animated:YES];
     return YES;
 }
-//seachbar键盘search键点击根据输入关键字获取网络信息
+//seachbar键盘search键点击根据输入关键字获取网络信息并将试图切换到搜索结果显示界面
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     //[self.Firstarray removeAllObjects];
     [self getRequeset:self.searchBar.text p:1 psize:10];
-    
+    //按搜索键时关闭键盘
     [searchBar resignFirstResponder];
     SelectResultsViewController *secondView = [[SelectResultsViewController alloc]initWithStyle:UITableViewStylePlain];
     secondView.FIRSTArray = self.Firstarray;
+    NSLog(@"%@",self.Firstarray);
     [self.navigationController pushViewController:secondView animated:YES];
-    
+    [secondView release],secondView = nil;
 }
 //searchbar删除按钮
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
@@ -100,14 +104,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    //判断是否时当前单元格，是显示当前获取热门搜索词的数据，不是则显示通过搜索获取的数据
+    
     
     return [self.beforeArray count];
     
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //通过判断设置单元格高度
     
     return 80.0;
     
@@ -128,28 +131,54 @@
     return cell;
     
 }
-
+//将选择的热门关键词传递给searchBar.text并显示出来，打开searchBar键盘
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.searchBar.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
     NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
 }
+//自定义sectionTitle，使其背景颜色和整体界面一致
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSString *sectionTitle=[self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle==nil) {
+        return nil;
+    }
+    
+    // Create label with section title
+    UILabel *label=[[[UILabel alloc] init] autorelease];
+    label.frame=CGRectMake(100, 0, 120, 28);
+    label.backgroundColor=[UIColor clearColor];
+    label.textColor=[UIColor yellowColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font=[UIFont boldSystemFontOfSize:22];
+    label.text=sectionTitle;
 
+    
+    // Create header view and add label as a subview
+    UIView *sectionView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)] autorelease];
+    [sectionView setBackgroundColor:[UIColor brownColor]];
+    [sectionView addSubview:label];
+    return sectionView;}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+     
+    return @"热门搜索词";
+}
+//通过点击search键获取的网络请求
 -(void)getRequeset:(NSString*)searchText p:(NSInteger)p psize:(NSInteger)psize;
 {
     NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/search?q=%@&p=%d&psize=%d",[self.searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],p,psize];
-    NSString *appkey = @"79d44eca5e871396bafa661b211400a6";
+    NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
-    NSError *error;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
-    NSLog(@"%@",[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding]);
-    
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
-    
-    self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
-    
-}
+   
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *stringValue = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSDictionary *dic =[stringValue JSONValue];
+        
+        self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
+    }
+   
+
 
 
 - (void)didReceiveMemoryWarning

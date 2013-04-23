@@ -72,7 +72,7 @@
     UWView *_itemCell = (UWView *)[collectionView dequeueReusableView];
     
     if (_itemCell == nil) {
-        _itemCell = [[UWView alloc] initWithFrame:CGRectZero];
+        _itemCell = [[[UWView alloc] initWithFrame:CGRectZero]autorelease];
     }
     
     

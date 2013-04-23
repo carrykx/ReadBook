@@ -44,7 +44,7 @@
         [self _context];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_nsnotificationSave:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
     }
-    if (_isNew) {
+    if (_isNew == YES) {
         //是新数据就插入
         [self _insertData];
           }
@@ -70,6 +70,7 @@
      NSString *_content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //json解析数据
     NSDictionary * json = [_content JSONValue];
+    [_content release];
        NSArray * array = [json objectForKey:@"result"];
     
     if ([array count] == 0) {
@@ -146,6 +147,7 @@
     }
     if (![_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:kSQLiteURL] options:_option error:&error]){
         abort();
+        
     }
     return _coordinator;
 }
@@ -168,5 +170,12 @@
 - (void)save
 {
     [self _nsnotificationSave:nil];
+}
+- (void)dealloc
+{
+    [_context release];
+    [_model release];
+    [_coordinator release];
+    [super dealloc];
 }
 @end

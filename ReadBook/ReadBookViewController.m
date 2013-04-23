@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-     _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -100, 320, 450)];
+     _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -100, 320, 470)];
     _webRead.scalesPageToFit = YES;
     [_webRead loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_readUrl]]];
     [self.view addSubview:_webRead];
@@ -54,15 +54,18 @@
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 {
+    
     if (buttonIndex == 0) {
         SaveBookMarkViewController * saveBookMark = [[SaveBookMarkViewController alloc]init];
         saveBookMark.nameString = self.title;
         saveBookMark.urlString = [_webRead stringByEvaluatingJavaScriptFromString:@"document.URL"];
         [self.navigationController pushViewController:saveBookMark animated:YES];
+        [saveBookMark release], saveBookMark = nil;
     }
     else
     {
         return;
     }
+    
 }
 @end
