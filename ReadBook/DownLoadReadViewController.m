@@ -9,6 +9,7 @@
 #import "DownLoadReadViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ReadBook.h"
+#import "MyBookViewController.h"
 @interface DownLoadReadViewController ()
 {
     NSTimer * _progressTimer;
@@ -16,7 +17,9 @@
     UILabel * label;
     ReadBook * read;
     UITextView * text;
+    MyBookViewController * _myBook ;
     int i;
+    NSString * string;
     NSInteger page;
 }
 @end
@@ -24,6 +27,8 @@
 @implementation DownLoadReadViewController
 @synthesize downUrlString;
 @synthesize str;
+@synthesize imageString;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +36,7 @@
         // Custom initialization
          i = 1;
         page = 1;
+         _myBook  = [[MyBookViewController alloc]init];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"下一页" style:UIBarButtonSystemItemAction target:self action:@selector(_next)];
     }
     return self;
@@ -74,14 +80,22 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *rrr, NSData *data, NSError *ffff) {
         NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 
-        NSString * string = [[NSString alloc]initWithData:data encoding:encoding];
-          text.text = [NSString stringWithFormat:@"%@",string ];
+        string = [[NSString alloc]initWithData:data encoding:encoding];
         read  = [[[ReadBook alloc]init]autorelease];
         read.readBook = [NSString stringWithFormat:@"%@",string];
+        read.image = self.imageString;
         NSLog(@"%@",string);
-        NSString * string1 = NSHomeDirectory();
-        NSString * filePath = [string1 stringByAppendingFormat:@"readbook.txt"];
-        [NSKeyedArchiver archiveRootObject:read toFile:filePath];
+        if (string == nil) {
+            return ;
+            
+        }
+        else{
+            NSString * string1 = NSHomeDirectory();
+            NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
+            _myBook.items = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:filePath]];
+            [_myBook.items addObject:read];
+            [NSKeyedArchiver archiveRootObject:_myBook.items toFile:filePath];
+        }
     }];
    
 
@@ -105,42 +119,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark webView delegate motheds
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [_progressActive startAnimating];
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(_changeProgressValue) userInfo:nil repeats:YES];
-   }
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    float progressValue = _progressView.progress;
-    progressValue = 0.0;
-    [_progressTimer invalidate];
-    [_progressActive stopAnimating];
-    [view removeFromSuperview];
-}
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    
-}
+
 - (void)_changeProgressValue
 {
-        float progressValue = _progressView.progress;
+    float progressValue = _progressView.progress;
     
-    progressValue       += 0.01f;
-//    if (progressValue > 1.0)
-//    {
-//       
-//        progressValue = 0.0;
-//        [_progressTimer invalidate];
-//        [_progressActive stopAnimating];
-//        [view removeFromSuperview];
-//        
-//       
-//
-//    }
-     [_progressLabel setText:[NSString stringWithFormat:@"%.0f%%", (progressValue * 100)]];
-    [_progressView setProgress:progressValue];
+    progressValue       += [self.str floatValue]/1000.0f ;
+    NSLog(@"%f",progressValue);
+    if (progressValue > 1.0 )
+    {
+        
+        progressValue = 0.0;
+        [_progressTimer invalidate];
+        [_progressActive stopAnimating];
+        [view removeFromSuperview];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        text.text = [NSString stringWithFormat:@"%@",string ];
 
+        
+        
+    }
+    [_progressLabel setText:[NSString stringWithFormat:@"%.0f%%", progressValue *100.0 ]];
+    [_progressView setProgress:progressValue];
 }
 @end

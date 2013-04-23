@@ -21,4 +21,6 @@
 @property (nonatomic , retain) NSString * downUrlString;
 //下载内容大小
 @property (nonatomic ,retain) NSNumber *str;
+@property (nonatomic ,retain) NSString * imageString;
+
 @end
