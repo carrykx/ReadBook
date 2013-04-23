@@ -54,6 +54,7 @@
     searchbar.delegate =self;
     searchbar.tintColor = [UIColor brownColor];
     
+    
     self.searchBar = searchbar;
     [headerView addSubview:searchbar];
     [searchbar release];
@@ -61,7 +62,7 @@
     [headerView release];
     //通过网络请求获取热门搜索词相关信息
     NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/hotword?p=1&psize=10"];
-    NSString *appkey = @"79d44eca5e871396bafa661b211400a6";
+    NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
     NSError *error;
@@ -103,14 +104,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    //判断是否时当前单元格，是显示当前获取热门搜索词的数据，不是则显示通过搜索获取的数据
+    
     
     return [self.beforeArray count];
     
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //通过判断设置单元格高度
     
     return 40.0;
     
@@ -137,11 +137,36 @@
     NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
 }
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSString *sectionTitle=[self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle==nil) {
+        return nil;
+    }
+    
+    // Create label with section title
+    UILabel *label=[[[UILabel alloc] init] autorelease];
+    label.frame=CGRectMake(100, 0, 120, 28);
+    label.backgroundColor=[UIColor clearColor];
+    label.textColor=[UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font=[UIFont boldSystemFontOfSize:18];
+    label.textColor = [UIColor underPageBackgroundColor];
+    label.text=sectionTitle;
 
+    
+    // Create header view and add label as a subview
+    UIView *sectionView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)] autorelease];
+    [sectionView setBackgroundColor:[UIColor brownColor]];
+    [sectionView addSubview:label];
+    return sectionView;}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+     
+    return @"热门搜索词";
+}
 -(void)getRequeset:(NSString*)searchText p:(NSInteger)p psize:(NSInteger)psize;
 {
     NSString *urlStr=[NSString stringWithFormat:@"http://api.shupeng.com/search?q=%@&p=%d&psize=%d",[self.searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],p,psize];
-    NSString *appkey = @"79d44eca5e871396bafa661b211400a6";
+    NSString *appkey = @"df6df696f6339c461cccd5ca357c7172";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     [request setValue:appkey forHTTPHeaderField:@"User-Agent"];
    

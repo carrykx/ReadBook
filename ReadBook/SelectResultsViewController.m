@@ -68,6 +68,7 @@
 {
     return 80.0;
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
