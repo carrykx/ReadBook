@@ -71,7 +71,6 @@
 }
 - (void)_no
 {
-    NSLog(@"1111111");
     NSArray * arr = [[NSArray alloc]initWithObjects:@"红",@"绿",@"黑",@"白",@"紫",@"蓝",@"粉", nil];
     if (_first == YES)
     {

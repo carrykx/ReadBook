@@ -117,7 +117,7 @@
 - (void)_pus:(id)sender
 {
     // 点击完之后添加一个半透明的背景
-    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f-88.0f)];
+    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, self.view.bounds.size.height)];
     _backgroundView.alpha = 0.5;
     _backgroundView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_backgroundView];
