@@ -10,10 +10,12 @@
 #import "AboutViewController.h"
 #import "SuggestViewController.h"
 #import "MyBookViewController.h"
+#import "ChangeViewController.h"
 @interface MoreViewController ()
 
 @property (retain, nonatomic) UITableView *contentTable;
-
+@property(nonatomic,retain)UIColor *color;
+@property(nonatomic,retain)UIColor *textColor;
 @end
 
 @implementation MoreViewController
@@ -40,6 +42,9 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor brownColor];
     [self creatTable];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_changetextColor:) name:KNSNotificationChangeTextColor object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_changebackgroundColor:) name:KNSNotificationChangebackgroundColor object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +68,14 @@
     
     [self.view addSubview:self.contentTable];
     
+}
+-(void)_changebackgroundColor:(NSNotification *)notification
+{
+    self.color=[notification object];
+}
+-(void)_changetextColor:(NSNotification *)notification
+{
+    self.textColor = [notification object];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -145,16 +158,18 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             MyBookViewController * _readd = [[MyBookViewController alloc]init];
-           
+            _readd.color = self.color;
+            _readd.textColor = self.textColor;
             [self.navigationController pushViewController:_readd animated:YES];
         }
     }else if (indexPath.section == 1)
     {
         if (indexPath.row == 0) {
-
+            ChangeViewController * change = [[ChangeViewController alloc]init];
+            [self.navigationController pushViewController:change animated:YES];
         }else if (indexPath.row == 1)
         {
-
+           
         }
     }else if (indexPath.section == 2)
     {

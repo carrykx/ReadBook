@@ -108,6 +108,8 @@
     [self.view addSubview:textLabel1];
     self.firstLabel = textLabel1;
     self.firstLabel.userInteractionEnabled = YES;
+    self.firstLabel.textColor = self.textColor;
+    self.firstLabel.backgroundColor  = self.color;
     [textLabel1 release];
    
 }
@@ -231,6 +233,8 @@
         
         UILabel* textLabel2 = [[UILabel alloc] init];
         textLabel2.font = [UIFont systemFontOfSize:14];
+        textLabel2.textColor = self.textColor;
+        textLabel2.backgroundColor = self.color;
         if (setTap == NO) {
             textLabel2.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
         }else
