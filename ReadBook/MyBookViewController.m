@@ -152,6 +152,10 @@
     
     ReadNativeBookViewController *native = [[ReadNativeBookViewController alloc] init];
     native.strAll = read.readBook;
+    //阅读背景色
+    native.color = self.color;
+    //阅读文字色
+    native.textColor = self.textColor;
     //    NSLog(@"%@",read.readBook);
     native.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:native animated:YES];
