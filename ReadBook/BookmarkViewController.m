@@ -85,6 +85,7 @@
         _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     //设置单元格的内容
+    _cell.selectionStyle = UITableViewCellSelectionStyleGray;
     bookSave * _bookSave = [[self.saveArray objectAtIndex:indexPath.row] retain];
     _cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     _cell.textLabel.text = _bookSave.name;
@@ -122,6 +123,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ReadBookViewController * _readBook = [[ReadBookViewController alloc]init];
     bookSave * _bookSave = [self.saveArray objectAtIndex:indexPath.row];
     _readBook._readUrl = _bookSave.urlString;

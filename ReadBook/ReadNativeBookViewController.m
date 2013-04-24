@@ -102,7 +102,7 @@
 //    {
         textLabel1.frame = CGRectMake(0, 0, self.view.bounds.size.width, 460.0f);
 //    }
-    
+//    [textLabel1 setBackgroundColor:[UIColor grayColor]];
     textLabel1.numberOfLines = 0;
     textLabel1.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:textLabel1];
@@ -165,7 +165,7 @@
                     temporaryStr = [self.strAll substringWithRange:onePageOnStr];
                     CGSize temporarySize = [temporaryStr sizeWithFont:self.firstLabel.font constrainedToSize:CGSizeMake(self.firstLabel.frame.size.width, MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];
                     if (temporarySize.height > self.firstLabel.frame.size.height) {
-                        onePageOnStr.length = onePageOnStr.length - 2;
+                        onePageOnStr.length = onePageOnStr.length - 1;
                     }else
                     {
                         break;
