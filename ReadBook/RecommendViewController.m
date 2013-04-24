@@ -35,6 +35,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor brownColor];
+    if (iPhone5) {
+        UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
+        _layout.itemSize = CGSizeMake(105, 138);
+        _layout.minimumInteritemSpacing = 0.0f;
+        _layout.minimumLineSpacing = 0.0f;
+        _layout.sectionInset = UIEdgeInsetsMake(2.5f, 2.5f, 0.0f, 0.0f);
+        UWCollectionView *_collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 568-100) collectionViewLayout:_layout];
+        _collectionView.collectionViewDataSource = self;
+        _collectionView.collectionViewDelegate = self;
+        [self.view addSubview:_collectionView];
+        [_collectionView release],_collectionView = nil;
+        [_layout release],_layout = nil;
+        self.items = [[DefaultManager defaultManager]bookList];
+    }else{
        UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
     _layout.itemSize = CGSizeMake(105, 138);
     _layout.minimumInteritemSpacing = 0.0f;
@@ -48,7 +62,7 @@
     [_layout release],_layout = nil;  
     self.items = [[DefaultManager defaultManager]bookList];
 //    NSLog(@"gggg%@",self.items);
-
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -105,7 +119,7 @@
 
      [self.navigationController pushViewController:_detail animated:YES];
      _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
-    NSLog(@"%@",book.url);
+//    NSLog(@"%@",book.url);
     [_detail release];
 }
 @end

@@ -10,4 +10,6 @@
 
 @interface ReadNativeBookViewController : UIViewController<UIGestureRecognizerDelegate>
 
+@property (retain, nonatomic) NSString *strAll;     // 传进来的字符串,也就是书的所有内容
+
 @end

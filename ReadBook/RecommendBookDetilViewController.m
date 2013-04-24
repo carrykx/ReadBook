@@ -44,38 +44,71 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor brownColor];
-    UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
- 
-    NSURL *url = [NSURL URLWithString:self.str];
-    [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
-    [self.view addSubview:imageV];
-    [imageV release];
-  label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
-    label.font = [UIFont systemFontOfSize:15.0];
-    label.autoresizingMask = YES;
-    label.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:label];
-    //在线阅读
+    if (iPhone5) {
+        UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
+        
+        NSURL *url = [NSURL URLWithString:self.str];
+        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
+        [self.view addSubview:imageV];
+        [imageV release];
+        label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
+        label.font = [UIFont systemFontOfSize:15.0];
+        label.autoresizingMask = YES;
+        label.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:label];
+        //在线阅读
         UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    readButton.frame = CGRectMake(10, 170, 100, 30);
-    readButton.backgroundColor = [UIColor redColor];
-    [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
-    [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:readButton];
-    //下载阅读
-    UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    downloadButton.frame = CGRectMake(10, 230, 100, 30);
-    [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
-    [downloadButton addTarget:self action:@selector(_down) forControlEvents:UIControlEventTouchUpInside];
-    downloadButton.backgroundColor = [UIColor redColor];
-    [self.view addSubview:downloadButton];
-    tableV = [[UITableView alloc]initWithFrame:CGRectMake(125, 150, 182, 210) style:UITableViewStylePlain];
-    tableV.delegate = self;
-    tableV.dataSource = self;
-    tableV.backgroundColor = [UIColor clearColor];
-    tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-   
+        readButton.frame = CGRectMake(10, 220, 100, 30);
+        readButton.backgroundColor = [UIColor redColor];
+        [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
+        [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:readButton];
+        //下载阅读
+        UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        downloadButton.frame = CGRectMake(10, 300, 100, 30);
+        [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
+        [downloadButton addTarget:self action:@selector(_down) forControlEvents:UIControlEventTouchUpInside];
+        downloadButton.backgroundColor = [UIColor redColor];
+        [self.view addSubview:downloadButton];
+        tableV = [[UITableView alloc]initWithFrame:CGRectMake(125, 180, 182, 275) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor clearColor];
+        tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    else{
+        UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
+        
+        NSURL *url = [NSURL URLWithString:self.str];
+        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
+        [self.view addSubview:imageV];
+        [imageV release];
+        label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
+        label.font = [UIFont systemFontOfSize:15.0];
+        label.autoresizingMask = YES;
+        label.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:label];
+        //在线阅读
+        UIButton *readButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        readButton.frame = CGRectMake(10, 170, 100, 30);
+        readButton.backgroundColor = [UIColor redColor];
+        [readButton setTitle:@"马上阅读" forState:UIControlStateNormal];
+        [readButton addTarget:self action:@selector(_read) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:readButton];
+        //下载阅读
+        UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        downloadButton.frame = CGRectMake(10, 230, 100, 30);
+        [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
+        [downloadButton addTarget:self action:@selector(_down) forControlEvents:UIControlEventTouchUpInside];
+        downloadButton.backgroundColor = [UIColor redColor];
+        [self.view addSubview:downloadButton];
+        tableV = [[UITableView alloc]initWithFrame:CGRectMake(125, 150, 182, 210) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor clearColor];
+        tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+    }
    }
 
 - (void)didReceiveMemoryWarning
@@ -102,15 +135,15 @@
     //json解析
  NSDictionary  * json = [_content JSONValue];
     [_content release];
-    NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
+//    NSLog(@"_+_+_+_+_+__+_+_+_+_+_++_+_+_+_+%@",json);
    self.arrayAra = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"rar"];
    self.arrayTxt = [[[json objectForKey:@"result"]objectForKey:@"links"]objectForKey:@"txt"];
    readUrl =  [[NSString alloc]initWithFormat:@"%@",[[json objectForKey:@"result"]objectForKey:@"read_url"]];
     _readBook.title = [[json objectForKey:@"result"]objectForKey:@"name"];
     _readBook._readUrl = readUrl;
-     NSLog(@"%@",readUrl);
-     NSLog(@"%@",_readBook._readUrl);
-    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
+//     NSLog(@"%@",readUrl);
+ //    NSLog(@"%@",_readBook._readUrl);
+//    NSLog(@"%@",[[json objectForKey:@"result"]objectForKey:@"online"]);
     if ([[[json objectForKey:@"result"]objectForKey:@"online"] isEqual:@"0"]) {
         NSLog(@"不能在线读");
         

@@ -30,15 +30,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    if (iPhone5) {
+        _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -100, 320, 558)];
+    }
      _webRead = [[UIWebView alloc]initWithFrame:CGRectMake(0, -100, 320, 470)];
     _webRead.scalesPageToFit = YES;
     [_webRead loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_readUrl]]];
     [self.view addSubview:_webRead];
-    NSLog(@"ffff%@",self._readUrl);
+//    NSLog(@"ffff%@",self._readUrl);
     //获取当前网页标题
 //    self.title = [_webRead stringByEvaluatingJavaScriptFromString:@"document.title"];
-    NSLog(@"%@",[_webRead stringByEvaluatingJavaScriptFromString:@"document.title"]);
+//    NSLog(@"%@",[_webRead stringByEvaluatingJavaScriptFromString:@"document.title"]);
 }
 
 - (void)didReceiveMemoryWarning

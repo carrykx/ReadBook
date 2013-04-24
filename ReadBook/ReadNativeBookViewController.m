@@ -11,10 +11,9 @@
 
 @interface ReadNativeBookViewController ()
 
-@property (retain, nonatomic) NSString *strAll;     // 传进来的字符串,也就是书的所有内容
 @property (retain, nonatomic) UILabel *firstLabel;
 @property (retain, nonatomic) UILabel *secondLabel;
-@property (assign, nonatomic) NSRange *everyPageRanges;     // 保存每页显示字符范围的NSRange数组
+@property (retain, nonatomic) NSMutableArray *everyPageRanges;     // 保存每页显示字符范围的NSRange数组
 @property (retain, nonatomic) UIBarButtonItem *showPage;
 @property (retain, nonatomic) UIToolbar *toobar;
 
@@ -29,6 +28,7 @@
 
 - (void)dealloc
 {
+    [_everyPageRanges release];
     [_toobar release];
     [_showPage release];
     [_strAll release];
@@ -51,7 +51,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.strAll = @"d\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\ndn\n\nddd\nd-------\nd\ndn\nd\nd\nd\nd\nd\nd\n--------d\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\ndddddddddddddddddn\nd\nd\ndn\n\ndn\nd\nd\nd\nd\nd\nd\nd\nd\nd\ndn\n\nd\nd\nd\nd\nd\nd\nd\nd";
     currentPage = 1;
     setTap = NO;
 
@@ -103,7 +102,7 @@
 //    {
         textLabel1.frame = CGRectMake(0, 0, self.view.bounds.size.width, 460.0f);
 //    }
-    
+//    [textLabel1 setBackgroundColor:[UIColor grayColor]];
     textLabel1.numberOfLines = 0;
     textLabel1.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:textLabel1];
@@ -128,8 +127,12 @@
             // 估算每一页可以容纳多少个字符
             NSInteger onePageInt = self.strAll.length/estimate;
             // 初始化保存每页字符范围的数组
-            self.everyPageRanges = malloc(estimate * sizeof(NSRange));
-            memset(self.everyPageRanges, 0, estimate * sizeof(NSRange));
+            self.everyPageRanges = [NSMutableArray array];
+//            self.everyPageRanges = malloc(estimate * sizeof(NSRange));
+//            memset(self.everyPageRanges, 0, estimate * sizeof(NSRange));
+            
+//            NSRange range = NSMakeRange(0, 1);
+//            [NSValue valueWithRange:range] rangeValue
 
             // 页数
             int page = 0;
@@ -162,7 +165,7 @@
                     temporaryStr = [self.strAll substringWithRange:onePageOnStr];
                     CGSize temporarySize = [temporaryStr sizeWithFont:self.firstLabel.font constrainedToSize:CGSizeMake(self.firstLabel.frame.size.width, MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];
                     if (temporarySize.height > self.firstLabel.frame.size.height) {
-                        onePageOnStr.length = onePageOnStr.length - 2;
+                        onePageOnStr.length = onePageOnStr.length - 1;
                     }else
                     {
                         break;
@@ -170,21 +173,24 @@
                 }
                 
                 // 保存到NSRange数组中当前页显示的字符串范围
-                if (page > estimate) {
-                    estimate += 10;
-                    self.everyPageRanges = malloc(estimate * sizeof(NSRange));
-                }else{
-                    self.everyPageRanges[page] = onePageOnStr;
-                    page ++;
-                }
+                [self.everyPageRanges addObject:[NSValue valueWithRange:onePageOnStr]];
+                page ++;
+//                if (page > estimate) {
+//                    estimate += 10;
+//                    self.everyPageRanges = malloc(estimate * sizeof(NSRange));
+//                }else{
+//                    self.everyPageRanges[page] = onePageOnStr;
+//                    NSLog(@"onePage,loction:%d,length:%d",onePageOnStr.location,onePageOnStr.length);
+//                    page ++;
+//                }
                 
                 // 修改loction的值
                 loction = onePageOnStr.location + onePageOnStr.length;
             }
             totalPages = page;
         }
-        self.firstLabel.text = [self.strAll substringWithRange:self.everyPageRanges[currentPage-1]];
-//        NSLog(@"NSRange,loc:%d,len:%d",self.everyPageRanges[currentPage-1].location,self.everyPageRanges[currentPage-1].length);
+        self.firstLabel.text = [self.strAll substringWithRange:[[self.everyPageRanges objectAtIndex:currentPage-1] rangeValue]];
+//        NSLog(@"NSRange,loc:%d,len:%d",[[self.everyPageRanges objectAtIndex:currentPage] rangeValue].location,[[self.everyPageRanges objectAtIndex:currentPage] rangeValue].length);
 //        NSLog(@"%@",[self.strAll substringWithRange:self.everyPageRanges[currentPage-1]]);
     }
 }
@@ -250,13 +256,14 @@
 //            [label release];
 //        }else
 //        {
-            self.secondLabel.text = [self.strAll substringWithRange:self.everyPageRanges[currentPage]];
 
 //        }
         [textLabel2 release];
 //        self.secondLabel.userInteractionEnabled = YES;
         
         self.firstLabel.layer.hidden = YES;
+        self.secondLabel.text = [self.strAll substringWithRange:[[self.everyPageRanges objectAtIndex:currentPage] rangeValue]];
+
         // 显示完之后显示第二页;
         currentPage = currentPage + 1;
         CATransition *animation = [CATransition animation];
@@ -286,7 +293,7 @@
         currentPage = currentPage - 1;
 
         self.firstLabel.layer.hidden = NO;
-        self.firstLabel.text = [self.strAll substringWithRange:self.everyPageRanges[currentPage-1]];
+        self.firstLabel.text = [self.strAll substringWithRange:[[self.everyPageRanges objectAtIndex:currentPage-1] rangeValue]];
 
 
         CATransition *animation = [CATransition animation];
@@ -315,7 +322,7 @@
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
     CGPoint tapPoint = [sender locationInView:self.firstLabel];
-    NSLog(@"%f",tapPoint.y);
+//    NSLog(@"%f",tapPoint.y);
     if (tapPoint.y > 50.0f && tapPoint.y < 360.0f) {
         if (setTap == NO) {
             [UIView beginAnimations:@"toobar" context:NULL];
@@ -332,7 +339,10 @@
             
             [self creatTapForView:self.firstLabel];
             self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
+            self.firstLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
+
             
+//            [self setWantsFullScreenLayout:YES];
             setTap = YES;
 
 
@@ -341,7 +351,7 @@
 //            [self creatLabel];
 //            [self calculateOnePageRangeOnStrAll];
             [self creatTapForView:self.firstLabel];
-            if (currentPage == 4) {
+            if (currentPage == totalPages-1) {
                 self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
                 
             }else{

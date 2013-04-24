@@ -31,14 +31,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 380) style:UITableViewStyleGrouped];
-    tableV.delegate = self;
-    tableV.dataSource = self;
-    [self.view addSubview:tableV];
+    if (iPhone5) {
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 568-100) style:UITableViewStyleGrouped];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        [self.view addSubview:tableV];
+    }
+    else{
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 480-100) style:UITableViewStyleGrouped];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        [self.view addSubview:tableV];
+    }
     _booksave  = [[bookSave alloc]init];
     _booksave.name = self.nameString;
-    NSLog(@"你大爷%@",_booksave.name);
+//    NSLog(@"你大爷%@",_booksave.name);
     _booksave.urlString = self.urlString;
 }
 

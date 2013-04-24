@@ -33,14 +33,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
-    tableV.delegate = self;
-    tableV.dataSource = self;
-    tableV.backgroundColor = [UIColor brownColor];
-    self.tableView = tableV;
-    [self.view addSubview:tableV];
-    [tableV release];
-    
+    if (iPhone5) {
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 568-110) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor brownColor];
+        self.tableView = tableV;
+        [self.view addSubview:tableV];
+        [tableV release];
+
+    }else{
+        UITableView * tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
+        tableV.delegate = self;
+        tableV.dataSource = self;
+        tableV.backgroundColor = [UIColor brownColor];
+        self.tableView = tableV;
+        [self.view addSubview:tableV];
+        [tableV release];
+
+    }
+      
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -50,7 +62,7 @@
     self.saveArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     [self.tableView reloadData];
     
-    NSLog(@"%@",self.saveArray);
+//    NSLog(@"%@",self.saveArray);
     
 }
 - (void)didReceiveMemoryWarning
@@ -73,8 +85,8 @@
         _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     //设置单元格的内容
+    _cell.selectionStyle = UITableViewCellSelectionStyleGray;
     bookSave * _bookSave = [[self.saveArray objectAtIndex:indexPath.row] retain];
-    NSLog(@"fffffff%@",_bookSave.name);
     _cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     _cell.textLabel.text = _bookSave.name;
     _cell.imageView.image = [UIImage imageNamed:@"bookMark.png"];
@@ -111,6 +123,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ReadBookViewController * _readBook = [[ReadBookViewController alloc]init];
     bookSave * _bookSave = [self.saveArray objectAtIndex:indexPath.row];
     _readBook._readUrl = _bookSave.urlString;

@@ -128,7 +128,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.searchBar.text = [[self.beforeArray objectAtIndex:indexPath.row]objectForKey:@"name"];
-    NSLog(@"%@",self.searchBar.text);
+//    NSLog(@"%@",self.searchBar.text);
     [self.searchBar becomeFirstResponder];
 }
 //将搜索栏和热门搜索词标题添加到SectionHeaderView中，始终显示给用户
@@ -166,7 +166,7 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *stringValue = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
     NSDictionary *dic =[stringValue JSONValue];
-        
+    
     self.Firstarray = [[dic objectForKey:@"result" ] objectForKey:@"matches"];
 }
    
