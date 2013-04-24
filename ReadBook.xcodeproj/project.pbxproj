@@ -70,6 +70,7 @@
 		7219F295171E7DD600E1CD9E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F294171E7DD600E1CD9E /* Book.m */; };
 		72A060881727793A00F0CE3C /* Default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72A060871727793A00F0CE3C /* Default.jpg */; };
 		72A0608B17277B0E00F0CE3C /* ChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A0608A17277B0E00F0CE3C /* ChangeViewController.m */; };
+		72A0608D172781D000F0CE3C /* imgOn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A0608C172781D000F0CE3C /* imgOn1.png */; };
 		72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A64117171EB98900C70203 /* ReadBookViewController.m */; };
 		72A6411A171EB98900C70203 /* ReadBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A64118171EB98900C70203 /* ReadBookViewController.xib */; };
 		72A6411E171EC1E800C70203 /* tabbar_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411D171EC1E800C70203 /* tabbar_search.png */; };
@@ -189,6 +190,7 @@
 		72A060871727793A00F0CE3C /* Default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default.jpg; sourceTree = "<group>"; };
 		72A0608917277B0E00F0CE3C /* ChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeViewController.h; sourceTree = "<group>"; };
 		72A0608A17277B0E00F0CE3C /* ChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeViewController.m; sourceTree = "<group>"; };
+		72A0608C172781D000F0CE3C /* imgOn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgOn1.png; sourceTree = "<group>"; };
 		72A64116171EB98900C70203 /* ReadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBookViewController.h; sourceTree = "<group>"; };
 		72A64117171EB98900C70203 /* ReadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBookViewController.m; sourceTree = "<group>"; };
 		72A64118171EB98900C70203 /* ReadBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBookViewController.xib; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		0F01B3F2171C1D69005AB97A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				72A0608C172781D000F0CE3C /* imgOn1.png */,
 				0FF6FEFA17276EA200FD26D8 /* jiazai.png */,
 				0FF6FEF817276E5700FD26D8 /* tableCellBackgournd@2x.png */,
 				0FF75A7D171F9BB200D6AE14 /* beijing.png */,
@@ -539,6 +542,7 @@
 				0FF6FEF917276E5700FD26D8 /* tableCellBackgournd@2x.png in Resources */,
 				0FF6FEFB17276EA200FD26D8 /* jiazai.png in Resources */,
 				72A060881727793A00F0CE3C /* Default.jpg in Resources */,
+				72A0608D172781D000F0CE3C /* imgOn1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
