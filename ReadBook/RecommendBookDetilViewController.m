@@ -48,7 +48,7 @@
         UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
         
         NSURL *url = [NSURL URLWithString:self.str];
-        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
+        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
         [self.view addSubview:imageV];
         [imageV release];
         label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];
@@ -80,7 +80,7 @@
         UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
         
         NSURL *url = [NSURL URLWithString:self.str];
-        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Default.png"]];
+        [imageV setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
         [self.view addSubview:imageV];
         [imageV release];
         label = [[UITextView alloc]initWithFrame:CGRectMake(125, 10, 182, 138)];

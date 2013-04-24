@@ -108,7 +108,7 @@
     }
     ReadBook * read = [self.items objectAtIndex:index];
     _itemCell.button.tag= index;
-    [_itemCell.button setBackgroundImageWithURL:[NSURL URLWithString:read.image] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Default.png"]];
+    [_itemCell.button setBackgroundImageWithURL:[NSURL URLWithString:read.image] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@""]];
     [_itemCell.button addTarget:self action:@selector(_pus:) forControlEvents:UIControlEventTouchUpInside];
     
     return _itemCell;

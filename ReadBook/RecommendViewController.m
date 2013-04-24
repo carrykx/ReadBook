@@ -97,7 +97,7 @@
     NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/r/%@",book.thumb];
 //    NSLog(@"%@",str);
     NSURL * url = [NSURL URLWithString:str];
-    [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Default.png"]];
+    [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@""]];
     _itemCell.button.tag= index;
     [_itemCell.button addTarget:self action:@selector(_pus:) forControlEvents:UIControlEventTouchUpInside];
     
