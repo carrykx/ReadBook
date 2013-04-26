@@ -50,7 +50,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = self.color;
     currentPage = 1;
     setTap = NO;
 
@@ -167,7 +167,7 @@
                     temporaryStr = [self.strAll substringWithRange:onePageOnStr];
                     CGSize temporarySize = [temporaryStr sizeWithFont:self.firstLabel.font constrainedToSize:CGSizeMake(self.firstLabel.frame.size.width, MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];
                     if (temporarySize.height > self.firstLabel.frame.size.height) {
-                        onePageOnStr.length = onePageOnStr.length - 1;
+                        onePageOnStr.length = onePageOnStr.length - 2;
                     }else
                     {
                         break;
