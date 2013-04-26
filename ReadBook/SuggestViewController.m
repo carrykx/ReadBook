@@ -41,6 +41,8 @@
 	// Do any additional setup after loading the view.
     
     UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
+    tableview.backgroundView = nil;
+    tableview.backgroundColor = [UIColor brownColor];
     self.tableview = tableview;
     [self.view addSubview:tableview];
     tableview.delegate = self;
@@ -103,6 +105,14 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 30.0f;
+    }else
+        return 30.0f;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -123,6 +133,7 @@
 - (void)saveAction
 {
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
