@@ -43,11 +43,12 @@
         //监听NSManagedObjectContext 发生变化
         [self _context];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_nsnotificationSave:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
-    }
-    if (_isNew == YES) {
+    
+    if (_isNew) {
         //是新数据就插入
         [self _insertData];
           }
+    }
     return self;
 }
 /**
@@ -134,21 +135,22 @@
     if (_coordinator) {
         return _coordinator;
     }
-    _coordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self _model]];
+    _coordinator = [[[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self _model]]autorelease];
     NSMutableDictionary * _option = [[NSMutableDictionary alloc]init];
     [_option setObject:@(YES) forKey:NSMigratePersistentStoresAutomaticallyOption];
     NSError * error;
     if (![[NSFileManager defaultManager]fileExistsAtPath:kSQLiteURL]) {
         _isNew = YES;
     }
-    else{
-        [[NSFileManager defaultManager]removeItemAtPath:kSQLiteURL error:nil];
-        _isNew = YES;
-    }
+//    else{
+//        [[NSFileManager defaultManager]removeItemAtPath:kSQLiteURL error:nil];
+//        _isNew = YES;
+//    }
     if (![_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:kSQLiteURL] options:_option error:&error]){
         abort();
         
     }
+    [_option release];
     return _coordinator;
 }
 - (NSManagedObjectModel *)_model
