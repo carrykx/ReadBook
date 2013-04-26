@@ -79,8 +79,8 @@
     _collectionView.collectionViewDataSource = self;
     _collectionView.collectionViewDelegate = self;
     [self.view addSubview:_collectionView];
-    //    [_collectionView release],_collectionView = nil;
-    //    [_layout release],_layout = nil;
+    [_collectionView release],_collectionView = nil;
+    [_layout release],_layout = nil;
     NSString * string1 = NSHomeDirectory();
     NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
     self.items = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
@@ -104,7 +104,7 @@
     UWView *_itemCell = (UWView *)[collectionView dequeueReusableView];
     
     if (_itemCell == nil) {
-        _itemCell = [[UWView alloc] initWithFrame:CGRectZero];
+        _itemCell = [[[UWView alloc] initWithFrame:CGRectZero]autorelease];
     }
     ReadBook * read = [self.items objectAtIndex:index];
     _itemCell.button.tag= index;

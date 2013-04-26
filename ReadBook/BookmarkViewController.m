@@ -86,16 +86,17 @@
     }
     //设置单元格的内容
     _cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    bookSave * _bookSave = [[self.saveArray objectAtIndex:indexPath.row] retain];
+    bookSave * _bookSave = [self.saveArray objectAtIndex:indexPath.row] ;
     _cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     _cell.textLabel.text = _bookSave.name;
     _cell.imageView.image = [UIImage imageNamed:@"bookMark.png"];
+
     return _cell;
 }
 //tableView 移动
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    bookSave * _bookSave = [[self.saveArray objectAtIndex:sourceIndexPath.row] retain];
+    bookSave * _bookSave = [self.saveArray objectAtIndex:sourceIndexPath.row];
     [self.saveArray removeObjectAtIndex:sourceIndexPath.row];
     [self.saveArray insertObject:_bookSave atIndex:destinationIndexPath.row];
     
@@ -129,6 +130,7 @@
     _readBook._readUrl = _bookSave.urlString;
     _readBook.title = _bookSave.name;
     [self.navigationController pushViewController:_readBook animated:YES];
+    [_readBook release];
 }
 #pragma mark
 #pragma mark public motheds
@@ -151,5 +153,10 @@
 {
     [self.tableView setEditing:NO animated:YES];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(_edit)];
+}
+- (void)dealloc
+{
+    [saveArray release];
+    [super dealloc];
 }
 @end

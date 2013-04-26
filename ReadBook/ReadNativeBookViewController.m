@@ -209,7 +209,7 @@
     UIBarButtonItem *showPage = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d/%d",currentPage,totalPages] style:UIBarButtonItemStylePlain target:self action:nil];
     self.showPage = showPage;
 
-    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *flexible = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]autorelease];
 
     NSArray *toobarArray = [NSArray arrayWithObjects:flexible,upPage,flexible,downPage,flexible,showPage,flexible, nil];
     [toolbar setItems:toobarArray animated:YES];

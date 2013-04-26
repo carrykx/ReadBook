@@ -10,17 +10,18 @@
 
 @interface ChangeViewController ()
 {
-    UIButton * colorButton;
+    
+    UIButton * colorButton;//选择颜色
     UIImageView * imageBUtton;
     UIButton * colorButton1;
     UIImageView * imageBUtton1;
-    BOOL _first;
-    BOOL _first1;
-    UIButton * redButton1 ;
+    BOOL _first; //用于判断view1
+    BOOL _first1;//用于判断view2
+    UIButton * redButton1 ;//管理颜色
     UIButton * redButton;
     UIView * view1;
     UIView * view2;
-    UIView * view3;
+
     UIScrollView * scrollV;
 }
 @end
@@ -71,7 +72,7 @@
 }
 - (void)_no
 {
-    NSLog(@"1111111");
+  
     NSArray * arr = [[NSArray alloc]initWithObjects:@"红",@"绿",@"黑",@"白",@"紫",@"蓝",@"粉", nil];
     if (_first == YES)
     {
@@ -126,8 +127,9 @@
 
         }
     }
-    
+    [arr release];
 }
+//改变字体颜色
 - (void)_change:(id)sender
 {
     UIButton * button = (UIButton *)sender;
@@ -139,7 +141,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:KNSNotificationChangeTextColor object:[array objectAtIndex:button.tag]];
   
 
-
+    [array release];
 }
 - (void)_no1
 {
@@ -185,9 +187,10 @@
             
         }
     }
-
+    [arr1 release];
     
 }
+//改变背景颜色
 - (void)_change1:(id)sender
 {
     UIButton * button = (UIButton *)sender;
@@ -198,8 +201,16 @@
     NSArray * array = [[NSArray alloc]initWithObjects:[UIColor redColor],[UIColor greenColor],[UIColor blackColor],[UIColor whiteColor],[UIColor purpleColor],[UIColor blueColor],[UIColor magentaColor], nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:KNSNotificationChangebackgroundColor object:[array objectAtIndex:button.tag]];
     
-    
+    [array release];
     
 }
-
+- (void)dealloc
+{
+    [imageBUtton release];
+    [imageBUtton1 release];
+    [scrollV release];
+    [view1 release];
+    [view2 release];
+    [super dealloc];
+}
 @end

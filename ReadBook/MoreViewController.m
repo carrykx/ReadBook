@@ -161,12 +161,15 @@
             _readd.color = self.color;
             _readd.textColor = self.textColor;
             [self.navigationController pushViewController:_readd animated:YES];
+            
+            [_readd release];
         }
     }else if (indexPath.section == 1)
     {
         if (indexPath.row == 0) {
             ChangeViewController * change = [[ChangeViewController alloc]init];
             [self.navigationController pushViewController:change animated:YES];
+            [change release];
         }else if (indexPath.row == 1)
         {
            
@@ -187,7 +190,7 @@
             [about release];
         }
     }
-    
+
 }
 
 @end

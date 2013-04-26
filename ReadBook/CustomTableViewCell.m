@@ -14,7 +14,7 @@
 - (void)dealloc
 {
     [_boardNameLable release];
-    [_customImageView release];
+    [_customImageView release]; 
     [_boardIntroLable release];
     [super dealloc];
 }
@@ -38,15 +38,15 @@
 
 - (void)creatContentView
 {
-    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableCellBackgournd.png"]];
-    self.customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 5.0f, 60.0f/430*300.0f, 60.0f)];
+    self.backgroundColor  = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableCellBackgournd.png"]];
+    _customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 5.0f, 60.0f/430*300.0f, 60.0f)];
     [self.contentView addSubview:self.customImageView];
     
-    self.boardNameLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 5.0f, 240.0f, 25.0f)];
+    _boardNameLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 5.0f, 240.0f, 25.0f)];
     self.boardNameLable.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.boardNameLable];
     
-    self.boardIntroLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 30.0f, 240.0f, 35)];
+    _boardIntroLable = [[UILabel alloc] initWithFrame:CGRectMake(56.0f, 30.0f, 240.0f, 35)];
     self.boardIntroLable.backgroundColor = [UIColor clearColor];
 
     [self.contentView addSubview:self.boardIntroLable];
