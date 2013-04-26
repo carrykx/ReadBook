@@ -48,6 +48,8 @@
     self.navigationItem.title = @"关于";
     
     UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
+    tableview.backgroundView = nil;
+    tableview.backgroundColor = [UIColor brownColor];
     self.tableview = tableview;
     [self.view addSubview:tableview];
     tableview.delegate = self;
@@ -107,7 +109,7 @@
     [firstLabel release];
     CGSize labelSize =  [self.str sizeWithFont:firstLabel.font constrainedToSize:CGSizeMake(320.0f, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
     NSLog(@"%f",labelSize.height);
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"0.jpg"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_shupeng.jpg"]];
     imageView.frame = CGRectMake(10, 10, 280, 100);
     self.imageView = imageView;
     self.imageView.layer.cornerRadius = 20;
