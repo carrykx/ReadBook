@@ -18,9 +18,8 @@
     ReadBook * read;
     UITextView * text;
     MyBookViewController * _myBook ;
-    int i;
-    NSString * string;
-    NSInteger page;
+        NSString * string;
+//    NSInteger page;
 }
 @end
 
@@ -34,10 +33,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-         i = 1;
-        page = 1;
+//        page = 1;
          _myBook  = [[MyBookViewController alloc]init];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"下一页" style:UIBarButtonSystemItemAction target:self action:@selector(_next)];
+       
     }
     return self;
 }
@@ -46,25 +44,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if (iPhone5) {
-        text = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
-    }else{
-        text = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-    }
-
-    
-    text.font = [UIFont systemFontOfSize:10.0];
-    text.autoresizingMask = YES;
-    text.editable = NO;
-    text.pagingEnabled = YES;
-    text.scrollEnabled = NO;
-    [self.view addSubview:text];
-    _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 45, 80, 1)];
+    //进度条
+       _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 45, 80, 1)];
     _progressView.backgroundColor = [UIColor blueColor];
     _progressView.progressTintColor = [UIColor purpleColor];
-    
-  
-    _progressActive = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    //菊花
+      _progressActive = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     _progressActive.color = [UIColor whiteColor];
     view = [[UIView alloc]initWithFrame:CGRectMake(130, 130, 80, 80)];
     view.backgroundColor = [UIColor blackColor];
@@ -78,47 +63,53 @@
     [view addSubview:_progressActive];
     [view addSubview:_progressView];
     label = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 80, 80)];
+    
     [_progressActive startAnimating];
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(_changeProgressValue) userInfo:nil repeats:YES];
+    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(_changeProgressValue) userInfo:nil repeats:YES];
+    
+
     NSURL * url = [NSURL URLWithString:downUrlString];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *rrr, NSData *data, NSError *ffff) {
         NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 
         string = [[NSString alloc]initWithData:data encoding:encoding];
-        read  = [[[ReadBook alloc]init]autorelease];
+//             NSLog(@"%@",string);
+        read  = [[ReadBook alloc]init];
         read.readBook = [NSString stringWithFormat:@"%@",string];
         read.image = self.imageString;
-//        NSLog(@"%@",string);
-        if (string == nil) {
+        if (string == nil||[string hasSuffix:@"The service is unavailable"]) {
+            
             return ;
             
         }
         else{
+            
             NSString * string1 = NSHomeDirectory();
             NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
             _myBook.items = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:filePath]];
             [_myBook.items addObject:read];
+            [read release];
             [NSKeyedArchiver archiveRootObject:_myBook.items toFile:filePath];
         }
     }];
    
 
 }
-- (void)_next
-{
-    page = page + 1;
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.1];
-    [text setContentOffset:CGPointMake(0, (page - 1) * 430) animated:YES];
-    [UIView commitAnimations];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
-    [UIView commitAnimations];
-    
-}
+//- (void)_next
+//{
+//    page = page + 1;
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.1];
+//    [text setContentOffset:CGPointMake(0, (page - 1) * 430) animated:YES];
+//    [UIView commitAnimations];
+//    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:1];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
+//    [UIView commitAnimations];
+//    
+//}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -129,20 +120,32 @@
 {
     float progressValue = _progressView.progress;
     
-    progressValue       += [self.str floatValue]/1000.0f ;
+    progressValue+= [self.str floatValue]/100.0f ;
 //    NSLog(@"%f",progressValue);
     if (progressValue > 1.0 )
     {
-        
         progressValue = 0.0;
         [_progressTimer invalidate];
         [_progressActive stopAnimating];
         [view removeFromSuperview];
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
-        text.text = [NSString stringWithFormat:@"%@",string ];
-    }
+//    [NSTimer scheduledTimerWithTimeInterval:2.3f target:self selector:@selector(_change) userInfo:nil repeats:NO];
+           }
     [_progressLabel setText:[NSString stringWithFormat:@"%.0f%%", progressValue *100.0 ]];
     [_progressView setProgress:progressValue];
+}
+- (void)_change
+{
+    if (string == nil||[string hasSuffix:@"The service is unavailable"]) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载失败" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        [alert release];
+    }
+    else{
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+
 }
 @end

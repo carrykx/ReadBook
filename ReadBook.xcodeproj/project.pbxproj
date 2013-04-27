@@ -76,6 +76,10 @@
 		72A6411A171EB98900C70203 /* ReadBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A64118171EB98900C70203 /* ReadBookViewController.xib */; };
 		72A6411E171EC1E800C70203 /* tabbar_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411D171EC1E800C70203 /* tabbar_search.png */; };
 		72A64120171EC40D00C70203 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411F171EC40D00C70203 /* tabbar_more.png */; };
+		72AB4391172BA3E5000D7B3E /* AuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB438F172BA3E5000D7B3E /* AuthorViewController.m */; };
+		72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4390172BA3E5000D7B3E /* AuthorViewController.xib */; };
+		72AB4396172BAEF0000D7B3E /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4394172BAEEF000D7B3E /* CategoryViewController.m */; };
+		72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */; };
 		72EDE8BA17266A3F0099843D /* MyBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EDE8B917266A3E0099843D /* MyBookViewController.m */; };
 		72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */; };
 		72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */; };
@@ -198,6 +202,12 @@
 		72A64118171EB98900C70203 /* ReadBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBookViewController.xib; sourceTree = "<group>"; };
 		72A6411D171EC1E800C70203 /* tabbar_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_search.png; sourceTree = "<group>"; };
 		72A6411F171EC40D00C70203 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
+		72AB438E172BA3E5000D7B3E /* AuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorViewController.h; sourceTree = "<group>"; };
+		72AB438F172BA3E5000D7B3E /* AuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorViewController.m; sourceTree = "<group>"; };
+		72AB4390172BA3E5000D7B3E /* AuthorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorViewController.xib; sourceTree = "<group>"; };
+		72AB4393172BAEEF000D7B3E /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		72AB4394172BAEEF000D7B3E /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		72EDE8B817266A3E0099843D /* MyBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookViewController.h; sourceTree = "<group>"; };
 		72EDE8B917266A3E0099843D /* MyBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookViewController.m; sourceTree = "<group>"; };
 		72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BookShelfCell@2x.png"; path = "../../BookShelfCell@2x.png"; sourceTree = "<group>"; };
@@ -261,18 +271,17 @@
 		0F01B3B9171BD63E005AB97A /* ReadBook */ = {
 			isa = PBXGroup;
 			children = (
-				0F700DA7171D424900834995 /* 搜索 */,
+				0F700DA7171D424900834995 /* search */,
 				0F1D0F18171D4D01006DB9E1 /* Model */,
-				0F700DA5171D422A00834995 /* 推荐 */,
-				0F700DA6171D423B00834995 /* 专辑 */,
-				0F700DA8171D425300834995 /* 书签 */,
-				0F700DA9171D426B00834995 /* 更多 */,
+				0F700DA5171D422A00834995 /* recommend */,
+				0F700DA6171D423B00834995 /* board */,
+				0F700DA8171D425300834995 /* bookMark */,
+				0F700DA9171D426B00834995 /* more */,
 				0F700DAA171D427500834995 /* main */,
 				0F01B3F2171C1D69005AB97A /* Images */,
 				0F01B3C2171BD63E005AB97A /* AppDelegate.h */,
 				0F01B3C3171BD63E005AB97A /* AppDelegate.m */,
 				0F01B3BA171BD63E005AB97A /* Supporting Files */,
-				0FF2A273171CDB9900FF60A6 /* NetRequest */,
 			);
 			path = ReadBook;
 			sourceTree = "<group>";
@@ -310,7 +319,7 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		0F07BF71171D46670002D7CE /* 九宫格 */ = {
+		0F07BF71171D46670002D7CE /* jiugongge */ = {
 			isa = PBXGroup;
 			children = (
 				0F07BF72171D46CC0002D7CE /* UControllerView.h */,
@@ -322,7 +331,7 @@
 				0F07BF7B171D47160002D7CE /* UWView.h */,
 				0F07BF7C171D47160002D7CE /* UWView.m */,
 			);
-			name = "九宫格";
+			name = jiugongge;
 			sourceTree = "<group>";
 		};
 		0F1D0F18171D4D01006DB9E1 /* Model */ = {
@@ -385,15 +394,18 @@
 			path = json;
 			sourceTree = "<group>";
 		};
-		0F700DA5171D422A00834995 /* 推荐 */ = {
+		0F700DA5171D422A00834995 /* recommend */ = {
 			isa = PBXGroup;
 			children = (
-				0F07BF71171D46670002D7CE /* 九宫格 */,
+				0F07BF71171D46670002D7CE /* jiugongge */,
 				72A64116171EB98900C70203 /* ReadBookViewController.h */,
 				72A64117171EB98900C70203 /* ReadBookViewController.m */,
 				72A64118171EB98900C70203 /* ReadBookViewController.xib */,
 				0F01B3D8171C1571005AB97A /* RecommendViewController.h */,
 				0F01B3D9171C1571005AB97A /* RecommendViewController.m */,
+				72AB438E172BA3E5000D7B3E /* AuthorViewController.h */,
+				72AB438F172BA3E5000D7B3E /* AuthorViewController.m */,
+				72AB4390172BA3E5000D7B3E /* AuthorViewController.xib */,
 				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
 				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
 				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
@@ -407,11 +419,14 @@
 				0F206C2A172135E20071CC23 /* bookSave.h */,
 				0F7FC5451725287500C136E5 /* ReadBook.h */,
 				0F7FC5461725287600C136E5 /* ReadBook.m */,
+				72AB4393172BAEEF000D7B3E /* CategoryViewController.h */,
+				72AB4394172BAEEF000D7B3E /* CategoryViewController.m */,
+				72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */,
 			);
-			name = "推荐";
+			name = recommend;
 			sourceTree = "<group>";
 		};
-		0F700DA6171D423B00834995 /* 专辑 */ = {
+		0F700DA6171D423B00834995 /* board */ = {
 			isa = PBXGroup;
 			children = (
 				0F01B3DC171C15D8005AB97A /* BoardViewController.h */,
@@ -421,10 +436,10 @@
 				0FF75A79171F8F5B00D6AE14 /* OneBoardListViewController.h */,
 				0FF75A7A171F8F5B00D6AE14 /* OneBoardListViewController.m */,
 			);
-			name = "专辑";
+			name = board;
 			sourceTree = "<group>";
 		};
-		0F700DA7171D424900834995 /* 搜索 */ = {
+		0F700DA7171D424900834995 /* search */ = {
 			isa = PBXGroup;
 			children = (
 				0F01B3DF171C15FF005AB97A /* SearchViewController.h */,
@@ -432,19 +447,19 @@
 				0F1A80941721488300DC99C7 /* SelectResultsViewController.h */,
 				0F1A80951721488300DC99C7 /* SelectResultsViewController.m */,
 			);
-			name = "搜索";
+			name = search;
 			sourceTree = "<group>";
 		};
-		0F700DA8171D425300834995 /* 书签 */ = {
+		0F700DA8171D425300834995 /* bookMark */ = {
 			isa = PBXGroup;
 			children = (
 				0F01B3E2171C1637005AB97A /* BookmarkViewController.h */,
 				0F01B3E3171C1637005AB97A /* BookmarkViewController.m */,
 			);
-			name = "书签";
+			name = bookMark;
 			sourceTree = "<group>";
 		};
-		0F700DA9171D426B00834995 /* 更多 */ = {
+		0F700DA9171D426B00834995 /* more */ = {
 			isa = PBXGroup;
 			children = (
 				0F01B3E5171C164F005AB97A /* MoreViewController.h */,
@@ -458,7 +473,7 @@
 				72A0608917277B0E00F0CE3C /* ChangeViewController.h */,
 				72A0608A17277B0E00F0CE3C /* ChangeViewController.m */,
 			);
-			name = "更多";
+			name = more;
 			sourceTree = "<group>";
 		};
 		0F700DAA171D427500834995 /* main */ = {
@@ -468,13 +483,6 @@
 				0F01B3EC171C1770005AB97A /* CustomTabbarViewController.m */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		0FF2A273171CDB9900FF60A6 /* NetRequest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NetRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +555,8 @@
 				72A060881727793A00F0CE3C /* Default.jpg in Resources */,
 				72A0608D172781D000F0CE3C /* imgOn1.png in Resources */,
 				0FFB26D8172A27800055100F /* about_shupeng.jpg in Resources */,
+				72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */,
+				72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +612,8 @@
 				0F7FC5471725287600C136E5 /* ReadBook.m in Sources */,
 				72EDE8BA17266A3F0099843D /* MyBookViewController.m in Sources */,
 				72A0608B17277B0E00F0CE3C /* ChangeViewController.m in Sources */,
+				72AB4391172BA3E5000D7B3E /* AuthorViewController.m in Sources */,
+				72AB4396172BAEF0000D7B3E /* CategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

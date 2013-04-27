@@ -142,10 +142,10 @@
     if (![[NSFileManager defaultManager]fileExistsAtPath:kSQLiteURL]) {
         _isNew = YES;
     }
-//    else{
-//        [[NSFileManager defaultManager]removeItemAtPath:kSQLiteURL error:nil];
-//        _isNew = YES;
-//    }
+    else{
+        [[NSFileManager defaultManager]removeItemAtPath:kSQLiteURL error:nil];
+        _isNew = YES;
+    }
     if (![_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:kSQLiteURL] options:_option error:&error]){
         abort();
         
