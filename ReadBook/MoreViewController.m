@@ -11,6 +11,7 @@
 #import "SuggestViewController.h"
 #import "MyBookViewController.h"
 #import "ChangeViewController.h"
+#import "RankViewController.h"
 @interface MoreViewController ()
 
 @property (retain, nonatomic) UITableView *contentTable;
@@ -86,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        return 2;
     }else if (section == 1)
     {
         return 2;
@@ -112,7 +113,13 @@
     label.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:label];
     if (indexPath.section == 0) {
-        label.text = @"我的书架";
+        if (indexPath.row == 0) {
+            label.text = @"我的书架";
+        }else if (indexPath.row == 1)
+        {
+            label.text = @"排行";
+        }
+
     }else if (indexPath.section == 1)
     {
         if (indexPath.row == 0) {
@@ -164,6 +171,13 @@
             
             [_readd release];
         }
+    else if (indexPath.row == 1)
+    {
+        RankViewController * rank = [[RankViewController alloc]init];
+        [self.navigationController pushViewController:rank animated:YES];
+        [rank release];
+    }
+
     }else if (indexPath.section == 1)
     {
         if (indexPath.row == 0) {

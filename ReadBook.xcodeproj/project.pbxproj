@@ -80,6 +80,10 @@
 		72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4390172BA3E5000D7B3E /* AuthorViewController.xib */; };
 		72AB4396172BAEF0000D7B3E /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4394172BAEEF000D7B3E /* CategoryViewController.m */; };
 		72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */; };
+		72B28D64172BD23C00186BB9 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B28D62172BD23C00186BB9 /* RankViewController.m */; };
+		72B28D65172BD23C00186BB9 /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B28D63172BD23C00186BB9 /* RankViewController.xib */; };
+		72B28D69172BDC6C00186BB9 /* RankBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B28D67172BDC6C00186BB9 /* RankBookViewController.m */; };
+		72B28D6A172BDC6C00186BB9 /* RankBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B28D68172BDC6C00186BB9 /* RankBookViewController.xib */; };
 		72EDE8BA17266A3F0099843D /* MyBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EDE8B917266A3E0099843D /* MyBookViewController.m */; };
 		72FB8D01171E2E4400FC1B33 /* BookShelfCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */; };
 		72FB8D02171E2E4400FC1B33 /* BookShelfCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FB8D00171E2E4400FC1B33 /* BookShelfCell.png */; };
@@ -208,6 +212,12 @@
 		72AB4393172BAEEF000D7B3E /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		72AB4394172BAEEF000D7B3E /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		72B28D61172BD23C00186BB9 /* RankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewController.h; sourceTree = "<group>"; };
+		72B28D62172BD23C00186BB9 /* RankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewController.m; sourceTree = "<group>"; };
+		72B28D63172BD23C00186BB9 /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
+		72B28D66172BDC6C00186BB9 /* RankBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankBookViewController.h; sourceTree = "<group>"; };
+		72B28D67172BDC6C00186BB9 /* RankBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankBookViewController.m; sourceTree = "<group>"; };
+		72B28D68172BDC6C00186BB9 /* RankBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankBookViewController.xib; sourceTree = "<group>"; };
 		72EDE8B817266A3E0099843D /* MyBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookViewController.h; sourceTree = "<group>"; };
 		72EDE8B917266A3E0099843D /* MyBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookViewController.m; sourceTree = "<group>"; };
 		72FB8CFF171E2E4400FC1B33 /* BookShelfCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BookShelfCell@2x.png"; path = "../../BookShelfCell@2x.png"; sourceTree = "<group>"; };
@@ -472,6 +482,12 @@
 				0F206C231720E45B0071CC23 /* ReadNativeBookViewController.m */,
 				72A0608917277B0E00F0CE3C /* ChangeViewController.h */,
 				72A0608A17277B0E00F0CE3C /* ChangeViewController.m */,
+				72B28D61172BD23C00186BB9 /* RankViewController.h */,
+				72B28D62172BD23C00186BB9 /* RankViewController.m */,
+				72B28D63172BD23C00186BB9 /* RankViewController.xib */,
+				72B28D66172BDC6C00186BB9 /* RankBookViewController.h */,
+				72B28D67172BDC6C00186BB9 /* RankBookViewController.m */,
+				72B28D68172BDC6C00186BB9 /* RankBookViewController.xib */,
 			);
 			name = more;
 			sourceTree = "<group>";
@@ -557,6 +573,8 @@
 				0FFB26D8172A27800055100F /* about_shupeng.jpg in Resources */,
 				72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */,
 				72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */,
+				72B28D65172BD23C00186BB9 /* RankViewController.xib in Resources */,
+				72B28D6A172BDC6C00186BB9 /* RankBookViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +632,8 @@
 				72A0608B17277B0E00F0CE3C /* ChangeViewController.m in Sources */,
 				72AB4391172BA3E5000D7B3E /* AuthorViewController.m in Sources */,
 				72AB4396172BAEF0000D7B3E /* CategoryViewController.m in Sources */,
+				72B28D64172BD23C00186BB9 /* RankViewController.m in Sources */,
+				72B28D69172BDC6C00186BB9 /* RankBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
