@@ -34,7 +34,7 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     NSLog(@"%@",string);
-    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,self.view.frame.size.height- 20-44-60-60) style:UITableViewStylePlain];
+    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,self.view.frame.size.height- 20-44-60) style:UITableViewStylePlain];
     table.dataSource = self;
     table.delegate = self;
     table.backgroundColor = [UIColor clearColor];
