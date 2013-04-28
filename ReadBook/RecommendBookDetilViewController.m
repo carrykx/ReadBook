@@ -21,6 +21,7 @@
     NSString * readUrl;
     ReadBookViewController * _readBook;
 }
+- (void)creatView;
 @end
 
 @implementation RecommendBookDetilViewController
@@ -47,6 +48,17 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor brownColor];
     NSLog(@"%@",bookid);
+    //创建view
+    [self creatView];
+   }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (void)creatView
+{
     if (iPhone5) {
         UIImageView * imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 138)];
         
@@ -68,23 +80,23 @@
         [self.view addSubview:readButton];
         //下载阅读
         UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        downloadButton.frame = CGRectMake(10, 230, 100, 30);
+        downloadButton.frame = CGRectMake(10, 250, 100, 30);
         [downloadButton setTitle:@"下载阅读" forState:UIControlStateNormal];
         [downloadButton addTarget:self action:@selector(_down) forControlEvents:UIControlEventTouchUpInside];
         downloadButton.backgroundColor = [UIColor redColor];
         [self.view addSubview:downloadButton];
         //同作者
         UIButton * authorButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        authorButton.frame = CGRectMake(10, 270, 100, 30);
+        authorButton.frame = CGRectMake(10, 310, 100, 30);
         [authorButton setTitle:@"同作者" forState:UIControlStateNormal];
         [authorButton addTarget:self action:@selector(_author) forControlEvents:UIControlEventTouchUpInside];
         authorButton.backgroundColor = [UIColor redColor];
         [self.view addSubview:authorButton];
-        //相关书
+        //同类别
         UIButton * aboutButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        aboutButton.frame = CGRectMake(10, 310, 100, 30);
+        aboutButton.frame = CGRectMake(10, 370, 100, 30);
         [aboutButton setTitle:@"同类别" forState:UIControlStateNormal];
-        [aboutButton addTarget:self action:@selector(_author) forControlEvents:UIControlEventTouchUpInside];
+        [aboutButton addTarget:self action:@selector(_about) forControlEvents:UIControlEventTouchUpInside];
         aboutButton.backgroundColor = [UIColor redColor];
         [self.view addSubview:aboutButton];
         tableV = [[UITableView alloc]initWithFrame:CGRectMake(125, 180, 182, 275) style:UITableViewStylePlain];
@@ -126,14 +138,14 @@
         [authorButton addTarget:self action:@selector(_author) forControlEvents:UIControlEventTouchUpInside];
         authorButton.backgroundColor = [UIColor redColor];
         [self.view addSubview:authorButton];
-        //相关书
+        //同类别
         UIButton * aboutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         aboutButton.frame = CGRectMake(10, 290, 100, 30);
-        [aboutButton setTitle:@"相关书" forState:UIControlStateNormal];
+        [aboutButton setTitle:@"同类别" forState:UIControlStateNormal];
         [aboutButton addTarget:self action:@selector(_about) forControlEvents:UIControlEventTouchUpInside];
         aboutButton.backgroundColor = [UIColor redColor];
         [self.view addSubview:aboutButton];
-
+        
         tableV = [[UITableView alloc]initWithFrame:CGRectMake(125, 150, 182, 210) style:UITableViewStylePlain];
         tableV.delegate = self;
         tableV.dataSource = self;
@@ -141,12 +153,6 @@
         tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     }
-   }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (void)_down
 {
@@ -154,7 +160,7 @@
      [self _request:[NSString stringWithFormat:@"%@",bookid]];
     [tableV reloadData];
 }
-//相关书籍
+//同类别书籍
 - (void)_about
 {
        CategoryViewController * category = [[CategoryViewController alloc]init];

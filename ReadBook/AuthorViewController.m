@@ -34,13 +34,26 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     NSLog(@"%@",string);
-    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,self.view.frame.size.height- 20-44-60) style:UITableViewStylePlain];
+ 
+    if (iPhone5) {
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStyleGrouped];
+        table.dataSource = self;
+        table.delegate = self;
+        table.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:table];
+        [self request];
+        [table release];
+        
+    }else{
+
+    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,480- 20-44-50) style:UITableViewStylePlain];
     table.dataSource = self;
     table.delegate = self;
     table.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table];
     [self request];
     [table release];
+    }
 }
 
 - (void)didReceiveMemoryWarning

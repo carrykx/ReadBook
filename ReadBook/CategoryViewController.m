@@ -24,6 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+         self.title = @"同类别书籍";
     }
     return self;
 }
@@ -34,13 +35,25 @@
     // Do any additional setup after loading the view from its nib.
     
     self.view.backgroundColor = [UIColor brownColor];
-    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,self.view.frame.size.height- 20-44-60) style:UITableViewStyleGrouped];
-    table.dataSource = self;
-    table.delegate = self;
-    table.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:table];
-    [self request];
-    [table release];
+    if (iPhone5) {
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStyleGrouped];
+        table.dataSource = self;
+        table.delegate = self;
+        table.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:table];
+        [self request];
+        [table release];
+        
+    }else{
+        
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,480- 20-44-50) style:UITableViewStylePlain];
+        table.dataSource = self;
+        table.delegate = self;
+        table.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:table];
+        [self request];
+        [table release];
+    }
 
 }
 
