@@ -36,7 +36,7 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     if (iPhone5) {
-        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStyleGrouped];
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStylePlain];
         table.dataSource = self;
         table.delegate = self;
         table.backgroundColor = [UIColor clearColor];
@@ -78,7 +78,7 @@
      NSArray * array = [json objectForKey:@"result"];
  
       if ([array count] == 0) {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"没有同作者书籍" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"没有同类别书籍" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];
         [alert release];
 
@@ -86,8 +86,7 @@
     else{
        
         self.array2 = [array valueForKey:@"category"];
-        NSLog(@"%@",self.array2);
-
+       
     self.array1 = [[array objectAtIndex:0]objectForKey:@"booklist"];
     self.array = [[array objectAtIndex:1]objectForKey:@"booklist"];
     }

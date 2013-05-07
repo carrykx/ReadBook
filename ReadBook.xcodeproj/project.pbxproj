@@ -13,9 +13,6 @@
 		0F01B3BE171BD63E005AB97A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3BC171BD63E005AB97A /* InfoPlist.strings */; };
 		0F01B3C0171BD63E005AB97A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3BF171BD63E005AB97A /* main.m */; };
 		0F01B3C4171BD63E005AB97A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3C3171BD63E005AB97A /* AppDelegate.m */; };
-		0F01B3C6171BD63E005AB97A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C5171BD63E005AB97A /* Default.png */; };
-		0F01B3C8171BD63E005AB97A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C7171BD63E005AB97A /* Default@2x.png */; };
-		0F01B3CA171BD63E005AB97A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */; };
 		0F01B3DA171C1571005AB97A /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3D9171C1571005AB97A /* RecommendViewController.m */; };
 		0F01B3DE171C15D8005AB97A /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3DD171C15D8005AB97A /* BoardViewController.m */; };
 		0F01B3E1171C15FF005AB97A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F01B3E0171C15FF005AB97A /* SearchViewController.m */; };
@@ -69,9 +66,12 @@
 		7219F291171E721F00E1CD9E /* RecommendBookDetilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */; };
 		7219F292171E721F00E1CD9E /* RecommendBookDetilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */; };
 		7219F295171E7DD600E1CD9E /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219F294171E7DD600E1CD9E /* Book.m */; };
-		72A060881727793A00F0CE3C /* Default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72A060871727793A00F0CE3C /* Default.jpg */; };
+		72A060881727793A00F0CE3C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A060871727793A00F0CE3C /* Default.png */; };
 		72A0608B17277B0E00F0CE3C /* ChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A0608A17277B0E00F0CE3C /* ChangeViewController.m */; };
 		72A0608D172781D000F0CE3C /* imgOn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A0608C172781D000F0CE3C /* imgOn1.png */; };
+		72A5AB2C1739103C00FEAB65 /* nav_muwen.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A5AB2A1739103C00FEAB65 /* nav_muwen.png */; };
+		72A5AB2D1739103C00FEAB65 /* nav_muwen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A5AB2B1739103C00FEAB65 /* nav_muwen@2x.png */; };
+		72A5AB2F1739131400FEAB65 /* tableCellBackgournd.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A5AB2E1739131400FEAB65 /* tableCellBackgournd.png */; };
 		72A64119171EB98900C70203 /* ReadBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A64117171EB98900C70203 /* ReadBookViewController.m */; };
 		72A6411A171EB98900C70203 /* ReadBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A64118171EB98900C70203 /* ReadBookViewController.xib */; };
 		72A6411E171EC1E800C70203 /* tabbar_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6411D171EC1E800C70203 /* tabbar_search.png */; };
@@ -80,6 +80,8 @@
 		72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4390172BA3E5000D7B3E /* AuthorViewController.xib */; };
 		72AB4396172BAEF0000D7B3E /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4394172BAEEF000D7B3E /* CategoryViewController.m */; };
 		72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */; };
+		72B176E3173785D200309FE6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B176E2173785D200309FE6 /* Default@2x.png */; };
+		72B176E5173785DC00309FE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B176E4173785DC00309FE6 /* Default-568h@2x.png */; };
 		72B28D64172BD23C00186BB9 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B28D62172BD23C00186BB9 /* RankViewController.m */; };
 		72B28D65172BD23C00186BB9 /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B28D63172BD23C00186BB9 /* RankViewController.xib */; };
 		72B28D69172BDC6C00186BB9 /* RankBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B28D67172BDC6C00186BB9 /* RankBookViewController.m */; };
@@ -100,9 +102,6 @@
 		0F01B3C1171BD63E005AB97A /* ReadBook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReadBook-Prefix.pch"; sourceTree = "<group>"; };
 		0F01B3C2171BD63E005AB97A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F01B3C3171BD63E005AB97A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F01B3C5171BD63E005AB97A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		0F01B3C7171BD63E005AB97A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F01B3D8171C1571005AB97A /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
 		0F01B3D9171C1571005AB97A /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
 		0F01B3DC171C15D8005AB97A /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -197,10 +196,13 @@
 		7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendBookDetilViewController.xib; sourceTree = "<group>"; };
 		7219F293171E7DD600E1CD9E /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		7219F294171E7DD600E1CD9E /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		72A060871727793A00F0CE3C /* Default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default.jpg; sourceTree = "<group>"; };
+		72A060871727793A00F0CE3C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		72A0608917277B0E00F0CE3C /* ChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeViewController.h; sourceTree = "<group>"; };
 		72A0608A17277B0E00F0CE3C /* ChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeViewController.m; sourceTree = "<group>"; };
 		72A0608C172781D000F0CE3C /* imgOn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgOn1.png; sourceTree = "<group>"; };
+		72A5AB2A1739103C00FEAB65 /* nav_muwen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_muwen.png; path = ReadBook/Images/nav_muwen.png; sourceTree = "<group>"; };
+		72A5AB2B1739103C00FEAB65 /* nav_muwen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_muwen@2x.png"; path = "ReadBook/Images/nav_muwen@2x.png"; sourceTree = "<group>"; };
+		72A5AB2E1739131400FEAB65 /* tableCellBackgournd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableCellBackgournd.png; path = ReadBook/Images/tableCellBackgournd.png; sourceTree = "<group>"; };
 		72A64116171EB98900C70203 /* ReadBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBookViewController.h; sourceTree = "<group>"; };
 		72A64117171EB98900C70203 /* ReadBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBookViewController.m; sourceTree = "<group>"; };
 		72A64118171EB98900C70203 /* ReadBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBookViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +214,8 @@
 		72AB4393172BAEEF000D7B3E /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		72AB4394172BAEEF000D7B3E /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		72AB4395172BAEF0000D7B3E /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		72B176E2173785D200309FE6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		72B176E4173785DC00309FE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		72B28D61172BD23C00186BB9 /* RankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewController.h; sourceTree = "<group>"; };
 		72B28D62172BD23C00186BB9 /* RankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewController.m; sourceTree = "<group>"; };
 		72B28D63172BD23C00186BB9 /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
@@ -246,7 +250,12 @@
 		0F01B3A4171BD63E005AB97A = {
 			isa = PBXGroup;
 			children = (
-				72A060871727793A00F0CE3C /* Default.jpg */,
+				72A5AB2E1739131400FEAB65 /* tableCellBackgournd.png */,
+				72A5AB2A1739103C00FEAB65 /* nav_muwen.png */,
+				72A5AB2B1739103C00FEAB65 /* nav_muwen@2x.png */,
+				72B176E4173785DC00309FE6 /* Default-568h@2x.png */,
+				72B176E2173785D200309FE6 /* Default@2x.png */,
+				72A060871727793A00F0CE3C /* Default.png */,
 				0F1D0F4C171D6867006DB9E1 /* json */,
 				0F1D0F26171D5248006DB9E1 /* UIImageView+WebCache */,
 				0F01B3B9171BD63E005AB97A /* ReadBook */,
@@ -303,9 +312,6 @@
 				0F01B3BC171BD63E005AB97A /* InfoPlist.strings */,
 				0F01B3BF171BD63E005AB97A /* main.m */,
 				0F01B3C1171BD63E005AB97A /* ReadBook-Prefix.pch */,
-				0F01B3C5171BD63E005AB97A /* Default.png */,
-				0F01B3C7171BD63E005AB97A /* Default@2x.png */,
-				0F01B3C9171BD63E005AB97A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -419,8 +425,8 @@
 				7219F28E171E721F00E1CD9E /* RecommendBookDetilViewController.h */,
 				7219F28F171E721F00E1CD9E /* RecommendBookDetilViewController.m */,
 				7219F290171E721F00E1CD9E /* RecommendBookDetilViewController.xib */,
-				0F206C25172135E20071CC23 /* SaveBookMarkViewController.m */,
 				0F206C26172135E20071CC23 /* SaveBookMarkViewController.h */,
+				0F206C25172135E20071CC23 /* SaveBookMarkViewController.m */,
 				0F206C27172135E20071CC23 /* DownLoadReadViewController.m */,
 				0F206C28172135E20071CC23 /* DownLoadReadViewController.h */,
 				72EDE8B817266A3E0099843D /* MyBookViewController.h */,
@@ -553,9 +559,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F01B3BE171BD63E005AB97A /* InfoPlist.strings in Resources */,
-				0F01B3C6171BD63E005AB97A /* Default.png in Resources */,
-				0F01B3C8171BD63E005AB97A /* Default@2x.png in Resources */,
-				0F01B3CA171BD63E005AB97A /* Default-568h@2x.png in Resources */,
 				0F01B3F7171C1DBE005AB97A /* tabbar_home.png in Resources */,
 				0F01B3F8171C1DBE005AB97A /* tabbar_rec.png in Resources */,
 				0F01B3F9171C1DBE005AB97A /* tabbar_mark.png in Resources */,
@@ -568,13 +571,18 @@
 				0FF75A84171F9BB300D6AE14 /* beijing.png in Resources */,
 				0FF6FEF917276E5700FD26D8 /* tableCellBackgournd@2x.png in Resources */,
 				0FF6FEFB17276EA200FD26D8 /* jiazai.png in Resources */,
-				72A060881727793A00F0CE3C /* Default.jpg in Resources */,
+				72A060881727793A00F0CE3C /* Default.png in Resources */,
 				72A0608D172781D000F0CE3C /* imgOn1.png in Resources */,
 				0FFB26D8172A27800055100F /* about_shupeng.jpg in Resources */,
 				72AB4392172BA3E5000D7B3E /* AuthorViewController.xib in Resources */,
 				72AB4397172BAEF0000D7B3E /* CategoryViewController.xib in Resources */,
 				72B28D65172BD23C00186BB9 /* RankViewController.xib in Resources */,
 				72B28D6A172BDC6C00186BB9 /* RankBookViewController.xib in Resources */,
+				72B176E3173785D200309FE6 /* Default@2x.png in Resources */,
+				72B176E5173785DC00309FE6 /* Default-568h@2x.png in Resources */,
+				72A5AB2C1739103C00FEAB65 /* nav_muwen.png in Resources */,
+				72A5AB2D1739103C00FEAB65 /* nav_muwen@2x.png in Resources */,
+				72A5AB2F1739131400FEAB65 /* tableCellBackgournd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +713,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadBook/ReadBook-Prefix.pch";
 				INFOPLIST_FILE = "ReadBook/ReadBook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -716,6 +725,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadBook/ReadBook-Prefix.pch";
 				INFOPLIST_FILE = "ReadBook/ReadBook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

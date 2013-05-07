@@ -12,9 +12,9 @@
 #import "UWView.h"
 
 #import "ReadBook.h"
-#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 #import "ReadNativeBookViewController.h"
-
+#import "CustomTableViewCell.h"
 @interface MyBookViewController ()
 
 @end
@@ -55,36 +55,32 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor brownColor];
     if (iPhone5) {
-        UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
-        _layout.itemSize = CGSizeMake(105, 138);
-        _layout.minimumInteritemSpacing = 0.0f;
-        _layout.minimumLineSpacing = 0.0f;
-        _layout.sectionInset = UIEdgeInsetsMake(2.5f, 2.5f, 0.0f, 0.0f);
-        _collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 468) collectionViewLayout:_layout];
-        _collectionView.collectionViewDataSource = self;
-        _collectionView.collectionViewDelegate = self;
-        [self.view addSubview:_collectionView];
-        //    [_collectionView release],_collectionView = nil;
-        //    [_layout release],_layout = nil;
+    
+        UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 468)];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.rowHeight = 80;
+        tableView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:tableView];
+        [tableView release];
         NSString * string1 = NSHomeDirectory();
-        NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
+        NSString * filePath = [string1 stringByAppendingFormat:@"book.text"];
         self.items = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     }else{
-    UWCollectionViewLayout *_layout = [[UWCollectionViewLayout alloc] init];
-    _layout.itemSize = CGSizeMake(105, 138);
-    _layout.minimumInteritemSpacing = 0.0f;
-    _layout.minimumLineSpacing = 0.0f;
-    _layout.sectionInset = UIEdgeInsetsMake(2.5f, 2.5f, 0.0f, 0.0f);
-    _collectionView = [[UWCollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 380) collectionViewLayout:_layout];
-    _collectionView.collectionViewDataSource = self;
-    _collectionView.collectionViewDelegate = self;
-    [self.view addSubview:_collectionView];
-    [_collectionView release],_collectionView = nil;
-    [_layout release],_layout = nil;
-    NSString * string1 = NSHomeDirectory();
-    NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
+        UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 380)];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.rowHeight = 80;
+        [self.view addSubview:tableView];
+        tableView.backgroundColor = [UIColor clearColor];
+
+        [tableView release];
+
+        NSString * string1 = NSHomeDirectory();
+    NSString * filePath = [string1 stringByAppendingFormat:@"book.text"];
     self.items = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
       }
+    NSLog(@"%@",self.items);
 }
 - (void)didReceiveMemoryWarning
 {
@@ -92,29 +88,36 @@
     // Dispose of any resources that can be recreated.
    
 }
-#pragma mark collectionview data source
-- (NSInteger)numberOfViewsInCollectionView:(UWCollectionView *)collectionView
+#pragma mark tableView data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return [self.items count];
     
 }
 
-- (UWCollectionViewCell *)collectionView:(UWCollectionView *)collectionView viewAtIndex:(NSInteger)index
+- (UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    UWView *_itemCell = (UWView *)[collectionView dequeueReusableView];
-    
+   static NSString * cell = @"cell";
+    CustomTableViewCell * _itemCell = [tableView1 dequeueReusableCellWithIdentifier:cell];
     if (_itemCell == nil) {
-        _itemCell = [[[UWView alloc] initWithFrame:CGRectZero]autorelease];
+        _itemCell = [[[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell]autorelease];
     }
-    ReadBook * read = [self.items objectAtIndex:index];
-    _itemCell.button.tag= index;
-    [_itemCell.button setBackgroundImageWithURL:[NSURL URLWithString:read.image] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@""]];
-    [_itemCell.button addTarget:self action:@selector(_pus:) forControlEvents:UIControlEventTouchUpInside];
+    ReadBook * read = [self.items objectAtIndex:indexPath.row];
+    [_itemCell.customImageView setImageWithURL:[NSString stringWithFormat:@"%@",read.image]placeholderImage:[UIImage imageNamed:@"Default.png"]];
     
     return _itemCell;
 }
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ReadBook * read = [self.items objectAtIndex:indexPath.row];
+        [self.items removeObject:read];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    [self save];
+}
 //去读书
-- (void)_pus:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     // 点击完之后添加一个半透明的背景
     _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, self.view.bounds.size.height)];
@@ -137,14 +140,12 @@
     [_backgroundView addSubview:_promptLabel];
     
     // 要点击的按钮
-    UIButton *button = (UIButton *)sender;
-    ReadBook * read = [self.items objectAtIndex:button.tag];
+    ReadBook * read = [self.items objectAtIndex:indexPath.row];
     NSDictionary *dic = [NSDictionary dictionaryWithObject:read forKey:@"read"];
-//    [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(pushViewController:) userInfo:read repeats:NO];
+    //    [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(pushViewController:) userInfo:read repeats:NO];
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(pushViewController:) userInfo:dic repeats:NO];
-}
 
-// 
+}
 - (void)pushViewController:(NSTimer *)timer
 {
 //    NSLog(@"///");
@@ -165,5 +166,12 @@
     [_act stopAnimating];
 
 }
+//save
+- (void)save
+{
+    NSString * string1 = NSHomeDirectory();
+    NSString * filePath = [string1 stringByAppendingFormat:@"book.text"];
+  [NSKeyedArchiver archiveRootObject:self.items toFile:filePath];
 
+}
 @end

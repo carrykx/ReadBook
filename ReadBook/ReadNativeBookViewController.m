@@ -8,7 +8,7 @@
 
 #import "ReadNativeBookViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "ChangeViewController.h"
 @interface ReadNativeBookViewController ()
 
 @property (retain, nonatomic) UILabel *firstLabel;
@@ -50,7 +50,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.backgroundColor = self.color;
+//    self.view.backgroundColor = self.color;
     currentPage = 1;
     setTap = NO;
 
@@ -60,6 +60,7 @@
     
     [self creatTapForView:self.firstLabel];
     [self creatSwipeOnView:self.view];
+       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(_dd)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +68,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)_dd
+{
+    ChangeViewController * change = [[ChangeViewController alloc]init];
+    [self.navigationController pushViewController:change animated:YES];
+    [change release];
+}
 - (void)creatSwipeOnView:(UIView*)view
 {
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downPageAction)];
@@ -275,8 +281,9 @@
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
         [animation setType:@"pageCurl"];
         [animation setSubtype:kCATransitionFromRight];
-        [self.firstLabel.layer addAnimation:animation forKey:@"downPage"];
+        
         [self.secondLabel.layer addAnimation:animation forKey:@"downPage"];
+        [self.firstLabel.layer addAnimation:animation forKey:@"downPage"];
         [self.showPage setTitle:[NSString stringWithFormat:@"%d/%d",currentPage,totalPages]];
 
     }else
@@ -305,8 +312,9 @@
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
         [animation setType:@"pageUnCurl"];
         [animation setSubtype:kCATransitionFromRight];
-        [self.firstLabel.layer addAnimation:animation forKey:@"upPage"];
+        
         [self.secondLabel.layer addAnimation:animation forKey:@"upPage"];
+        [self.firstLabel.layer addAnimation:animation forKey:@"upPage"];
         [self.showPage setTitle:[NSString stringWithFormat:@"%d/%d",currentPage,totalPages]];
 
 

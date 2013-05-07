@@ -33,6 +33,8 @@
     if (self) {
         // Custom initialization
         self.title = @"更多";
+      
+
     }
     return self;
 }
@@ -90,10 +92,10 @@
         return 2;
     }else if (section == 1)
     {
-        return 2;
+        return 1;
     }else
     {
-        return 3;
+        return 2;
     }
 }
 
@@ -122,20 +124,13 @@
 
     }else if (indexPath.section == 1)
     {
-        if (indexPath.row == 0) {
+       
             label.text = @"软件设置";
-         }else if (indexPath.row == 1)
-         {
-             label.text = @"软件升级";
-         }
-    }else if (indexPath.section == 2)
+            }else if (indexPath.section == 2)
     {
         if (indexPath.row == 0) {
-            label.text = @"清楚缓存";
-        }else if (indexPath.row == 1)
-        {
             label.text = @"意见反馈";
-        }else if (indexPath.row == 2)
+        }else if (indexPath.row == 1)
         {
             label.text = @"关于我们";
         }
@@ -180,25 +175,21 @@
 
     }else if (indexPath.section == 1)
     {
-        if (indexPath.row == 0) {
+        
             ChangeViewController * change = [[ChangeViewController alloc]init];
             [self.navigationController pushViewController:change animated:YES];
             [change release];
-        }else if (indexPath.row == 1)
-        {
-           
-        }
     }else if (indexPath.section == 2)
     {
         if (indexPath.row == 0) {
-
-        }else if (indexPath.row == 1)
-        {
+            
             SuggestViewController *sug = [[SuggestViewController alloc] init];
             [self.navigationController pushViewController:sug animated:YES];
             [sug release];
-        }else if (indexPath.row == 2)
-        {
+
+        }else if (indexPath.row == 1)
+        {        
+       
             AboutViewController *about = [[AboutViewController alloc] init];
             [self.navigationController pushViewController:about animated:YES];
             [about release];
@@ -206,7 +197,6 @@
     }
 
 }
-
 @end
 
 

@@ -44,6 +44,7 @@
         [table release];
 
     }
+    else{
     //创建列表视图
     UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,480- 20-44-50) style:UITableViewStylePlain];
     table.dataSource = self;
@@ -53,7 +54,7 @@
     //请求网络根据BookId
     [self request];
     [table release];
-
+    }
 }
 
 - (void)didReceiveMemoryWarning

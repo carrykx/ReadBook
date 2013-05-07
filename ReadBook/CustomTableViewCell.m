@@ -38,7 +38,9 @@
 
 - (void)creatContentView
 {
-    self.backgroundColor  = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableCellBackgournd.png"]];
+UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tableCellBackgournd.png"]];
+    self.backgroundView = imageView;
+    [imageView release];
     _customImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 5.0f, 60.0f/430*300.0f, 60.0f)];
     [self.contentView addSubview:self.customImageView];
     

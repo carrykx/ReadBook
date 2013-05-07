@@ -36,7 +36,7 @@
     NSLog(@"%@",string);
  
     if (iPhone5) {
-        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStyleGrouped];
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStylePlain];
         table.dataSource = self;
         table.delegate = self;
         table.backgroundColor = [UIColor clearColor];
@@ -74,7 +74,7 @@
     //json解析
     NSDictionary  * json = [_content JSONValue];
     [_content release];
-    NSLog(@"%@",json);
+   
     self.array = [json objectForKey:@"result"];
     //如果array为空就没有相关作者书籍
     if ([self.array count] == 0) {
@@ -82,7 +82,7 @@
         [alert show];
         [alert release];
     }
-    NSLog(@"%@",self.array);
+   
 }
 #pragma mark
 #pragma mark tableView dataSource delegate motheds

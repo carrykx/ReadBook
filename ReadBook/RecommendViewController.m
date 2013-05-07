@@ -14,7 +14,8 @@
 #import "UIButton+WebCache.h"
 #import "RecommendBookDetilViewController.h"
 @interface RecommendViewController ()
-
+@property(nonatomic,retain)UIColor *color;
+@property(nonatomic,retain)UIColor *textColor;
 @end
 
 @implementation RecommendViewController
@@ -63,6 +64,9 @@
     self.items = [[DefaultManager defaultManager]bookList];
 //    NSLog(@"gggg%@",self.items);
     }
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_changetextColor:) name:KNSNotificationChangeTextColor object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_changebackgroundColor:) name:KNSNotificationChangebackgroundColor object:nil];
+
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -74,6 +78,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)_changebackgroundColor:(NSNotification *)notification
+{
+    self.color=[notification object];
+}
+-(void)_changetextColor:(NSNotification *)notification
+{
+    self.textColor = [notification object];
+}
+
 #pragma mark collectionview data source
 - (NSInteger)numberOfViewsInCollectionView:(UWCollectionView *)collectionView
 {
@@ -93,11 +106,9 @@
       
     
     Book * book = [self.items objectAtIndex:index];
-    //    NSLog(@"%@",book.thumb);
     NSMutableString * str = [NSMutableString stringWithFormat:@"http://a.cdn123.net/img/r/%@",book.thumb];
-//    NSLog(@"%@",str);
     NSURL * url = [NSURL URLWithString:str];
-    [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@""]];
+    [_itemCell.button setBackgroundImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Default.png"]];
     _itemCell.button.tag= index;
     [_itemCell.button addTarget:self action:@selector(_pus:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -105,7 +116,6 @@
 }
 - (void)_pus:(id)sender
 {
-//    NSLog(@"%@",sender);
     UIButton *button = (UIButton *)sender;
     Book * book = [items objectAtIndex:button.tag];
     RecommendBookDetilViewController * _detail = [[RecommendBookDetilViewController alloc]init];
@@ -116,10 +126,10 @@
     //书id
     _detail.bookid = [NSString stringWithFormat:@"%@",book.iD];
     _detail.title = book.name;
-
+    _detail.textColor = self.textColor;
+    _detail.color = self.color;
      [self.navigationController pushViewController:_detail animated:YES];
      _detail.label.text = [NSString stringWithFormat:@"作者:%@\n简介:%@",book.author,book.intro];
-//    NSLog(@"%@",book.url);
     [_detail release];
 }
 @end

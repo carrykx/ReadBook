@@ -48,7 +48,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor brownColor];
     if (iPhone5) {
-        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStyleGrouped];
+        UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320,568- 20-44-40) style:UITableViewStylePlain];
         table.dataSource = self;
         table.delegate = self;
         table.backgroundColor = [UIColor clearColor];
@@ -79,7 +79,6 @@
     //json解析
     NSDictionary  * json = [_content JSONValue];
     [_content release];
-    NSLog(@"%@",json);
     NSArray * array = [json objectForKey:@"result"];
     
     if ([array count] == 0) {
@@ -91,8 +90,6 @@
     else{
         
         self.array10 = [array valueForKey:@"name"];
-        NSLog(@"%@",self.array10);
-        
         self.array0 = [[array objectAtIndex:0]valueForKey:@"toplist"];
         self.array1 = [[array objectAtIndex:1]valueForKey:@"toplist"];
         self.array2 = [[array objectAtIndex:2]valueForKey:@"toplist"];

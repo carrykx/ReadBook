@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UControllerView.h"
-@interface MyBookViewController : UIViewController <UWCollectionViewDataSource,UWCollectionViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface MyBookViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain)UIColor *color;
 @property(nonatomic,retain)UIColor *textColor;
 

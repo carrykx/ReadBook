@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ReadBook.h"
 #import "MyBookViewController.h"
+
 @interface DownLoadReadViewController ()
 {
     NSTimer * _progressTimer;
@@ -44,6 +45,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor brownColor];
     //进度条
        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 45, 80, 1)];
     _progressView.backgroundColor = [UIColor blueColor];
@@ -74,23 +76,26 @@
         NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 
         string = [[NSString alloc]initWithData:data encoding:encoding];
-//             NSLog(@"%@",string);
-        read  = [[ReadBook alloc]init];
-        read.readBook = [NSString stringWithFormat:@"%@",string];
-        read.image = self.imageString;
+             
+        read  = [[ReadBook alloc]init];//readBook类实例化
+        read.readBook = [NSString stringWithFormat:@"%@",string];//获取书内容
+        read.image = self.imageString;//获取图片地址
         if (string == nil||[string hasSuffix:@"The service is unavailable"]) {
-            
+           
             return ;
             
         }
         else{
-            
-            NSString * string1 = NSHomeDirectory();
-            NSString * filePath = [string1 stringByAppendingFormat:@"readbook22.txt"];
+            //归档
+            NSString * string1 = NSHomeDirectory();//获取沙盒目录
+            NSString * filePath = [string1 stringByAppendingFormat:@"book.text"];//获取沙盒目录路径
+            //反序列化
             _myBook.items = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:filePath]];
             [_myBook.items addObject:read];
-            [read release];
+          
+            //序列化
             [NSKeyedArchiver archiveRootObject:_myBook.items toFile:filePath];
+              [read release];
         }
     }];
    
@@ -119,14 +124,14 @@
 - (void)_changeProgressValue
 {
     float progressValue = _progressView.progress;
-    
+    //根据书内容计算进度
     progressValue+= [self.str floatValue]/100.0f ;
 //    NSLog(@"%f",progressValue);
     if (progressValue > 1.0 )
     {
         progressValue = 0.0;
-        [_progressTimer invalidate];
-        [_progressActive stopAnimating];
+        [_progressTimer invalidate];//计时器停止
+        [_progressActive stopAnimating];//菊花停止
         [view removeFromSuperview];
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示:" message:@"下载成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
@@ -147,5 +152,14 @@
         [alert show];
     }
 
+}
+#pragma mark UIAlertView delegate motheds
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    if (buttonIndex == 0) {
+        MyBookViewController * myBook = [[MyBookViewController alloc]init];
+        [self.navigationController pushViewController:myBook animated:YES];
+        [myBook release];
+    }
 }
 @end
