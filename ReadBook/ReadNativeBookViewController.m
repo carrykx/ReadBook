@@ -60,7 +60,7 @@
     
     [self creatTapForView:self.firstLabel];
     [self creatSwipeOnView:self.view];
-       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(_dd)];
+//       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(_dd)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,7 +106,7 @@
 //        textLabel1.frame = CGRectMake(0, 0, self.view.bounds.size.width, 460.0f-88.0f);
 //    }else
 //    {
-        textLabel1.frame = CGRectMake(0, 0, self.view.bounds.size.width, 460.0f);
+        textLabel1.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 //    }
 //    [textLabel1 setBackgroundColor:[UIColor grayColor]];
     textLabel1.numberOfLines = 0;
@@ -205,7 +205,7 @@
 
 - (void)creatToolBar
 {
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 460.0f-88.0f, self.view.frame.size.width,  44.0f)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-88.0f, self.view.frame.size.width,  44.0f)];
     [self.view addSubview:toolbar];
     self.toobar = toolbar;
     toolbar.backgroundColor = [UIColor grayColor];
@@ -242,10 +242,10 @@
         textLabel2.textColor = self.textColor;
         textLabel2.backgroundColor = self.color;
         if (setTap == NO) {
-            textLabel2.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
+            textLabel2.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - 88.0f);
         }else
         {
-            textLabel2.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
+            textLabel2.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
         }
         textLabel2.numberOfLines = 0;
         [self.view addSubview:textLabel2];
@@ -350,8 +350,8 @@
 //            [self calculateOnePageRangeOnStrAll];
             
             [self creatTapForView:self.firstLabel];
-            self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
-            self.firstLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f);
+            self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
+            self.firstLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
 
             
 //            [self setWantsFullScreenLayout:YES];
@@ -364,11 +364,11 @@
 //            [self calculateOnePageRangeOnStrAll];
             [self creatTapForView:self.firstLabel];
             if (currentPage == totalPages-1) {
-                self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
+                self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - 88.0f);
                 
             }else{
-            self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
-            self.firstLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 460.0f - 88.0f);
+            self.secondLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - 88.0f);
+            self.firstLabel.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - 88.0f);
             }
             [self.navigationController setNavigationBarHidden:NO animated:YES];
             [UIView beginAnimations:@"toobar" context:NULL];

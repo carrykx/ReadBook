@@ -158,6 +158,7 @@
 {
     if (buttonIndex == 0) {
         MyBookViewController * myBook = [[MyBookViewController alloc]init];
+        myBook.name = self.title;
         [self.navigationController pushViewController:myBook animated:YES];
         [myBook release];
     }

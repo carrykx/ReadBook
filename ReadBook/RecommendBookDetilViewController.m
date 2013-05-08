@@ -301,6 +301,7 @@
 {
     MyBookViewController * _myBook = [[MyBookViewController alloc]init];
     _myBook.strrr = self.str;//书图片
+    _myBook.name = self.title;
     _myBook.textColor = self.textColor;
     _myBook.color = self.color;
     [self.navigationController pushViewController:_myBook animated:YES];//push去MyBookViewController

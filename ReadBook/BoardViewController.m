@@ -164,9 +164,7 @@
     cell.boardIntroLable.font = [UIFont boldSystemFontOfSize:12];
     cell.boardIntroLable.numberOfLines = 2;
     cell.boardIntroLable.textColor = [UIColor darkGrayColor];
-    cell.boardIntroLable.backgroundColor = [UIColor clearColor];
-    cell.customImageView.backgroundColor = [UIColor blackColor];
-    
+    cell.boardIntroLable.backgroundColor = [UIColor clearColor];    
 
     return cell;
 }

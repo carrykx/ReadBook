@@ -11,7 +11,7 @@
 @interface MyBookViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain)UIColor *color;
 @property(nonatomic,retain)UIColor *textColor;
-
+@property (nonatomic ,retain)NSString *name;
 @property (nonatomic,retain) NSMutableArray * items;
 @property (nonatomic ,retain) NSString * strrr;
 @end

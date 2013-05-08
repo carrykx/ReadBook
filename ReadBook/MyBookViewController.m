@@ -28,7 +28,7 @@
 }
 @synthesize items;
 @synthesize strrr;
-
+@synthesize name;
 - (void)dealloc
 {
     [_promptLabel release];
@@ -104,7 +104,7 @@
     }
     ReadBook * read = [self.items objectAtIndex:indexPath.row];
     [_itemCell.customImageView setImageWithURL:[NSString stringWithFormat:@"%@",read.image]placeholderImage:[UIImage imageNamed:@"Default.png"]];
-    
+    _itemCell.boardNameLable.text = self.name;
     return _itemCell;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
